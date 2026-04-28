@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elines-krudtugler-frontend:latest
+    container_name: elines_krudtugler_frontend
+    ports:
+      - '8480:3000'
+    restart: unless-stopped
