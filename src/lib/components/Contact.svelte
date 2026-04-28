@@ -79,7 +79,7 @@
 
 						<div class="rounded-2xl bg-white/15 p-4 backdrop-blur-sm">
 							<p class="text-sm leading-relaxed text-white/90">
-								💝 Jeg tilbyder introduktionsforløb, så dit barn kan vænne sig til dagplejen i eget tempo
+								💝 Jeg tilbyder introduktionsforløb, så dit barn kan vænne sig til de nye rammer i eget tempo
 							</p>
 						</div>
 					</div>
