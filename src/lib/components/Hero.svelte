@@ -2,7 +2,7 @@
 	import { scrollTo } from '$lib/utils/scroll';
 </script>
 
-<section class="relative flex h-[680px] items-center justify-center overflow-hidden">
+<section class="relative flex h-170 items-center justify-center overflow-hidden">
 	<img
 		src="https://images.unsplash.com/photo-1774641374101-0c5a243b7e7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGNoaWxkcmVuJTIwcGxheWluZyUyMGRheWNhcmV8ZW58MXx8fHwxNzc2NzkwNTA5fDA&ixlib=rb-4.1.0&q=80&w=1080"
 		alt="Glade børn der leger"
@@ -11,8 +11,8 @@
 	/>
 
 	<!-- Layered gradient for depth -->
-	<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10"></div>
-	<div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+	<div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/10"></div>
+	<div class="absolute inset-0 bg-linear-to-r from-black/30 to-transparent"></div>
 
 	<div class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
 		<!-- <div

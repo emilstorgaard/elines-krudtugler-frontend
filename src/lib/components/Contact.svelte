@@ -31,7 +31,7 @@
       {item.href ? 'hover:border-brand-200 hover:bg-brand-50 hover:shadow-sm' : ''}"
 						>
 							<div
-								class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-2xl
+								class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-2xl
       {item.href ? 'transition-transform duration-200 group-hover:scale-110' : ''}"
 							>
 								{item.emoji}
@@ -52,7 +52,7 @@
 
 				<!-- Availability panel -->
 				<div
-					class="flex flex-col justify-between bg-gradient-to-br from-brand-500 to-brand-600 p-8 text-white md:p-10"
+					class="flex flex-col justify-between bg-linear-to-br from-brand-500 to-brand-600 p-8 text-white md:p-10"
 				>
 					<div>
 						<div

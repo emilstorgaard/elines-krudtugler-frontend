@@ -55,7 +55,7 @@
 		>
 			<img src={slide.src} alt={slide.alt} class="h-full w-full object-cover" />
 			<div
-				class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+				class="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"
 			></div>
 
 			<!-- Caption -->

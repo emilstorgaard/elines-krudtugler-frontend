@@ -72,7 +72,7 @@
 				}
 			] as tile}
 				<div class="flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-					<div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl">
+					<div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl">
 						{tile.emoji}
 					</div>
 					<div>

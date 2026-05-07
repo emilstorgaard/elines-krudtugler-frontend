@@ -46,7 +46,7 @@
 		>
 			{#each testimonials as testimonial (testimonial.name)}
 				<div
-					class="relative flex w-[85vw] flex-shrink-0 flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"
+					class="relative flex w-[85vw] shrink-0 flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm"
 				>
 					<div
 						class="absolute top-5 right-6 font-serif text-6xl leading-none text-brand-100 select-none"
@@ -59,7 +59,7 @@
 					<p class="mb-6 flex-1 leading-relaxed text-gray-600 italic">"{testimonial.text}"</p>
 					<div class="flex items-center gap-3 border-t border-gray-100 pt-4">
 						<div
-							class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700"
+							class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700"
 						>
 							{testimonial.initials}
 						</div>
@@ -90,7 +90,7 @@
 					<p class="mb-8 flex-1 leading-relaxed text-gray-600 italic">"{testimonial.text}"</p>
 					<div class="flex items-center gap-4 border-t border-gray-100 pt-6">
 						<div
-							class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700"
+							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700"
 						>
 							{testimonial.initials}
 						</div>

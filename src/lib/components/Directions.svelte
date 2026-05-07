@@ -40,7 +40,7 @@
 				<!-- Address card -->
 				<div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
 					<div class="mb-4 flex items-center gap-3">
-						<div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl">
+						<div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl">
 							📍
 						</div>
 						<div>
@@ -86,7 +86,7 @@
 						class="group flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:shadow-md"
 					>
 						<div
-							class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl transition-transform duration-200 group-hover:scale-110"
+							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl transition-transform duration-200 group-hover:scale-110"
 						>
 							{item.emoji}
 						</div>

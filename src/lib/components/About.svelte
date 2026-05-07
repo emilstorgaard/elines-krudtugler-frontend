@@ -29,7 +29,7 @@
 				<img
 					src="https://images.unsplash.com/photo-1672586420444-1a1a492e7bd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJtJTIwaG9tZSUyMGludGVyaW9yJTIwbGl2aW5nJTIwcm9vbXxlbnwxfHx8fDE3NzY3OTA1MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
 					alt="Krudtuglernes base"
-					class="relative h-[420px] w-full rounded-2xl object-cover shadow-xl"
+					class="relative h-105 w-full rounded-2xl object-cover shadow-xl"
 				/>
 				<!-- Floating badge -->
 				<div

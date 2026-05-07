@@ -24,7 +24,7 @@
 		<!-- Timeline -->
 		<div class="relative">
 			<!-- Vertical line — left-[1.125rem] = halvdelen af emoji-dottens w-9 -->
-			<div class="absolute top-0 bottom-0 left-[1.125rem] w-px bg-brand-200 md:left-1/2"></div>
+			<div class="absolute top-0 bottom-0 left-4.5 w-px bg-brand-200 md:left-1/2"></div>
 
 			<div class="space-y-4">
 				{#each scheduleItems as item, i}
@@ -49,7 +49,7 @@
 
 						<!-- Center dot with emoji -->
 						<div
-							class="absolute left-0 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-4 border-brand-50 bg-white text-lg shadow-md md:left-1/2 md:-translate-x-1/2"
+							class="absolute left-0 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-4 border-brand-50 bg-white text-lg shadow-md md:left-1/2 md:-translate-x-1/2"
 						>
 							{item.emoji}
 						</div>
