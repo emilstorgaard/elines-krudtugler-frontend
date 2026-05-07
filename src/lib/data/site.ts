@@ -21,6 +21,8 @@ export const navLinks = [
   { label: 'Aktiviteter', href: '#aktiviteter' },
   { label: 'Dagsprogram', href: '#dagsprogram' },
   { label: 'Anmeldelser', href: '#anmeldelser' },
+  { label: 'Priser', href: '#priser' },
+  { label: 'Find vej', href: '#find-vej' },
   { label: 'Kontakt', href: '#kontakt' },
 ];
 
