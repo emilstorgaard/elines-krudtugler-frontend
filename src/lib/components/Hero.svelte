@@ -50,7 +50,7 @@
 </script>
 
 <section
-    class="relative flex min-h-[calc(90svh-var(--header-offset,0px))] flex-col overflow-hidden"
+    class="relative flex min-h-[calc(83svh-var(--header-offset,0px))] flex-col overflow-hidden"
     aria-label="Velkommen"
 >
     <!-- Carousel: alle billeder lagt oven på hinanden, kun det aktive er synligt -->
@@ -98,11 +98,11 @@
             style="animation-delay: 100ms"
         >
             Velkommen til<br />
-            <span
+            <!-- <span
                 class="bg-gradient-to-r from-brand-200 via-brand-300 to-brand-400 bg-clip-text text-transparent"
             >
                 Eline's Krudtugler
-            </span>
+            </span> -->
         </h1>
 
         <p
