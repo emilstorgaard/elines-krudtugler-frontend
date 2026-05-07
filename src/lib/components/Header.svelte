@@ -87,30 +87,32 @@
     </div>
 
     <!-- Mobile Menu -->
-    {#if isMenuOpen}
-        <nav class="border-t border-gray-100 bg-white/98 backdrop-blur-md md:hidden">
-            <div class="mx-auto max-w-7xl px-4 py-3">
-                {#each navLinks as item (item.href)}
-                    {#if item.href === '/kontakt'}
-                        <div class="mt-3 border-t border-gray-100 pt-3">
-                            <a
-                                href={item.href}
-                                class="block w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
-                            >
-                                {item.label} mig
-                            </a>
-                        </div>
-                    {:else}
+{#if isMenuOpen}
+    <nav class="border-t border-gray-100 bg-white/98 backdrop-blur-md md:hidden">
+        <div class="mx-auto max-w-7xl px-4 py-3">
+            {#each navLinks as item (item.href)}
+                {#if item.href === '/kontakt'}
+                    <div class="mt-3 border-t border-gray-100 pt-3">
                         <a
                             href={item.href}
-                            class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
+                            onclick={() => (isMenuOpen = false)}
+                            class="block w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
                         >
-                            <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                            {item.label}
+                            {item.label} mig
                         </a>
-                    {/if}
-                {/each}
-            </div>
-        </nav>
-    {/if}
+                    </div>
+                {:else}
+                    <a
+                        href={item.href}
+                        onclick={() => (isMenuOpen = false)}
+                        class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
+                    >
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                        {item.label}
+                    </a>
+                {/if}
+            {/each}
+        </div>
+    </nav>
+{/if}
 </header>
