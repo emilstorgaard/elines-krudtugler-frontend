@@ -1,53 +1,55 @@
-<section id="priser" class="relative overflow-hidden bg-white px-4 py-24">
-	<div class="absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-50/80 blur-3xl"></div>
-	<div class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-brand-50/60 blur-3xl"></div>
+<section id="priser" class="relative overflow-hidden px-4 py-16">
+    <div class="relative mx-auto max-w-3xl">
+        <!-- Header -->
+        <div class="mb-4 flex justify-center">
+            <span
+                class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm"
+            >
+                <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+                Priser
+            </span>
+        </div>
+        <p class="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-gray-500">
+            Egenbetaling for en plads hos Eline´s Krudtugler 2026 er 2900,-<br /><br />
+            Der betales alle 12 måneder om året og tilskud fra kommunen udbetales ligeledes 12 måneder om året.
+        </p>
 
-	<div class="relative mx-auto max-w-3xl">
-		<!-- Header -->
-		<div class="mb-4 flex justify-center">
-			<span class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase">
-				Priser
-			</span>
-		</div>
-		<h2 class="mb-4 text-center text-4xl font-bold text-gray-800 md:text-5xl">Hvad koster det?</h2>
-		<p class="mb-16 text-center text-lg text-gray-500">
-			Én fuldtidsplads · 54 timer/uge · alle 12 måneder
-		</p>
+        <!-- Main pricing card -->
+        <div
+            class="relative mb-6 overflow-hidden rounded-3xl border border-brand-200/60 bg-white shadow-2xl shadow-brand-900/10"
+        >
+            <!-- Top gradient accent -->
+            <div class="h-1.5 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600"></div>
 
-		<!-- Main pricing card -->
-		<div class="mb-6 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl">
-			<div class="divide-y divide-gray-100 px-8 py-2">
-				<div class="flex items-baseline justify-between py-5">
-					<span class="text-gray-500">Månedlig pris 2025</span>
-					<span class="text-3xl font-bold text-gray-800">9.700 kr.</span>
-				</div>
-				<div class="flex items-baseline justify-between py-5">
-					<span class="text-gray-500">Maks. kommunalt tilskud (75 %)</span>
-					<span class="text-2xl font-bold text-brand-600">− 7.247 kr.</span>
-				</div>
-				<div class="flex items-baseline justify-between bg-brand-50 -mx-8 px-8 py-6">
-					<div>
-						<p class="text-sm font-semibold text-brand-700 uppercase tracking-wide mb-1">Din egenbetaling</p>
-						<p class="text-gray-500 text-sm">ved maks. tilskud fra Viborg Kommune</p>
-					</div>
-					<span class="text-4xl font-bold text-gray-800">2.434 <span class="text-lg text-gray-500 font-normal">kr./md.</span></span>
-				</div>
-			</div>
-		</div>
+            <div class="px-8 py-2 sm:px-10">
+                <div class="flex items-baseline justify-between border-b border-gray-100 py-5">
+                    <span class="text-gray-500">Pris for pladsen</span>
+                    <span class="text-2xl font-bold text-gray-800 tabular-nums sm:text-3xl">10.176 kr.</span>
+                </div>
+                <div class="flex items-baseline justify-between border-b border-gray-100 py-5">
+                    <span class="text-gray-500">Tilskud fra kommunen</span>
+                    <span class="text-xl font-bold text-brand-600 tabular-nums sm:text-2xl">
+                        − 7.176 kr.
+                    </span>
+                </div>
+            </div>
 
-		<!-- Subsidy explanation -->
-		<div class="mb-8 flex items-start gap-4 rounded-3xl border border-brand-100 bg-brand-50 px-6 py-5">
-			<span class="mt-0.5 text-2xl">💡</span>
-			<p class="text-gray-600 leading-relaxed">
-				Tilskuddet fra Viborg Kommune kan maks. udgøre <strong class="text-gray-800">75 % af de dokumenterede udgifter</strong>.
-				Du betaler den fulde pris til dagplejen og modtager tilskuddet bagud direkte fra kommunen.
-				<a href="https://www.viborg.dk/borger/boern-og-familie/dagtilbud/privat-pasning/" target="_blank" rel="noopener noreferrer" class="text-brand-600 underline underline-offset-2 hover:text-brand-500 ml-1">
-					Læs om tilskud hos Viborg Kommune →
-				</a>
-			</p>
-		</div>
+            <div
+                class="relative flex items-baseline justify-between bg-gradient-to-br from-brand-50 to-brand-100/60 px-8 py-7 sm:px-10"
+            >
+                <div>
+                    <p class="mb-1 text-xs font-semibold tracking-[0.15em] text-brand-700 uppercase">
+                        Din egenbetaling
+                    </p>
+                </div>
+                <span class="text-3xl font-bold text-gray-900 tabular-nums sm:text-4xl">
+                    2.900
+                    <span class="text-base font-normal text-gray-500 sm:text-lg">kr./md.</span>
+                </span>
+            </div>
+        </div>
 
-		<!-- Info tiles -->
+        <!-- Info tiles -->
 		<div class="grid gap-4 sm:grid-cols-2">
 			{#each [
 				{
@@ -82,5 +84,22 @@
 				</div>
 			{/each}
 		</div>
-	</div>
+
+        <!-- Info tiles -->
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {#each [{ title: 'Søskenderabat', desc: 'Der ydes søskenderabat af kommunen, hvis mere end ét barn er indmeldt i et pasningstilbud (også selvom det er et kommunalt tilbud).', icon: '👨‍👩‍👧‍👦' }, { title: 'Sikre pladsen', desc: 'Pladsen hos Eline´s Krudtugler er først sikret når kontrakten er underskrevet og gebyr er betalt. Gebyret bliver fratrukket første måned.', icon: '🔒' }, { title: 'Kontrakt', desc: 'Der skal skrives kontrakt mellem forældrene og jeg.', icon: '📝' }] as tile}
+                <div
+                    class="group relative overflow-hidden rounded-2xl border border-brand-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-lg"
+                >
+                    <div
+                        class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-lg transition-colors group-hover:bg-brand-100"
+                    >
+                        {tile.icon}
+                    </div>
+                    <p class="mb-1.5 font-bold text-gray-800">{tile.title}</p>
+                    <p class="text-sm leading-relaxed text-gray-500">{tile.desc}</p>
+                </div>
+            {/each}
+        </div>
+    </div>
 </section>

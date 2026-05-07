@@ -2,7 +2,7 @@
 	import { scheduleItems } from '$lib/data/site';
 </script>
 
-<section id="dagsprogram" class="relative overflow-hidden bg-brand-50 px-4 py-24">
+<section id="praktisk" class="relative overflow-hidden bg-brand-50 px-4 py-24">
 	<!-- Decorative blobs -->
 	<div class="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
 	<div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-white/60 blur-3xl"></div>
@@ -13,12 +13,11 @@
 			<span
 				class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase"
 			>
-				Dagsprogram
+				Hverdagen
 			</span>
 		</div>
-		<h2 class="mb-4 text-center text-4xl font-bold text-gray-800 md:text-5xl">En typisk dag</h2>
 		<p class="mb-16 text-center text-lg text-gray-500">
-			Fra morgen til eftermiddag – struktur og tryghed i hverdagen
+			En dag her hos Krudtuglerne kan se sådan ud:
 		</p>
 
 		<!-- Timeline -->
@@ -40,10 +39,10 @@
 								: 'md:pl-12 md:text-left'}"
 						>
 							<div
-								class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md"
+								class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300"
 							>
 								<p class="mb-0.5 text-sm font-bold text-brand-600">{item.time}</p>
-								<p class="font-semibold text-gray-800">{item.activity}</p>
+								<p class="font-semibold text-gray-800 whitespace-pre-line">{item.activity}</p>
 							</div>
 						</div>
 
@@ -51,7 +50,7 @@
 						<div
 							class="absolute left-0 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-4 border-brand-50 bg-white text-lg shadow-md md:left-1/2 md:-translate-x-1/2"
 						>
-							{item.emoji}
+	
 						</div>
 
 						<!-- Spacer for alternating desktop layout -->
@@ -65,10 +64,75 @@
 		<div
 			class="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 shadow-sm"
 		>
-			<span class="text-2xl">💚</span>
 			<p class="text-gray-600">
-				Dagsprogrammet tilpasses altid <strong class="text-brand-600">børnenes behov</strong> og vejret
+				Dagen tilrettelages altid efter børnegruppen, børnenes alder, udvikling og interesser.
 			</p>
 		</div>
+
+	<div class="mt-6 rounded-2xl border border-brand-200 bg-white px-6 py-5 shadow-sm">
+		<h3 class="mb-4 text-center text-lg font-bold text-gray-800">
+			Eksempler på aktiviteter hos Krudtuglerne
+		</h3>
+
+		<div class="space-y-4 text-gray-700">
+			<ul class="list-disc space-y-2 pl-5">
+				<li>Leg på vores dejlige legeplads i haven</li>
+
+				<li>
+					Skovtur, hvor vi:
+					<ul class="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+						<li>tumper i skovbunden</li>
+						<li>triller ned ad bakken og kæmper os op igen</li>
+						<li>krible-krabler</li>
+						<li>samler blade og andre naturmaterialer</li>
+					</ul>
+				</li>
+
+				<li>Besøg på bondegården</li>
+
+				<li>
+					Tur til søen, hvor vi:
+					<ul class="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+						<li>fodrer ænder</li>
+						<li>kaster sten i vandet</li>
+						<li>fanger haletudser</li>
+					</ul>
+				</li>
+
+				<li>Vores ugentlige tur til fiskemanden</li>
+				<li>Ud i naturen med madpakker</li>
+				<li>Besøg i Hermans Hule</li>
+				<li>Udflugter til områdets legepladser</li>
+				<li>Aktiviteter tilpasset årstiderne</li>
+				<li>Vi hjælper med at passe og fodre kaninerne på vores legeplads</li>
+				<li>Aktiviteter tilpasset traditioner som fastelavn, påske, halloween og jul</li>
+				<li>Kreative aktiviteter (Krea)</li>
+				<li>Biblioteksbesøg</li>
+
+				<li>
+					Når vi er indendørs nyder vi:
+					<ul class="mt-2 list-disc space-y-1 pl-6 text-gray-600">
+						<li>sang og musik</li>
+						<li>tummel og motorikbaner</li>
+						<li>fri leg</li>
+					</ul>
+				</li>
+			</ul>
+
+			<div class="pt-2">
+				<p class="font-semibold text-gray-800">Fokusområder:</p>
+				<p class="text-gray-600">Udelivet · Sang &amp; Musik · Motorik</p>
+			</div>
+
+			<div class="pt-2">
+				<p class="font-semibold text-gray-800">De 6 læreplanstemaer</p>
+				<p class="text-gray-600">
+					Her kan du evt. tilføje en kort beskrivelse af læreplanstemaerne.
+				</p>
+			</div>
+		</div>
 	</div>
+
+	</div>
+	
 </section>

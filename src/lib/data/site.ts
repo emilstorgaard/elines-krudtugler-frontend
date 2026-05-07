@@ -17,25 +17,23 @@ export const contactList = [
 ];
 
 export const navLinks = [
-  { label: 'Om mig', href: '#om-mig' },
-  { label: 'Aktiviteter', href: '#aktiviteter' },
-  { label: 'Dagsprogram', href: '#dagsprogram' },
-  { label: 'Anmeldelser', href: '#anmeldelser' },
-  { label: 'Priser', href: '#priser' },
-  { label: 'Find vej', href: '#find-vej' },
-  { label: 'Kontakt', href: '#kontakt' },
+  { label: 'Om mig', href: '/om-mig' },
+  { label: 'Hverdagen', href: '/hverdagen' },
+  { label: 'Praktisk', href: '/praktisk' },
+  { label: 'Galleri', href: '/galleri' },
+  { label: 'Ledige Pladser', href: '/ledige-pladser' },
+  { label: 'Kontakt', href: '/kontakt' },
 ];
 
 export const scheduleItems = [
-  { time: '7:00 – 8:30', activity: 'Ankomst og morgenmad', emoji: '🌅' },
-  { time: '8:30 – 9:30', activity: 'Fri leg', emoji: '🧸' },
-  { time: '9:30 – 11:00', activity: 'Udetur eller aktiviteter', emoji: '🌳' },
-  { time: '11:00 – 11:30', activity: 'Frokost', emoji: '🍽️' },
-  { time: '11:30 – 13:30', activity: 'Middagslur', emoji: '😴' },
-  { time: '13:30 – 14:00', activity: 'Frugt og vand', emoji: '🍎' },
-  { time: '14:00 – 15:30', activity: 'Leg og aktiviteter', emoji: '🎨' },
-  { time: '15:30 – 16:00', activity: 'Mellemmåltid', emoji: '🥪' },
-  { time: '16:00 – 17:00', activity: 'Fri leg og afhentning', emoji: '👋' }
+  { time: '7:00 – 8:30', activity: 'Ankomst af børn\nEn rolig start på dagen med leg og hygge' },
+  { time: '8:30 – 9:00', activity: 'Formiddagsmad' },
+  { time: '9:00 – 9:30', activity: 'Samling på tæppet\nSang & Musik forskellige lege/sanglege' },
+  { time: '9:30 – 11:30', activity: 'Dagens aktivitet' },
+  { time: '11:30 – 12:00', activity: 'Frokost' },
+  { time: '12:30 – 14:30', activity: 'Middagslur' },
+  { time: '14:45', activity: 'Eftermiddagsmad' },
+  { time: '15:00 – 16:15', activity: 'Leg og hygge\nAfhentning og farvel til alle børn. Vi ses i morgen' },
 ];
 
 export const testimonials = [
@@ -76,6 +74,4 @@ export const activitySlides = [
 export const qualifications = [
   'Uddannet pædagogisk assistent',
   'Førstehjælpskursus (børn)',
-  'Certificeret børnepasser siden 2012',
-  'Børnehaveklasselæreruddannelse'
 ];

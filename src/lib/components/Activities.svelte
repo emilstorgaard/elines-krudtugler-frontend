@@ -4,7 +4,7 @@
 	import { activities, activitySlides } from '../data/site';
 </script>
 
-<section id="aktiviteter" class="relative overflow-hidden bg-white px-4 py-24">
+<section id="hverdagen" class="relative overflow-hidden bg-white px-4 py-24">
 	<!-- Decorative blob -->
 	<div class="absolute top-0 right-0 h-80 w-80 rounded-full bg-brand-50/80 blur-3xl"></div>
 

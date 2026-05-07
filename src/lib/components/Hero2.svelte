@@ -35,12 +35,12 @@
     </p>
 
     <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <button
-        onclick={() => scrollTo('#kontakt')}
+      <a
+        href="/kontakt"
         class="rounded-full bg-brand-500 px-10 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/30"
       >
         Kontakt mig
-      </button>
+    </a>
 
       
         <a href="#om-mig"

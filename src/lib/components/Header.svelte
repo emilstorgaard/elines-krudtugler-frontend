@@ -16,8 +16,8 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="flex h-20 items-center justify-between">
 			<!-- Logo -->
-			<button
-				onclick={() => handleNavClick('#')}
+			<a
+				href="/"
 				class="group flex items-center gap-3 transition-opacity hover:opacity-80"
 			>
 				<div
@@ -31,28 +31,28 @@
 						>Eline Storgaard Andersen</span
 					>
 				</div>
-			</button>
+			</a>
 
 			<!-- Desktop Menu -->
 			<nav class="hidden items-center gap-1 md:flex">
 				{#each navLinks as item (item.href)}
-					{#if item.href === '#kontakt'}
-						<button
-							onclick={() => handleNavClick(item.href)}
+					{#if item.href === '/kontakt'}
+						<a
+							href={item.href}
 							class="ml-4 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/30"
 						>
 							{item.label} mig
-						</button>
+					</a>
 					{:else}
-						<button
-							onclick={() => handleNavClick(item.href)}
+						<a
+							href={item.href}
 							class="group relative rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition-all duration-200 hover:bg-brand-50 hover:text-brand-600"
 						>
 							{item.label}
 							<span
 								class="absolute -bottom-0.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-brand-500 transition-all duration-300 group-hover:w-4/5"
 							></span>
-						</button>
+						</a>
 					{/if}
 				{/each}
 			</nav>
@@ -89,23 +89,23 @@
 		<nav class="border-t border-gray-100 bg-white/98 backdrop-blur-md md:hidden">
 			<div class="mx-auto max-w-7xl px-4 py-3">
 				{#each navLinks as item (item.href)}
-					{#if item.href === '#kontakt'}
+					{#if item.href === '/kontakt'}
 						<div class="mt-3 border-t border-gray-100 pt-3">
-							<button
-								onclick={() => handleNavClick(item.href)}
+							<a
+								href={item.href}
 								class="w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
 							>
 								{item.label} mig
-							</button>
+						</a>
 						</div>
 					{:else}
-						<button
-							onclick={() => handleNavClick(item.href)}
+						<a
+							href={item.href}
 							class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
 						>
 							<span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
 							{item.label}
-						</button>
+					</a>
 					{/if}
 				{/each}
 			</div>
