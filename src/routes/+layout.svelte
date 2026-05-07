@@ -12,7 +12,7 @@
 	<Header />
 </div>
 
-<div class="font-nunito min-h-screen">
+<div class="font-nunito">
 	<main>
 		{@render children()}
 	</main>

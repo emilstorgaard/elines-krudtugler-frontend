@@ -2,9 +2,8 @@
     import { onMount } from 'svelte';
     import { navLinks } from '$lib/data/site';
 
-    const heroNavLinks = navLinks.filter((link) => link.href !== '/kontakt');
+    const heroNavLinks = navLinks;
 
-    // Carousel images – tilføj/fjern frit
     const heroImages = [
         '/frontImg1.jpg',
         '/frontImg2.jpg',
@@ -18,20 +17,17 @@
     let currentIndex = $state(0);
     let isPaused = $state(false);
 
-    // Preload alle billeder for at undgå flash ved skift
     onMount(() => {
         heroImages.forEach((src) => {
             const img = new Image();
             img.src = src;
         });
 
-        // Pause når tab ikke er synligt (sparer CPU)
         const handleVisibility = () => {
             isPaused = document.hidden;
         };
         document.addEventListener('visibilitychange', handleVisibility);
 
-        // Respect reduced motion
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         if (reducedMotion.matches) {
             isPaused = true;
@@ -42,7 +38,6 @@
         };
     });
 
-    // Reaktivt interval – stopper automatisk hvis isPaused ændres
     $effect(() => {
         if (isPaused) return;
 
@@ -55,7 +50,7 @@
 </script>
 
 <section
-    class="relative flex min-h-[calc(100svh-var(--header-offset,0px))] items-center justify-center overflow-hidden py-20 sm:py-24"
+    class="relative flex min-h-[calc(90svh-var(--header-offset,0px))] flex-col overflow-hidden"
     aria-label="Velkommen"
 >
     <!-- Carousel: alle billeder lagt oven på hinanden, kun det aktive er synligt -->
@@ -76,7 +71,7 @@
 
     <!-- Layered gradients for depth & legibility -->
     <div
-        class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70"
+        class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/70"
         aria-hidden="true"
     ></div>
     <div
@@ -94,9 +89,10 @@
         aria-hidden="true"
     ></div>
 
-    <!-- Content -->
-    <div class="relative z-10 mx-auto max-w-5xl px-4 text-center text-white">
-
+    <!-- TOP: Welcome + paragraph + CTA -->
+    <div
+        class="relative z-10 mx-auto w-full max-w-5xl px-4 pt-6 text-center text-white sm:pt-12"
+    >
         <h1
             class="animate-fade-in-up mb-6 text-5xl leading-[1.05] font-bold tracking-tight drop-shadow-2xl md:text-7xl lg:text-8xl"
             style="animation-delay: 100ms"
@@ -116,66 +112,65 @@
             Et trygt og kærligt hjem, hvor dit barn kan lege, lære og udfolde sig.
         </p>
 
+    </div>
+
+    <!-- Spacer der pusher bottom-content ned -->
+    <div class="flex-1"></div>
+
+    <!-- BOTTOM: Navigation pills + carousel indicators -->
+    <div
+        class="relative z-10 mx-auto w-full max-w-5xl px-4 pb-10 text-center text-white"
+    >
         <!-- Quick Nav Pills -->
         <nav
             aria-label="Genveje"
-            class="animate-fade-in-up mb-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3"
-            style="animation-delay: 300ms"
+            class="animate-fade-in-up mb-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3"
+            style="animation-delay: 400ms"
         >
             {#each heroNavLinks as item (item.href)}
+                {#if item.href === '/kontakt'}
+                        <a
+                    href={item.href}
+                    class="group rounded-full border border-brand-600 bg-brand-500 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400 hover:bg-brand-300 hover:shadow-lg sm:text-base"
+                >
+                    {item.label}
+                </a>
+                {:else}
+                
                 <a
                     href={item.href}
                     class="group rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/20 hover:shadow-lg sm:text-base"
                 >
                     {item.label}
                 </a>
+                {/if}
             {/each}
         </nav>
 
-        <!-- CTA -->
+        <!-- Carousel indicators -->
         <div
-            class="animate-fade-in-up flex flex-col items-center justify-center gap-4 sm:flex-row"
-            style="animation-delay: 400ms"
+            class="flex items-center justify-center gap-2"
+            role="tablist"
+            aria-label="Vælg billede"
         >
-            <a
-                href="/kontakt"
-                class="group relative w-full overflow-hidden rounded-full bg-brand-500 px-10 py-4 text-lg font-semibold text-white shadow-xl shadow-brand-900/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-2xl hover:shadow-brand-500/40 sm:w-auto"
-            >
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                    Kontakt mig
-                </span>
-                <span
-                    class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-                    aria-hidden="true"
-                ></span>
-            </a>
+            {#each heroImages as _, i (i)}
+                <button
+                    type="button"
+                    role="tab"
+                    aria-selected={i === currentIndex}
+                    aria-label={`Vis billede ${i + 1}`}
+                    onclick={() => (currentIndex = i)}
+                    class="h-1.5 rounded-full bg-white/40 backdrop-blur-sm transition-all duration-500 hover:bg-white/70"
+                    class:w-8={i === currentIndex}
+                    class:bg-white={i === currentIndex}
+                    class:w-1.5={i !== currentIndex}
+                ></button>
+            {/each}
         </div>
-    </div>
-
-    <!-- Carousel indicators (valgfrit – men giver god UX) -->
-    <div
-        class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2"
-        role="tablist"
-        aria-label="Vælg billede"
-    >
-        {#each heroImages as _, i (i)}
-            <button
-                type="button"
-                role="tab"
-                aria-selected={i === currentIndex}
-                aria-label={`Vis billede ${i + 1}`}
-                onclick={() => (currentIndex = i)}
-                class="h-1.5 rounded-full bg-white/40 backdrop-blur-sm transition-all duration-500 hover:bg-white/70"
-                class:w-8={i === currentIndex}
-                class:bg-white={i === currentIndex}
-                class:w-1.5={i !== currentIndex}
-            ></button>
-        {/each}
     </div>
 </section>
 
 <style>
-    /* Ken Burns kun på det aktive billede */
     .hero-img.is-active {
         animation: ken-burns 6s ease-out forwards;
         transform-origin: center;

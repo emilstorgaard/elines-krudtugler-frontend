@@ -6,10 +6,6 @@
 
 	let isMenuOpen: boolean = $state(false);
 
-	function handleNavClick(href: string): void {
-		isMenuOpen = false;
-		scrollTo(href);
-	}
 </script>
 
 <header class="z-50 border-b border-white/20 bg-white/80 shadow-sm backdrop-blur-md transition-all">
