@@ -12,5 +12,24 @@
 	<Header />
 </div>
 
-{@render children()}
+<div class="font-nunito min-h-screen">
+	<main>
+		{@render children()}
+	</main>
+</div>
+
 <Footer />
+
+<style>
+	:global(html) {
+		scroll-behavior: smooth;
+	}
+
+	:global(body) {
+		font-family: 'Nunito', sans-serif;
+	}
+
+	:global(h1, h2, h3) {
+		font-family: 'Playfair Display', serif;
+	}
+</style>

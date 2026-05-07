@@ -2,16 +2,16 @@
 	import QualificationsList from './QualificationsList.svelte';
 </script>
 
-<section id="om-mig" class="relative overflow-hidden bg-green-50 px-4 py-24">
+<section id="om-mig" class="relative overflow-hidden bg-brand-50 px-4 py-24">
 	<!-- Decorative background blob -->
-	<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-green-100/60 blur-3xl"></div>
-	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-green-100/60 blur-3xl"></div>
+	<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
+	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
 
 	<div class="relative mx-auto max-w-6xl">
 		<!-- Section label -->
 		<div class="mb-4 flex justify-center">
 			<span
-				class="rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-green-700 uppercase"
+				class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase"
 			>
 				Om mig
 			</span>
@@ -24,7 +24,7 @@
 			<!-- Image -->
 			<div class="relative">
 				<div
-					class="absolute -top-4 -left-4 h-full w-full rounded-2xl border-2 border-green-300"
+					class="absolute -top-4 -left-4 h-full w-full rounded-2xl border-2 border-brand-300"
 				></div>
 				<img
 					src="https://images.unsplash.com/photo-1672586420444-1a1a492e7bd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJtJTIwaG9tZSUyMGludGVyaW9yJTIwbGl2aW5nJTIwcm9vbXxlbnwxfHx8fDE3NzY3OTA1MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -49,7 +49,7 @@
 			<div class="space-y-6">
 				<div>
 					<h3 class="mb-3 text-2xl font-bold text-gray-800">
-						Hej, jeg er <span class="text-green-600">Eline</span> 👋
+						Hej, jeg er <span class="text-brand-600">Eline</span> 👋
 					</h3>
 					<p class="text-lg leading-relaxed text-gray-600">
 						Jeg har passet børn i over 10 år og elsker mit arbejde. Hos mig får dit barn en tryg
@@ -58,7 +58,7 @@
 				</div>
 
 				<p class="text-lg leading-relaxed text-gray-600">
-					Jeg har plads til <strong class="text-green-600">5 børn i alderen 0–3 år</strong> i mit lyse
+					Jeg har plads til <strong class="text-brand-600">5 børn i alderen 0–3 år</strong> i mit lyse
 					og børnevenlige hjem på Svinglen 16 i Viborg.
 				</p>
 

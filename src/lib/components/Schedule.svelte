@@ -2,16 +2,16 @@
 	import { scheduleItems } from '$lib/data/site';
 </script>
 
-<section id="dagsprogram" class="relative overflow-hidden bg-green-50 px-4 py-24">
+<section id="dagsprogram" class="relative overflow-hidden bg-brand-50 px-4 py-24">
 	<!-- Decorative blobs -->
-	<div class="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-green-100/60 blur-3xl"></div>
+	<div class="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
 	<div class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-white/60 blur-3xl"></div>
 
 	<div class="relative mx-auto max-w-4xl">
 		<!-- Header -->
 		<div class="mb-4 flex justify-center">
 			<span
-				class="rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-green-700 uppercase"
+				class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase"
 			>
 				Dagsprogram
 			</span>
@@ -24,7 +24,7 @@
 		<!-- Timeline -->
 		<div class="relative">
 			<!-- Vertical line — left-[1.125rem] = halvdelen af emoji-dottens w-9 -->
-			<div class="absolute top-0 bottom-0 left-[1.125rem] w-px bg-green-200 md:left-1/2"></div>
+			<div class="absolute top-0 bottom-0 left-[1.125rem] w-px bg-brand-200 md:left-1/2"></div>
 
 			<div class="space-y-4">
 				{#each scheduleItems as item, i}
@@ -40,16 +40,16 @@
 								: 'md:pl-12 md:text-left'}"
 						>
 							<div
-								class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-green-200 hover:shadow-md"
+								class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md"
 							>
-								<p class="mb-0.5 text-sm font-bold text-green-600">{item.time}</p>
+								<p class="mb-0.5 text-sm font-bold text-brand-600">{item.time}</p>
 								<p class="font-semibold text-gray-800">{item.activity}</p>
 							</div>
 						</div>
 
 						<!-- Center dot with emoji -->
 						<div
-							class="absolute left-0 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-4 border-green-50 bg-white text-lg shadow-md md:left-1/2 md:-translate-x-1/2"
+							class="absolute left-0 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-4 border-brand-50 bg-white text-lg shadow-md md:left-1/2 md:-translate-x-1/2"
 						>
 							{item.emoji}
 						</div>
@@ -67,7 +67,7 @@
 		>
 			<span class="text-2xl">💚</span>
 			<p class="text-gray-600">
-				Dagsprogrammet tilpasses altid <strong class="text-green-600">børnenes behov</strong> og vejret
+				Dagsprogrammet tilpasses altid <strong class="text-brand-600">børnenes behov</strong> og vejret
 			</p>
 		</div>
 	</div>

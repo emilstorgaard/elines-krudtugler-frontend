@@ -10,7 +10,7 @@
 			<div>
 				<div class="mb-4 flex items-center gap-3">
 					<div
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/20 text-2xl"
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/20 text-2xl"
 					>
 						<img src="/logo.png" alt="Logo" class="h-10 w-10 object-contain" />
 					</div>
@@ -59,7 +59,7 @@
 						<li>
 							<a
 								href={item.href}
-								class="text-sm text-gray-400 transition-colors hover:text-green-400"
+								class="text-sm text-gray-400 transition-colors hover:text-brand-400"
 							>
 								{item.label}
 							</a>
@@ -92,7 +92,7 @@
 			</p>
 			<div class="flex items-center gap-1 text-sm text-gray-600">
 				<span>Lavet med</span>
-				<span class="text-green-500">💚</span>
+				<span class="text-brand-500">💚</span>
 				<span>i Viborg</span>
 			</div>
 		</div>

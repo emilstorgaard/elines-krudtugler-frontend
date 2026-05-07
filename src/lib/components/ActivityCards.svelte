@@ -14,10 +14,10 @@
 >
 	{#each activities as activity}
 		<div
-			class="group flex w-64 flex-shrink-0 flex-col rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg sm:w-auto"
+			class="group flex w-64 flex-shrink-0 flex-col rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lg sm:w-auto"
 		>
 			<div
-				class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-2xl transition-transform duration-300 group-hover:scale-110"
+				class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-2xl transition-transform duration-300 group-hover:scale-110"
 			>
 				{activity.icon}
 			</div>

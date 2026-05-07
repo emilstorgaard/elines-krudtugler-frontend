@@ -8,7 +8,7 @@
 		{#each qualifications as qualification}
 			<li class="flex items-center gap-3 text-gray-700">
 				<span
-					class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-600"
+					class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-600"
 				>
 					✓
 				</span>

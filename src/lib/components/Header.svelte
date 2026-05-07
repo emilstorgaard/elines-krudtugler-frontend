@@ -21,13 +21,13 @@
 				class="group flex items-center gap-3 transition-opacity hover:opacity-80"
 			>
 				<div
-					class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-xl transition-transform group-hover:scale-110"
+					class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-xl transition-transform group-hover:scale-110"
 				>
 					<img src="/logo.png" alt="Logo" />
 				</div>
 				<div class="text-left">
 					<span class="block text-lg leading-tight font-bold text-gray-800">Elines Krudtugler</span>
-					<span class="block text-xs font-medium tracking-wide text-green-600"
+					<span class="block text-xs font-medium tracking-wide text-brand-600"
 						>Eline Storgaard Andersen</span
 					>
 				</div>
@@ -39,18 +39,18 @@
 					{#if item.href === '#kontakt'}
 						<button
 							onclick={() => handleNavClick(item.href)}
-							class="ml-4 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-green-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/30"
+							class="ml-4 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/30"
 						>
 							{item.label} mig
 						</button>
 					{:else}
 						<button
 							onclick={() => handleNavClick(item.href)}
-							class="group relative rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition-all duration-200 hover:bg-green-50 hover:text-green-600"
+							class="group relative rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition-all duration-200 hover:bg-brand-50 hover:text-brand-600"
 						>
 							{item.label}
 							<span
-								class="absolute -bottom-0.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-green-500 transition-all duration-300 group-hover:w-4/5"
+								class="absolute -bottom-0.5 left-1/2 h-0.5 w-0 -translate-x-1/2 rounded-full bg-brand-500 transition-all duration-300 group-hover:w-4/5"
 							></span>
 						</button>
 					{/if}
@@ -60,7 +60,7 @@
 			<!-- Mobile Menu Button -->
 			<button
 				onclick={() => (isMenuOpen = !isMenuOpen)}
-				class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-green-100 hover:text-green-600 focus:outline-none md:hidden"
+				class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-brand-100 hover:text-brand-600 focus:outline-none md:hidden"
 				aria-label="Menu"
 			>
 				{#if isMenuOpen}
@@ -93,7 +93,7 @@
 						<div class="mt-3 border-t border-gray-100 pt-3">
 							<button
 								onclick={() => handleNavClick(item.href)}
-								class="w-full rounded-full bg-green-500 py-3 text-center font-semibold text-white transition hover:bg-green-400"
+								class="w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
 							>
 								{item.label} mig
 							</button>
@@ -101,9 +101,9 @@
 					{:else}
 						<button
 							onclick={() => handleNavClick(item.href)}
-							class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-green-50 hover:text-green-600"
+							class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
 						>
-							<span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+							<span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
 							{item.label}
 						</button>
 					{/if}

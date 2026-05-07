@@ -5,6 +5,10 @@
 	import Schedule from '$lib/components/Schedule.svelte';
 	import Testimonials from '$lib/components/Testimonials.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import Hero2 from '$lib/components/Hero2.svelte';
+	import Hero3 from '$lib/components/Hero3.svelte';
+	import Directions from '$lib/components/Directions.svelte';
+	import Pricing from '$lib/components/Pricing.svelte';
 </script>
 
 <svelte:head>
@@ -21,27 +25,13 @@
 	/>
 </svelte:head>
 
-<div class="font-nunito min-h-screen">
-	<main>
-		<Hero />
-		<About />
-		<Activities />
-		<Schedule />
-		<Testimonials />
-		<Contact />
-	</main>
-</div>
-
-<style>
-	:global(html) {
-		scroll-behavior: smooth;
-	}
-
-	:global(body) {
-		font-family: 'Nunito', sans-serif;
-	}
-
-	:global(h1, h2, h3) {
-		font-family: 'Playfair Display', serif;
-	}
-</style>
+<!-- <Hero3 /> -->
+<!-- <Hero2 /> -->
+<Hero />
+<About />
+<Activities />
+<Schedule />
+<Testimonials />
+<Pricing />
+<Directions />
+<Contact />

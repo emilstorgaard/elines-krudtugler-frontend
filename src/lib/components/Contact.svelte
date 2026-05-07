@@ -1,13 +1,13 @@
-<section id="kontakt" class="relative overflow-hidden bg-green-50 px-4 py-24">
+<section id="kontakt" class="relative overflow-hidden bg-brand-50 px-4 py-24">
 	<!-- Decorative blobs -->
 	<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/60 blur-3xl"></div>
-	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-green-100/60 blur-3xl"></div>
+	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
 
 	<div class="relative mx-auto max-w-4xl">
 		<!-- Header -->
 		<div class="mb-4 flex justify-center">
 			<span
-				class="rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-green-700 uppercase"
+				class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase"
 			>
 				Kontakt
 			</span>
@@ -28,10 +28,10 @@
 							this={item.href ? 'a' : 'div'}
 							href={item.href ?? undefined}
 							class="group flex items-center gap-4 rounded-2xl border border-gray-100 p-4 transition-all duration-200
-      {item.href ? 'hover:border-green-200 hover:bg-green-50 hover:shadow-sm' : ''}"
+      {item.href ? 'hover:border-brand-200 hover:bg-brand-50 hover:shadow-sm' : ''}"
 						>
 							<div
-								class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-green-100 text-2xl
+								class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-2xl
       {item.href ? 'transition-transform duration-200 group-hover:scale-110' : ''}"
 							>
 								{item.emoji}
@@ -41,7 +41,7 @@
 									{item.label}
 								</p>
 								{#each item.lines as line}
-									<p class="font-semibold {item.href ? 'text-green-600' : 'text-gray-700'}">
+									<p class="font-semibold {item.href ? 'text-brand-600' : 'text-gray-700'}">
 										{line}
 									</p>
 								{/each}
@@ -52,13 +52,13 @@
 
 				<!-- Availability panel -->
 				<div
-					class="flex flex-col justify-between bg-gradient-to-br from-green-500 to-green-600 p-8 text-white md:p-10"
+					class="flex flex-col justify-between bg-gradient-to-br from-brand-500 to-brand-600 p-8 text-white md:p-10"
 				>
 					<div>
 						<div
 							class="mb-6 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 backdrop-blur-sm"
 						>
-							<span class="h-2 w-2 animate-pulse rounded-full bg-green-300"></span>
+							<span class="h-2 w-2 animate-pulse rounded-full bg-brand-300"></span>
 							<span class="text-sm font-semibold">Ledige pladser nu</span>
 						</div>
 
@@ -82,7 +82,7 @@
 					<div class="mt-8 flex flex-col gap-3">
 						<a
 							href="tel:+4512345678"
-							class="flex items-center justify-center gap-2 rounded-full bg-white py-3 text-center font-bold text-green-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+							class="flex items-center justify-center gap-2 rounded-full bg-white py-3 text-center font-bold text-brand-600 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
 						>
 							📞 Ring til mig
 						</a>
