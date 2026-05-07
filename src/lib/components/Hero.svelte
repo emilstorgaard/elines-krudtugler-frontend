@@ -96,18 +96,6 @@
 
     <!-- Content -->
     <div class="relative z-10 mx-auto max-w-5xl px-4 text-center text-white">
-        <!-- Eyebrow -->
-        <div
-            class="animate-fade-in-up mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-md"
-        >
-            <span class="relative flex h-2 w-2">
-                <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-300 opacity-75"
-                ></span>
-                <span class="relative inline-flex h-2 w-2 rounded-full bg-brand-400"></span>
-            </span>
-            Privat pasningsordning i Viborg
-        </div>
 
         <h1
             class="animate-fade-in-up mb-6 text-5xl leading-[1.05] font-bold tracking-tight drop-shadow-2xl md:text-7xl lg:text-8xl"
@@ -140,10 +128,6 @@
                     class="group rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/20 hover:shadow-lg sm:text-base"
                 >
                     {item.label}
-                    <span
-                        class="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-0.5"
-                        aria-hidden="true">→</span
-                    >
                 </a>
             {/each}
         </nav>
@@ -159,20 +143,6 @@
             >
                 <span class="relative z-10 flex items-center justify-center gap-2">
                     Kontakt mig
-                    <svg
-                        class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                    </svg>
                 </span>
                 <span
                     class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
