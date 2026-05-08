@@ -23,7 +23,7 @@
 				<div class="space-y-6 p-8 md:p-10">
 					<h3 class="text-xl font-bold text-gray-800">Kontaktoplysninger</h3>
 
-					{#each [{ emoji: '📞', label: 'Telefon', lines: ['+45 12 34 56 78'], href: 'tel:+4512345678' }, { emoji: '✉️', label: 'Email', lines: ['eline@storgaardandersen.dk'], href: 'mailto:eline@storgaardandersen.dk' }, { emoji: '📍', label: 'Adresse', lines: ['Svinglen 16', '8800 Viborg'] }, { emoji: '🕐', label: 'Åbningstider', lines: ['Mandag – Fredag', '7:00 – 17:00'] }] as item}
+					{#each [{ emoji: '📞', label: 'Telefon', lines: ['+45 12 34 56 78'], href: 'tel:+4512345678' }, { emoji: '✉️', label: 'Email', lines: ['eline@storgaardandersen.dk'], href: 'mailto:eline@storgaardandersen.dk' }, { emoji: '📍', label: 'Adresse', lines: ['Svinglen 16', '8800 Viborg'] }] as item}
 						<svelte:element
 							this={item.href ? 'a' : 'div'}
 							href={item.href ?? undefined}

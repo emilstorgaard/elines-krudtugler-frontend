@@ -97,14 +97,6 @@
 					</div>
 				{/each}
 
-				<!-- Opening hours pill -->
-				<div class="flex items-center gap-3 rounded-2xl bg-brand-50 px-5 py-4">
-					<span class="text-xl">🕐</span>
-					<div>
-						<p class="text-xs font-semibold tracking-wide text-gray-400 uppercase">Åbningstider</p>
-						<p class="font-semibold text-gray-700">Mandag – Fredag &nbsp;·&nbsp; 7:00 – 17:00</p>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

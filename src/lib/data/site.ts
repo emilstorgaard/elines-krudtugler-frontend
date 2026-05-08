@@ -5,7 +5,6 @@ export const contact = {
   phoneHref: 'tel:+4512345678',
   email: 'eline@storgaardandersen.dk',
   emailHref: 'mailto:eline@storgaardandersen.dk',
-  hours: 'Man–fre: 7:00–17:00',
 };
 
 export const contactList = [
