@@ -1,34 +1,26 @@
 <script lang="ts">
     import { navLinks } from '$lib/data/site';
     import { scrollTo } from '$lib/utils/scroll';
-
     let { class: className = '' } = $props();
     let isMenuOpen: boolean = $state(false);
 </script>
 
 <header
-    class="z-50 border-b border-white/20 bg-white/80 shadow-sm backdrop-blur-md transition-all"
+    class={`relative z-50 border-b border-white/20 bg-white/80 shadow-sm backdrop-blur-md transition-all ${className}`}
 >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-24 items-center justify-between md:h-32 lg:h-36">
-            <a
-                href="/"
-                class="group flex items-center gap-4 transition-opacity hover:opacity-90"
-            >
+            <a href="/" class="group flex items-center gap-4 transition-opacity hover:opacity-90">
                 <img
                     src="/logo.png"
                     alt="Eline´s Krudtugler logo"
                     class="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-36 md:h-44 lg:h-52"
                 />
                 <div class="text-left">
-                    <span
-                        class="block text-xl leading-tight font-bold text-gray-800 sm:text-2xl md:text-3xl"
-                    >
+                    <span class="block text-xl leading-tight font-bold text-gray-800 sm:text-2xl md:text-3xl">
                         Eline´s Krudtugler
                     </span>
-                    <span
-                        class="block text-xs font-medium tracking-wide text-brand-600 sm:text-sm md:text-base"
-                    >
+                    <span class="block text-xs font-medium tracking-wide text-brand-600 sm:text-sm md:text-base">
                         Eline Storgaard Andersen
                     </span>
                 </div>
@@ -87,32 +79,32 @@
     </div>
 
     <!-- Mobile Menu -->
-{#if isMenuOpen}
-    <nav class="border-t border-gray-100 bg-white/98 backdrop-blur-md md:hidden">
-        <div class="mx-auto max-w-7xl px-4 py-3">
-            {#each navLinks as item (item.href)}
-                {#if item.href === '/kontakt'}
-                    <div class="mt-3 border-t border-gray-100 pt-3">
+    {#if isMenuOpen}
+        <nav class="absolute left-0 top-full z-50 w-full border-t border-gray-100 bg-white/98 shadow-lg backdrop-blur-md md:hidden">
+            <div class="mx-auto max-w-7xl px-4 py-3">
+                {#each navLinks as item (item.href)}
+                    {#if item.href === '/kontakt'}
+                        <div class="mt-3 border-t border-gray-100 pt-3">
+                            <a
+                                href={item.href}
+                                onclick={() => (isMenuOpen = false)}
+                                class="block w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
+                            >
+                                {item.label} mig
+                            </a>
+                        </div>
+                    {:else}
                         <a
                             href={item.href}
                             onclick={() => (isMenuOpen = false)}
-                            class="block w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
+                            class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
                         >
-                            {item.label} mig
+                            <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
+                            {item.label}
                         </a>
-                    </div>
-                {:else}
-                    <a
-                        href={item.href}
-                        onclick={() => (isMenuOpen = false)}
-                        class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
-                    >
-                        <span class="h-1.5 w-1.5 rounded-full bg-brand-400"></span>
-                        {item.label}
-                    </a>
-                {/if}
-            {/each}
-        </div>
-    </nav>
-{/if}
+                    {/if}
+                {/each}
+            </div>
+        </nav>
+    {/if}
 </header>
