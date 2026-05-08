@@ -5,21 +5,20 @@
 
     let { class: className = '' } = $props();
     let isMenuOpen: boolean = $state(false);
-
     let headerEl: HTMLElement | null = null;
 
     onMount(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handlePointerDown = (event: PointerEvent) => {
             if (!isMenuOpen) return;
             if (headerEl && !headerEl.contains(event.target as Node)) {
                 isMenuOpen = false;
             }
         };
 
-        document.addEventListener('click', handleClickOutside);
+        document.addEventListener('pointerdown', handlePointerDown);
 
         return () => {
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('pointerdown', handlePointerDown);
         };
     });
 </script>
@@ -46,7 +45,6 @@
                 </div>
             </a>
 
-            <!-- Desktop Menu -->
             <nav class="hidden items-center gap-1 md:flex">
                 {#each navLinks as item (item.href)}
                     {#if item.href === '/kontakt'}
@@ -70,7 +68,6 @@
                 {/each}
             </nav>
 
-            <!-- Mobile Menu Button -->
             <button
                 onclick={() => (isMenuOpen = !isMenuOpen)}
                 class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-brand-100 hover:text-brand-600 focus:outline-none md:hidden"
@@ -98,7 +95,6 @@
         </div>
     </div>
 
-    <!-- Mobile Menu -->
     {#if isMenuOpen}
         <nav class="absolute left-0 top-full z-50 w-full border-t border-gray-100 bg-white/98 shadow-lg backdrop-blur-md md:hidden">
             <div class="mx-auto max-w-7xl px-4 py-3">
