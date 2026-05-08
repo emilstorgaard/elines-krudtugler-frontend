@@ -24,14 +24,14 @@
 
 <section
     id="om-mig"
-    class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-brand-50/50 to-white px-4 pt-24 pb-12"
+    class="relative overflow-hidden bg-linear-to-b from-brand-50 via-brand-50/50 to-white px-4 pt-24 pb-12"
 >
     <!-- Decorative background blobs -->
     <div
-        class="pointer-events-none absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-brand-200/40 blur-3xl"
+        class="pointer-events-none absolute -top-32 -right-32 h-112 w-md rounded-full bg-brand-200/40 blur-3xl"
     ></div>
     <div
-        class="pointer-events-none absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-brand-100/60 blur-3xl"
+        class="pointer-events-none absolute -bottom-32 -left-32 h-112 w-md rounded-full bg-brand-100/60 blur-3xl"
     ></div>
 
     <div class="relative mx-auto max-w-6xl">

@@ -12,7 +12,6 @@ export const contactList = [
   { emoji: '📍', text: contact.address },
   { emoji: '📞', text: contact.phone },
   { emoji: '✉️', text: contact.email },
-  { emoji: '🕐', text: contact.hours },
 ];
 
 export const navLinks = [
