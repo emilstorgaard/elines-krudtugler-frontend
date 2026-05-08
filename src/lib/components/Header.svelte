@@ -1,11 +1,31 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import { navLinks } from '$lib/data/site';
     import { scrollTo } from '$lib/utils/scroll';
+
     let { class: className = '' } = $props();
     let isMenuOpen: boolean = $state(false);
+
+    let headerEl: HTMLElement | null = null;
+
+    onMount(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (!isMenuOpen) return;
+            if (headerEl && !headerEl.contains(event.target as Node)) {
+                isMenuOpen = false;
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    });
 </script>
 
 <header
+    bind:this={headerEl}
     class={`relative z-50 border-b border-white/20 bg-white/80 shadow-sm backdrop-blur-md transition-all ${className}`}
 >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
