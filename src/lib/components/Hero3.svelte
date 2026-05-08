@@ -9,7 +9,7 @@
   });
 </script>
 
-<section class="relative flex h-[680px] items-center justify-center overflow-hidden">
+<section class="relative flex h-170 items-center justify-center overflow-hidden">
   <video
   autoplay muted loop playsinline
   class="absolute inset-0 h-full w-full object-cover scale-105 grayscale"
@@ -19,8 +19,8 @@
   </video>
 
   <!-- Layered gradient for depth -->
-  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+  <div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/10"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-black/30 to-transparent"></div>
 
   <div class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
     <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 backdrop-blur-sm">
@@ -32,7 +32,7 @@
 
     <h1 class="mb-6 text-5xl leading-tight font-bold drop-shadow-lg md:text-7xl">
       Velkommen til<br />
-      <span class="text-brand-300">Elines Krudtugler</span>
+      <span class="text-brand-300">Eline´s Krudtugler</span>
     </h1>
 
     <p class="mx-auto mb-10 max-w-xl text-xl text-white/90 md:text-2xl">

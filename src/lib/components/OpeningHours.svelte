@@ -5,7 +5,7 @@
         >
             <!-- Subtle gradient overlay -->
             <div
-                class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-50/40 via-transparent to-transparent"
+                class="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-brand-50/40 via-transparent to-transparent"
             ></div>
 
             <div class="relative">

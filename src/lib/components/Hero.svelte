@@ -71,11 +71,11 @@
 
     <!-- Layered gradients for depth & legibility -->
     <div
-        class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/70"
+        class="absolute inset-0 bg-linear-to-b from-black/60 via-black/25 to-black/70"
         aria-hidden="true"
     ></div>
     <div
-        class="absolute inset-0 bg-gradient-to-tr from-brand-900/40 via-transparent to-transparent"
+        class="absolute inset-0 bg-linear-to-tr from-brand-900/40 via-transparent to-transparent"
         aria-hidden="true"
     ></div>
 
@@ -101,9 +101,16 @@
             <!-- <span
                 class="bg-gradient-to-r from-brand-200 via-brand-300 to-brand-400 bg-clip-text text-transparent"
             >
-                Eline's Krudtugler
+                Eline´s Krudtugler
             </span> -->
         </h1>
+
+                <p
+            class="animate-fade-in-up mx-auto mb-2 max-w-xl text-lg text-white/90 md:text-xl"
+            style="animation-delay: 200ms"
+        >
+            Privat Pasningsordning.
+        </p>
 
         <p
             class="animate-fade-in-up mx-auto mb-10 max-w-2xl text-lg text-white/90 md:text-2xl"

@@ -29,7 +29,7 @@
             </span>
         </div>
         <h2 class="mb-6 text-center text-4xl font-bold text-gray-800 md:text-5xl">
-            Velkommen til min pasningsordning <br><strong class="text-brand-600">Eline's Krudtugler</strong>
+            Velkommen til min pasningsordning <br><strong class="text-brand-600">Eline´s Krudtugler</strong>
         </h2>
         <p class="mx-auto mb-16 max-w-2xl text-center text-lg leading-relaxed text-gray-600">
             En tryg og nærværende hverdag med masser af omsorg, glæde, leg, læring og udvikling for dit
@@ -71,7 +71,7 @@
         <img
             src="/me.jpg"
             alt="Eline - Privat dagplejer"
-            class="relative h-[28rem] w-full rounded-2xl object-cover shadow-xl"
+            class="relative h-122 w-full rounded-2xl object-cover shadow-xl"
         />
         <!-- Floating badge -->
         <div
@@ -96,7 +96,7 @@
         <img
             src="/fam.jpg"
             alt="Min familie"
-            class="relative h-[28rem] w-full rounded-2xl object-cover shadow-xl"
+            class="relative h-112 w-full rounded-2xl object-cover shadow-xl"
         />
     </div>
 
@@ -143,7 +143,7 @@
         <img
             src="/dogs.jpg"
             alt="Vores dyr"
-            class="relative h-[28rem] w-full rounded-2xl object-cover shadow-xl"
+            class="relative h-122 w-full rounded-2xl object-cover shadow-xl"
         />
     </div>
 </div>

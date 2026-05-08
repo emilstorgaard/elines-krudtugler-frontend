@@ -8,7 +8,7 @@
         name="description"
         content="Professionel børnepasning i Viborg. Et trygt og kærligt hjem for dit barn."
     />
-    <meta property="og:title" content="Eline's Krudtugler – Privat Pasningsordning" />
+    <meta property="og:title" content="Eline´s Krudtugler – Privat Pasningsordning" />
     <meta
         property="og:description"
         content="Et trygt og kærligt hjem for dit barn i Viborg."

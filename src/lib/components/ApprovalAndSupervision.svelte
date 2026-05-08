@@ -12,13 +12,13 @@
 
         <!-- Highlight banner -->
         <div
-            class="group relative mb-6 flex items-center gap-5 overflow-hidden rounded-3xl border border-brand-200/60 bg-gradient-to-r from-white via-white to-brand-50/50 px-6 py-6 shadow-xl shadow-brand-900/5 backdrop-blur-sm sm:px-8"
+            class="group relative mb-6 flex items-center gap-5 overflow-hidden rounded-3xl border border-brand-200/60 bg-linear-to-r from-white via-white to-brand-50/50 px-6 py-6 shadow-xl shadow-brand-900/5 backdrop-blur-sm sm:px-8"
         >
             <div
-                class="absolute top-0 left-0 h-full w-1.5 bg-gradient-to-b from-brand-400 to-brand-600"
+                class="absolute top-0 left-0 h-full w-1.5 bg-linear-to-b from-brand-400 to-brand-600"
             ></div>
             <div
-                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 text-2xl shadow-sm"
+                class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-brand-100 to-brand-200 text-2xl shadow-sm"
             >
                 ✅
             </div>
@@ -35,7 +35,7 @@
                     class="group relative overflow-hidden rounded-2xl border border-brand-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-xl"
                 >
                     <div
-                        class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 text-xl shadow-sm transition-transform duration-300 group-hover:scale-110"
+                        class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-brand-100 to-brand-200 text-xl shadow-sm transition-transform duration-300 group-hover:scale-110"
                     >
                         {card.icon}
                     </div>

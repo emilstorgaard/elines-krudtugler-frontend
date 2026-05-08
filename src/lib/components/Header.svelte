@@ -17,14 +17,14 @@
             >
                 <img
                     src="/logo.png"
-                    alt="Elines Krudtugler logo"
+                    alt="Eline´s Krudtugler logo"
                     class="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-36 md:h-44 lg:h-52"
                 />
                 <div class="text-left">
                     <span
                         class="block text-xl leading-tight font-bold text-gray-800 sm:text-2xl md:text-3xl"
                     >
-                        Elines Krudtugler
+                        Eline´s Krudtugler
                     </span>
                     <span
                         class="block text-xs font-medium tracking-wide text-brand-600 sm:text-sm md:text-base"

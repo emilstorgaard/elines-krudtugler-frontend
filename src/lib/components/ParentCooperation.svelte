@@ -14,13 +14,7 @@
         <div
             class="relative overflow-hidden rounded-3xl border border-brand-200/60 bg-white/90 p-8 shadow-xl shadow-brand-900/5 backdrop-blur-sm sm:p-12"
         >
-            <!-- Decorative quote mark -->
-            <div
-                class="absolute -top-4 -left-4 font-serif text-9xl leading-none text-brand-100/80 select-none"
-                aria-hidden="true"
-            >
-                "
-            </div>
+
 
             <div class="relative space-y-6 text-center text-gray-700 leading-relaxed">
                 <p class="text-lg">
@@ -30,7 +24,7 @@
                 <p>Det er vigtigt, at vi dagligt kan få talt om barnet, og hvordan dagen er gået.</p>
 
                 <div
-                    class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100/50 px-6 py-6 shadow-inner"
+                    class="relative overflow-hidden rounded-2xl bg-linear-to-br from-brand-50 to-brand-100/50 px-6 py-6 shadow-inner"
                 >
                     <p class="text-gray-700">
                         Derfor lægger jeg stor vægt på en

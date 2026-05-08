@@ -19,7 +19,7 @@
             class="relative mb-6 overflow-hidden rounded-3xl border border-brand-200/60 bg-white shadow-2xl shadow-brand-900/10"
         >
             <!-- Top gradient accent -->
-            <div class="h-1.5 bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600"></div>
+            <div class="h-1.5 bg-linear-to-r from-brand-400 via-brand-500 to-brand-600"></div>
 
             <div class="px-8 py-2 sm:px-10">
                 <div class="flex items-baseline justify-between border-b border-gray-100 py-5">
@@ -35,7 +35,7 @@
             </div>
 
             <div
-                class="relative flex items-baseline justify-between bg-gradient-to-br from-brand-50 to-brand-100/60 px-8 py-7 sm:px-10"
+                class="relative flex items-baseline justify-between bg-linear-to-br from-brand-50 to-brand-100/60 px-8 py-7 sm:px-10"
             >
                 <div>
                     <p class="mb-1 text-xs font-semibold tracking-[0.15em] text-brand-700 uppercase">

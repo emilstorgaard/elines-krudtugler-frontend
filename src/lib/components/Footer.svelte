@@ -14,11 +14,11 @@
                     alt=""
                     class="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-16 sm:w-16"
                 />
-                <span class="text-lg font-bold tracking-tight">Elines Krudtugler</span>
+                <span class="text-lg font-bold tracking-tight">Eline´s Krudtugler</span>
             </a>
 
             <!-- Copyright -->
-            <p class="order-last text-xs text-gray-500 sm:order-none">
+            <p class="order-last text-xs text-gray-500 sm:order-0">
                 © {new Date().getFullYear()} {contact.name}
             </p>
 

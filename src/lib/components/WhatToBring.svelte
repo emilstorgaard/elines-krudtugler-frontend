@@ -31,7 +31,7 @@
                         {#each [{ text: 'Skiftetøj' }, { text: 'Overtøj og fodtøj tilpasset årstiden' }, { text: 'Sutter', sub: '(selvfølgelig kun hvis dit barn bruger sut 😉)' }, { text: 'Nusseklud / bamse' }] as item}
                             <li class="flex items-start gap-3">
                                 <span
-                                    class="mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-sm"
+                                    class="mt-2 h-2 w-2 shrink-0 rounded-full bg-linear-to-br from-brand-400 to-brand-600 shadow-sm"
                                 ></span>
                                 <span>
                                     {item.text}
@@ -61,13 +61,13 @@
                     <ul class="space-y-3.5 text-gray-700">
                         <li class="flex items-start gap-3">
                             <span
-                                class="mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-sm"
+                                class="mt-2 h-2 w-2 shrink-0 rounded-full bg-linear-to-br from-brand-400 to-brand-600 shadow-sm"
                             ></span>
                             <span>Barnevogn med godkendt sele, voksipose, dyne osv.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span
-                                class="mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-sm"
+                                class="mt-2 h-2 w-2 shrink-0 rounded-full bg-linear-to-br from-brand-400 to-brand-600 shadow-sm"
                             ></span>
                             <span>
                                 Sund, nærende og varieret kost gennem hele dagen
@@ -80,7 +80,7 @@
                         {#each [{ text: 'Bleer' }, { text: 'Creme til bleskift' }, { text: 'Vaskeklude og vådservietter' }, { text: 'Solcreme' }] as item}
                             <li class="flex items-start gap-3">
                                 <span
-                                    class="mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-sm"
+                                    class="mt-2 h-2 w-2 shrink-0 rounded-full bg-linear-to-br from-brand-400 to-brand-600 shadow-sm"
                                 ></span>
                                 <span>{item.text}</span>
                             </li>

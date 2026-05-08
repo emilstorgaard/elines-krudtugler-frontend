@@ -23,7 +23,7 @@
                 </p>
 
                 <div
-                    class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100/50 p-6"
+                    class="relative overflow-hidden rounded-2xl bg-linear-to-br from-brand-50 to-brand-100/50 p-6"
                 >
                     <div class="absolute top-0 left-0 h-full w-1 bg-brand-500"></div>
                     <p>
@@ -36,17 +36,11 @@
                     </p>
                 </div>
 
-                <div
-                    class="flex items-center justify-between rounded-2xl border border-brand-200 bg-white px-6 py-4 shadow-sm transition-shadow hover:shadow-md"
-                >
-                    <span class="font-semibold text-gray-800">Antal ugers ferie pr. år</span>
-                    <span
-                        class="rounded-full bg-gradient-to-r from-brand-500 to-brand-600 px-4 py-1.5 text-sm font-bold text-white shadow-sm"
-                    >
-                        6 uger
-                    </span>
-                </div>
-
+<div class="flex items-center justify-between rounded-2xl border border-brand-200 bg-white px-6 py-4 shadow-sm transition-shadow hover:shadow-md">
+    <span class="font-semibold text-gray-800">
+        Jeg holder <span class="text-brand-500">6 ugers</span> ferie om året.
+    </span>
+</div>
                 <p class="text-gray-600 italic">
                     Udover min planlagte ferie kan der forekomme enkelte fridage. I vil selvfølgelig
                     hurtigst muligt få besked herom.
