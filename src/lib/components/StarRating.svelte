@@ -1,10 +1,10 @@
 <script lang="ts">
-  let { count = 5, size = 'md' }: { count?: number; size?: 'sm' | 'md' } = $props();
+	let { count = 5, size = 'md' }: { count?: number; size?: 'sm' | 'md' } = $props();
 
-  const sizeClass = $derived(size === 'sm' ? 'h-4 w-4' : 'h-5 w-5');
-  const fullStars = $derived(Math.floor(count));
-  const hasHalf = $derived(count % 1 >= 0.5);
-  const emptyStars = $derived(5 - fullStars - (hasHalf ? 1 : 0));
+	const sizeClass = $derived(size === 'sm' ? 'h-4 w-4' : 'h-5 w-5');
+	const fullStars = $derived(Math.floor(count));
+	const hasHalf = $derived(count % 1 >= 0.5);
+	const emptyStars = $derived(5 - fullStars - (hasHalf ? 1 : 0));
 </script>
 
 <div class="flex gap-1">

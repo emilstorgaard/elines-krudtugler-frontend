@@ -36,11 +36,12 @@
 
 			<!-- Info panel — takes up 2 of 5 columns on desktop -->
 			<div class="flex flex-col gap-5 lg:col-span-2">
-
 				<!-- Address card -->
 				<div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
 					<div class="mb-4 flex items-center gap-3">
-						<div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl">
+						<div
+							class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-xl"
+						>
 							📍
 						</div>
 						<div>
@@ -55,33 +56,25 @@
 						class="flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 py-3 text-sm font-bold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-lg"
 					>
 						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+							/>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+							/>
 						</svg>
 						Få rutevejledning
 					</a>
 				</div>
 
 				<!-- Transport options -->
-				{#each [
-					{
-						emoji: '🚗',
-						title: 'Bil',
-						desc: 'Parkering direkte foran huset.'
-					},
-					{
-						emoji: '🚌',
-						title: 'Bus',
-						desc: 'Buslinje 2 stopper ved Svinglen — kun 2 minutters gang derfra.'
-					},
-					{
-						emoji: '🚲',
-						title: 'Cykel',
-						desc: 'God cykelsti hele vejen.'
-					}
-				] as item}
+				{#each [{ emoji: '🚗', title: 'Bil', desc: 'Parkering direkte foran huset.' }, { emoji: '🚌', title: 'Bus', desc: 'Buslinje 2 stopper ved Svinglen — kun 2 minutters gang derfra.' }, { emoji: '🚲', title: 'Cykel', desc: 'God cykelsti hele vejen.' }] as item}
 					<div
 						class="group flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:shadow-md"
 					>
@@ -96,7 +89,6 @@
 						</div>
 					</div>
 				{/each}
-
 			</div>
 		</div>
 	</div>

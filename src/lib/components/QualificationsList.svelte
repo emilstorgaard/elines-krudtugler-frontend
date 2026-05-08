@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {qualifications} from '../data/site';
+	import { qualifications } from '../data/site';
 </script>
 
 <div class="rounded-2xl bg-white p-6 shadow-md">

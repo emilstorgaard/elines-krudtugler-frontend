@@ -54,9 +54,7 @@
 			style="opacity: {i === current ? 1 : 0}; z-index: {i === current ? 1 : 0};"
 		>
 			<img src={slide.src} alt={slide.alt} class="h-full w-full object-cover" />
-			<div
-				class="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"
-			></div>
+			<div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
 			<!-- Caption -->
 			<div class="absolute bottom-8 left-8">
