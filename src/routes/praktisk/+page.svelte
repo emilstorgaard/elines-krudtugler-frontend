@@ -22,29 +22,22 @@
 	/>
 </svelte:head>
 
-<section
-	id="om-mig"
-	class="relative overflow-hidden bg-linear-to-b from-brand-50 via-brand-50/50 to-white px-4 py-12"
->
+<section id="galleri" class="relative overflow-hidden bg-brand-50 px-4 py-12">
 	<!-- Decorative background blobs -->
-	<div
-		class="pointer-events-none absolute -top-32 -right-32 h-112 w-md rounded-full bg-brand-200/40 blur-3xl"
-	></div>
-	<div
-		class="pointer-events-none absolute -bottom-32 -left-32 h-112 w-md rounded-full bg-brand-100/60 blur-3xl"
-	></div>
+	<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
+	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
 
 	<div class="relative mx-auto max-w-6xl">
 		<!-- Section label -->
 		<div class="mb-4 flex justify-center">
 			<span
-				class="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm backdrop-blur-sm"
+				class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm"
 			>
 				<span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
 				Praktisk
 			</span>
 		</div>
-	</div>
+
 
 	<OpeningHours />
 	<HolidaysAndClosedDays />
@@ -53,4 +46,5 @@
 	<ParentCooperation />
 	<ApprovalAndSupervision />
 	<Diet />
+	</div>
 </section>
