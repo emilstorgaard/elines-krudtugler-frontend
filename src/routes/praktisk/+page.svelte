@@ -22,29 +22,20 @@
 	/>
 </svelte:head>
 
-<section id="galleri" class="relative overflow-hidden bg-brand-50 px-4 py-12">
-	<!-- Decorative background blobs -->
-	<div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
-	<div class="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl"></div>
-
+<section class="relative overflow-hidden bg-brand-50 px-4 py-12">
 	<div class="relative mx-auto max-w-6xl">
-		<!-- Section label -->
-		<div class="mb-4 flex justify-center">
-			<span
-				class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm"
-			>
-				<span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
-				Praktisk
-			</span>
-		</div>
+        <div class=" text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-800 md:text-5xl">
+                Praktisk information
+            </h1>
+        </div>
 
-
-	<OpeningHours />
-	<HolidaysAndClosedDays />
-	<WhatToBring />
-	<Pricing />
-	<ParentCooperation />
-	<ApprovalAndSupervision />
-	<Diet />
+		<OpeningHours />
+		<HolidaysAndClosedDays />
+		<WhatToBring />
+		<Pricing />
+		<ParentCooperation />
+		<ApprovalAndSupervision />
+		<Diet />
 	</div>
 </section>

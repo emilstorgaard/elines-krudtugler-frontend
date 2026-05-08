@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Contact from '$lib/components/Contact.svelte';
-	import Diet from '$lib/components/Diet.svelte';
 	import Directions from '$lib/components/Directions.svelte';
 </script>
 
@@ -18,5 +17,9 @@
 	/>
 </svelte:head>
 
-<Contact />
-<Directions />
+<section class="relative overflow-hidden bg-brand-50 px-4 py-12">
+	<div class="relative mx-auto max-w-6xl">
+		<Contact />
+		<Directions />
+	</div>
+</section>

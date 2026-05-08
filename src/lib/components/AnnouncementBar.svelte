@@ -3,6 +3,6 @@
 	></span>
 	2 ledige pladser fra august 2026 —
 	<a href="/kontakt" class="ml-1 underline underline-offset-2 transition hover:text-brand-100">
-		Kontakt mig i dag
+		Kontakt mig
 	</a>
 </div>
