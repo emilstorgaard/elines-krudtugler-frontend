@@ -4,7 +4,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
 
-	let { children } = $props();
+    let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -27,7 +27,7 @@
 	</main>
 </div>
 
-<Footer />
+<Footer settings={data.settings} />
 
 <style>
 	:global(html) {
