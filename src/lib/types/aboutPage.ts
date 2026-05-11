@@ -1,21 +1,10 @@
-export type UmbracoMedia = {
-    id: string;
-    name: string;
-    url: string;
-    width: number;
-    height: number;
-};
+import type { UmbracoMedia, RichTextValue } from './umbraco';
+import type { SeoProperties } from './seo';
 
-export type RichTextValue = {
-    markup: string;
-    blocks: unknown[];
-};
-
-export type AboutPageProperties = {
+export type AboutPageProperties = SeoProperties & {
     pageTitle: string;
     pageTitleHighlight: string;
     pageIntro: string;
-
     aboutLabel: string;
     aboutHeading: string;
     aboutHeadingHighlight: string;
@@ -23,15 +12,12 @@ export type AboutPageProperties = {
     aboutImage: UmbracoMedia[];
     experienceLabel: string;
     experienceValue: string;
-
     familyLabel: string;
     familyText: RichTextValue;
     familyImage: UmbracoMedia[];
-
     animalsLabel: string;
     animalsText: RichTextValue;
     animalsImage: UmbracoMedia[];
-
     valuesHeading: string;
     valuesIntro: string;
     valuesList: string[];

@@ -12,7 +12,7 @@
 	<title>Børnepasning – Eline Storgaard Andersen</title>
 	<meta
 		name="description"
-		content="Professionel børnepasning i Viborg. Et trygt og kærligt hjem for dit barn."
+		content="Professionel børnepasning i Viborg. Et trygt og kærligt hjem for dit barn. 5"
 	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />

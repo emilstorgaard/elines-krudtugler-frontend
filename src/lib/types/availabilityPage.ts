@@ -1,4 +1,6 @@
-export type AvailabilityPageProperties = {
+import type { SeoProperties } from './seo';
+
+export type AvailabilityPageProperties = SeoProperties & {
     mainHeading: string;
     mainHeadingHighlight: string;
     introText: string;
