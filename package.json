@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -22,6 +22,7 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/vite": "^4.2.2",
 		"@types/node": "^22",
+		"cross-env": "^10.1.0",
 		"eslint": "^10.2.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.17.0",

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import About from '$lib/components/About.svelte';
+    import About from '$lib/components/About.svelte';
+    let { data } = $props();
 </script>
 
 <svelte:head>
@@ -17,7 +18,7 @@
 </svelte:head>
 
 <section class="relative overflow-hidden bg-brand-50 px-4 py-12">
-	<div class="relative mx-auto max-w-6xl">
-		<About />
-	</div>
+    <div class="relative mx-auto max-w-6xl">
+        <About page={data.page} />
+    </div>
 </section>
