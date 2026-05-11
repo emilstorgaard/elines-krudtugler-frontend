@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Availability from '$lib/components/Availability.svelte';
+    import Availability from '$lib/components/Availability.svelte';
+    let { data } = $props();
 </script>
 
 <svelte:head>
@@ -18,6 +19,6 @@
 
 <section class="relative overflow-hidden bg-brand-50 px-4 py-12">
 	<div class="relative mx-auto max-w-6xl">
-		<Availability />
+		<Availability page={data.page} />
 	</div>
 </section>
