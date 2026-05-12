@@ -1,9 +1,24 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { navLinks } from '$lib/data/site';
-    import { scrollTo } from '$lib/utils/scroll';
+    import { getMediaUrl } from '$lib/api/umbraco';
+    import type { Settings } from '$lib/types/settings';
 
-    let { class: className = '' } = $props();
+    let {
+        settings,
+        class: className = ''
+    }: {
+        settings: Settings;
+        class?: string;
+    } = $props();
+
+    const s = $derived(settings.properties);
+    const logo = $derived(s.logo?.[0]);
+
+    // Flad Block List ud så vi nemt kan iterere
+    const navLinks = $derived(
+        s.navLinks?.items?.map((item) => item.content.properties) ?? []
+    );
+
     let isMenuOpen: boolean = $state(false);
     let headerEl: HTMLElement | null = null;
 
@@ -14,9 +29,7 @@
                 isMenuOpen = false;
             }
         };
-
         document.addEventListener('pointerdown', handlePointerDown);
-
         return () => {
             document.removeEventListener('pointerdown', handlePointerDown);
         };
@@ -30,35 +43,38 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-24 items-center justify-between md:h-28 lg:h-32">
             <a href="/" class="group flex items-center gap-3 transition-opacity hover:opacity-90">
-                <img
-                    src="/logo.png"
-                    alt="Eline´s Krudtugler logo"
-                    class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-18 md:h-20 lg:h-24"
-                />
+                {#if logo}
+                    <img
+                        src={getMediaUrl(logo.url)}
+                        alt={`${s.siteName} logo`}
+                        class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 sm:h-18 md:h-20 lg:h-24"
+                    />
+                {/if}
                 <div class="text-left">
                     <span class="block text-xl leading-tight font-bold text-gray-800 sm:text-2xl md:text-3xl">
-                        Eline´s Krudtugler
+                        {s.siteName}
                     </span>
                     <span
                         class="block text-xs font-medium tracking-wide text-brand-600 sm:text-sm md:text-base"
                     >
-                        Eline Storgaard Andersen
+                        {s.ownerName}
                     </span>
                 </div>
             </a>
 
+            <!-- Desktop nav -->
             <nav class="hidden items-center gap-1 md:flex">
-                {#each navLinks as item (item.href)}
-                    {#if item.href === '/kontakt'}
+                {#each navLinks as item (item.link)}
+                    {#if item.link === '/kontakt'}
                         <a
-                            href={item.href}
+                            href={item.link}
                             class="ml-4 rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/30"
                         >
-                            {item.label} mig
+                            {item.label}
                         </a>
                     {:else}
                         <a
-                            href={item.href}
+                            href={item.link}
                             class="group relative rounded-full px-5 py-2.5 text-base font-semibold text-gray-600 transition-all duration-200 hover:bg-brand-50 hover:text-brand-600"
                         >
                             {item.label}
@@ -70,6 +86,7 @@
                 {/each}
             </nav>
 
+            <!-- Mobile menu button -->
             <button
                 onclick={() => (isMenuOpen = !isMenuOpen)}
                 class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-brand-100 hover:text-brand-600 focus:outline-none md:hidden"
@@ -97,25 +114,26 @@
         </div>
     </div>
 
+    <!-- Mobile nav -->
     {#if isMenuOpen}
         <nav
             class="absolute top-full left-0 z-50 w-full border-t border-gray-100 bg-white/98 shadow-lg backdrop-blur-md md:hidden"
         >
             <div class="mx-auto max-w-7xl px-4 py-3">
-                {#each navLinks as item (item.href)}
-                    {#if item.href === '/kontakt'}
+                {#each navLinks as item (item.link)}
+                    {#if item.link === '/kontakt'}
                         <div class="mt-3 border-t border-gray-100 pt-3">
                             <a
-                                href={item.href}
+                                href={item.link}
                                 onclick={() => (isMenuOpen = false)}
                                 class="block w-full rounded-full bg-brand-500 py-3 text-center font-semibold text-white transition hover:bg-brand-400"
                             >
-                                {item.label} mig
+                                {item.label}
                             </a>
                         </div>
                     {:else}
                         <a
-                            href={item.href}
+                            href={item.link}
                             onclick={() => (isMenuOpen = false)}
                             class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-700 transition hover:bg-brand-50 hover:text-brand-600"
                         >

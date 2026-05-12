@@ -18,7 +18,7 @@
 
 <div class="sticky top-0 z-50">
 	<AnnouncementBar />
-	<Header />
+	<Header settings={data.settings} />
 </div>
 
 <div class="font-nunito">
