@@ -31,6 +31,11 @@ export type SettingsProperties = {
     openingHours?: string;
 
     navLinks: BlockList<NavLinkBlock>;
+
+    announcementEnabled?: boolean;
+    announcementText?: string;
+    announcementLinkText?: string;
+    announcementLinkUrl?: string;
 };
 
 export type Settings = {

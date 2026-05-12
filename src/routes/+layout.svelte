@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div class="sticky top-0 z-50">
-	<AnnouncementBar />
+    <AnnouncementBar settings={data.settings} />
 	<Header settings={data.settings} />
 </div>
 
