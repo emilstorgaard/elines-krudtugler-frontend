@@ -1,25 +1,15 @@
 <script lang="ts">
-	import Contact from '$lib/components/Contact.svelte';
-	import Directions from '$lib/components/Directions.svelte';
+    import Contact from '$lib/components/Contact.svelte';
+    import Directions from '$lib/components/Directions.svelte';
+    import SeoHead from '$lib/components/SeoHead.svelte';
+    let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Børnepasning – Eline Storgaard Andersen</title>
-	<meta
-		name="description"
-		content="Professionel børnepasning i Viborg. Et trygt og kærligt hjem for dit barn. 4"
-	/>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap"
-		rel="stylesheet"
-	/>
-</svelte:head>
+<SeoHead seo={data.page.properties} />
 
 <section class="relative overflow-hidden bg-brand-50 px-4 py-12">
-	<div class="relative mx-auto max-w-6xl">
-		<Contact />
-		<Directions />
-	</div>
+    <div class="relative mx-auto max-w-6xl">
+        <Contact page={data.page} settings={data.settings} />
+        <Directions page={data.page} />
+    </div>
 </section>
