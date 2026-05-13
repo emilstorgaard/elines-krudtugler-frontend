@@ -1,4 +1,3 @@
-<!-- src/routes/+error.svelte -->
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
@@ -25,12 +24,10 @@
 </svelte:head>
 
 <section class="relative flex min-h-screen overflow-hidden bg-white px-4 py-24">
-	<!-- Decorative blurs -->
 	<div class="absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-50/80 blur-3xl"></div>
 	<div class="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-brand-50/60 blur-3xl"></div>
 
 	<div class="relative mx-auto w-full max-w-3xl">
-		<!-- Header -->
 		<div class="mb-4 flex justify-center">
 			<span
 				class="rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold tracking-widest text-brand-700 uppercase"
@@ -55,7 +52,6 @@
 			{/if}
 		</p>
 
-		<!-- Big status card -->
 		<div class="mb-6 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl">
 			<div class="flex flex-col items-center gap-6 px-8 py-10 sm:flex-row sm:gap-8">
 				<div

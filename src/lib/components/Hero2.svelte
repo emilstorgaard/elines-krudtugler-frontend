@@ -1,7 +1,3 @@
-<script lang="ts">
-	import { scrollTo } from '$lib/utils/scroll';
-</script>
-
 <section class="relative flex h-170 items-center justify-center overflow-hidden">
 	<video
 		autoplay
@@ -13,7 +9,6 @@
 		<source src="/test.mp4" type="video/mp4" />
 	</video>
 
-	<!-- Layered gradient for depth -->
 	<div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/10"></div>
 	<div class="absolute inset-0 bg-linear-to-r from-black/30 to-transparent"></div>
 
@@ -53,7 +48,6 @@
 		</div>
 	</div>
 
-	<!-- Scroll indicator -->
 	<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/60">
 		<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

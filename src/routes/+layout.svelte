@@ -4,11 +4,11 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
 
-    let { children, data } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap"
@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div class="sticky top-0 z-50">
-    <AnnouncementBar settings={data.settings} />
+	<AnnouncementBar settings={data.settings} />
 	<Header settings={data.settings} />
 </div>
 

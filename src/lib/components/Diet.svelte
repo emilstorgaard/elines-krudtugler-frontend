@@ -1,14 +1,13 @@
 <script lang="ts">
-    import type { PracticalPage } from '$lib/types/practicalPage';
+	import type { PracticalPage } from '$lib/types/practicalPage';
 
-    let { page }: { page: PracticalPage } = $props();
+	let { page }: { page: PracticalPage } = $props();
 
-    const p = $derived(page.properties);
+	const p = $derived(page.properties);
 </script>
 
 <section id="kost" class="relative overflow-hidden px-4 py-8">
 	<div class="relative mx-auto max-w-4xl">
-		<!-- Header -->
 		{#if p.dietLabel}
 			<div class="mb-8 flex justify-center">
 				<span

@@ -56,7 +56,6 @@
 			<img src={slide.src} alt={slide.alt} class="h-full w-full object-cover" />
 			<div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
-			<!-- Caption -->
 			<div class="absolute bottom-8 left-8">
 				<span
 					class="mb-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold tracking-widest text-white uppercase backdrop-blur-sm"
@@ -68,7 +67,6 @@
 		</div>
 	{/each}
 
-	<!-- Prev/Next -->
 	<button
 		onclick={() => {
 			prev();
@@ -94,7 +92,6 @@
 		</svg>
 	</button>
 
-	<!-- Dots -->
 	<div class="absolute right-8 bottom-8 z-10 flex gap-2">
 		{#each slides as _, i}
 			<button
