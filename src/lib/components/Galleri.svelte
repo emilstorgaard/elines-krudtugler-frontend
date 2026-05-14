@@ -43,11 +43,7 @@
 
 				<div
 					class="absolute inset-x-0 bottom-0 translate-y-2 p-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-				>
-					<div class="rounded-2xl bg-white/95 px-4 py-3 backdrop-blur-sm">
-						<p class="text-sm font-semibold text-gray-800">{getAltText(image)}</p>
-					</div>
-				</div>
+				></div>
 			</div>
 		{/each}
 	</div>

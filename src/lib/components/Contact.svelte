@@ -121,14 +121,6 @@
 							{p.availabilityDescription}
 						</p>
 					{/if}
-
-					{#if p.availabilityNote}
-						<div class="rounded-2xl bg-white/15 p-4 backdrop-blur-sm">
-							<p class="text-sm leading-relaxed whitespace-pre-line text-white/90">
-								{p.availabilityNote}
-							</p>
-						</div>
-					{/if}
 				</div>
 
 				<div class="mt-8 flex flex-col gap-3">

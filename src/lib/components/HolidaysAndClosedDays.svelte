@@ -19,20 +19,19 @@
 {#if hasContent}
 	<section id="ferie-og-lukkedage" class="relative overflow-hidden px-4 py-8">
 		<div class="relative mx-auto max-w-3xl">
-			{#if p.holidaysLabel}
-				<div class="mb-8 flex justify-center">
-					<span
-						class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm"
-					>
-						<span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
-						{p.holidaysLabel}
-					</span>
-				</div>
-			{/if}
-
 			<div
 				class="relative rounded-3xl border border-brand-200/60 bg-white/90 p-8 shadow-xl shadow-brand-900/5 backdrop-blur-sm sm:p-10"
 			>
+				{#if p.holidaysLabel}
+					<div class="mb-8 flex justify-center">
+						<span
+							class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-brand-700 uppercase shadow-sm"
+						>
+							<span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+							{p.holidaysLabel}
+						</span>
+					</div>
+				{/if}
 				<div class="space-y-5 leading-relaxed text-gray-700">
 					{#if p.holidaysIntro}
 						<p class="text-lg whitespace-pre-line">{p.holidaysIntro}</p>

@@ -15,13 +15,19 @@ export type AboutPageProperties = SeoProperties & {
     familyLabel: string;
     familyText: RichTextValue;
     familyImage: UmbracoMedia[];
+    locationLabel: string;
+    locationText: RichTextValue;
+    locationImage: UmbracoMedia[];
     animalsLabel: string;
     animalsText: RichTextValue;
     animalsImage: UmbracoMedia[];
     valuesHeading: string;
     valuesIntro: string;
     valuesList: string[];
-    valuesQuote: string;
+    primaryValuesList: string[];
+    educationalIntro: string;
+    educationalImages: UmbracoMedia[];
+    educationalQuote: string;
 };
 
 export type AboutPage = {

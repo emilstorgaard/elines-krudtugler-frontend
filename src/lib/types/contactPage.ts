@@ -15,7 +15,6 @@ export type ContactPageProperties = SeoProperties & {
     availabilityBadge?: string;
     availabilityTitle?: string;
     availabilityDescription?: string;
-    availabilityNote?: string;
     availabilityCallButton?: string;
     availabilityEmailButton?: string;
 

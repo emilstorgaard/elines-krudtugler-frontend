@@ -8,7 +8,7 @@
 	const logo = $derived(s.logo?.[0]);
 </script>
 
-<footer class="bg-gray-900 px-4 py-5 text-white">
+<footer class="bg-white/80 px-4 py-5 text-gray-500">
 	<div class="mx-auto max-w-6xl">
 		<div class="flex flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6">
 			<a href="/" class="group flex items-center gap-3">
@@ -34,7 +34,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Instagram"
-						class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-pink-500 hover:text-white"
+						class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-300 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-pink-500 hover:text-white"
 					>
 						<svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 							<path
@@ -50,7 +50,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="Facebook"
-						class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-800 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-blue-600 hover:text-white"
+						class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-300 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-blue-600 hover:text-white"
 					>
 						<svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 							<path

@@ -58,7 +58,6 @@ export type PracticalPageProperties = SeoProperties & {
     // Forældresamarbejde
     parentCoopLabel?: string;
     parentCoopMainText?: string;
-    parentCoopMiddleText?: string;
     parentCoopHighlight?: string;
     parentCoopClosingNote?: string;
 
@@ -88,10 +87,6 @@ export type PracticalPageProperties = SeoProperties & {
     pricingFinalValue?: string;
     pricingFinalUnit?: string;
     pricingInfoTiles?: BlockList<InfoCardBlock>;
-    pricingSubTiles?: BlockList<InfoCardBlock>;
-
-    // Kost
-    dietLabel?: string;
 };
 
 export type PracticalPage = {

@@ -48,7 +48,7 @@
 					/>
 				{/if}
 				<div class="text-left">
-					<span class="block text-xl leading-tight font-bold text-gray-800 sm:text-2xl md:text-3xl">
+					<span class="block text-xl leading-tight font-bold text-gray-500 sm:text-2xl md:text-3xl">
 						{s.siteName}
 					</span>
 					<span
