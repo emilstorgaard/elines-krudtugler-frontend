@@ -1,4 +1,3 @@
-import type { UmbracoMedia } from './umbraco';
 import type { SeoProperties } from './seo';
 
 export type GalleryPageProperties = SeoProperties & {
@@ -6,7 +5,7 @@ export type GalleryPageProperties = SeoProperties & {
     pageTitleHighlight: string;
     pageIntro: string;
 
-    images?: UmbracoMedia[];
+    imageFolder?: { id: string; path: string };
 
     bottomHeading?: string;
     bottomText?: string;
