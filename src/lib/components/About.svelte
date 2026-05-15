@@ -6,22 +6,14 @@
 
 	const p = $derived(page.properties);
 
-	// Now using the full arrays instead of [0]
 	const aboutImages = $derived(p.aboutImage ?? []);
 	const familyImages = $derived(p.familyImage ?? []);
 	const locationImages = $derived(p.locationImage ?? []);
 	const animalsImages = $derived(p.animalsImage ?? []);
 </script>
 
-<!--
-	Reusable image gallery snippet.
-	- 1 image  → full-width, same look as before
-	- 2 images → side-by-side
-	- 3+       → 2-column masonry-style grid (first image spans both rows)
--->
 {#snippet imageGallery(images: typeof aboutImages, borderSide: 'left' | 'right')}
 	<div class="relative">
-		<!-- Decorative border offset -->
 		<div
 			class="absolute -top-4 h-full w-full rounded-2xl border-2 border-brand-300"
 			class:left-[-1rem]={borderSide === 'left'}
@@ -49,7 +41,6 @@
 				{/each}
 			</div>
 		{:else}
-			<!-- 3+ images: first image tall on the left, rest stacked on the right -->
 			<div class="relative grid grid-cols-2 gap-2">
 				<img
 					src={getMediaUrl(images[0].url)}
@@ -80,7 +71,6 @@
 		{p.pageIntro}
 	</p>
 
-	<!-- About section -->
 	<div class="mb-24 grid items-center gap-12 md:grid-cols-2">
 		<div class="order-2 space-y-6 md:order-1">
 			<div>
@@ -115,7 +105,6 @@
 		</div>
 	</div>
 
-	<!-- Family section -->
 	<div class="mb-20 grid items-center gap-12 md:grid-cols-2">
 		<div class="relative">
 			{@render imageGallery(familyImages, 'left')}
@@ -135,7 +124,6 @@
 		</div>
 	</div>
 
-	<!-- Location section -->
 	<div class="mb-20 grid items-center gap-12 md:grid-cols-2">
 		<div class="order-2 space-y-6 md:order-1">
 			<div>
@@ -155,7 +143,6 @@
 		</div>
 	</div>
 
-	<!-- Animals section -->
 	<div class="mb-20 grid items-center gap-12 md:grid-cols-2">
 		<div class="order-2 space-y-6 md:order-2">
 			<div>
@@ -175,7 +162,6 @@
 		</div>
 	</div>
 
-	<!-- Values section -->
 	<div class="mb-20 rounded-3xl bg-white p-8 shadow-sm md:p-12">
 		<div class="mb-10 text-center">
 			<h3 class="text-3xl font-bold text-gray-800 md:text-4xl">{p.valuesHeading}</h3>
@@ -196,9 +182,9 @@
 				<ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					{#each p.primaryValuesList ?? [] as value}
 						<li
-							class="flex items-center gap-3 rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 ring-1 ring-brand-100"
+							class="flex items-center justify-center gap-3 rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 ring-1 ring-brand-100"
 						>
-							<span class="text-sm font-semibold text-brand-700">{value}</span>
+							<span class="text-base font-semibold text-brand-700">{value}</span>
 						</li>
 					{/each}
 				</ul>
