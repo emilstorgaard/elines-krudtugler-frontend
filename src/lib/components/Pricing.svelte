@@ -21,11 +21,9 @@
 {#if hasContent}
 	<section id="priser" class="relative overflow-hidden px-4 py-8">
 		<div class="relative mx-auto max-w-3xl">
-			<!-- Outer container box -->
 			<div
 				class="relative rounded-3xl border border-brand-200/60 bg-white/90 p-8 shadow-xl shadow-brand-900/5 backdrop-blur-sm sm:p-12"
 			>
-				<!-- Subtle gradient overlay -->
 				<div
 					class="pointer-events-none absolute inset-0 rounded-3xl bg-linear-to-br from-brand-50/40 via-transparent to-transparent"
 				></div>

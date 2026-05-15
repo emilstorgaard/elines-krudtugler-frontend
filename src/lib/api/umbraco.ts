@@ -19,14 +19,9 @@ export function getMediaUrl(relativeUrl: string): string {
   return `${PUBLIC_UMBRACO_URL}${relativeUrl}`;
 }
 
-export async function getMediaInFolder(
-  folderId: string,
-  take = 24,
-  skip = 0
-): Promise<{ items: UmbracoMedia[]; total: number }> {
-  const res = await fetch(
-    `/api/media/${folderId}?take=${take}&skip=${skip}`
-  );
+export async function getMediaInFolder(folderId: string, take = 24, skip = 0):
+  Promise<{ items: UmbracoMedia[]; total: number }> {
+  const res = await fetch(`/api/media/${folderId}?take=${take}&skip=${skip}`);
 
   if (!res.ok) return { items: [], total: 0 };
 

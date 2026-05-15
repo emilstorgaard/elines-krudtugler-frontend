@@ -201,7 +201,7 @@
 
 		<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each p.educationalImages ?? [] as image}
-				<div class="mx-auto aspect-[210/297] w-full max-w-xs overflow-hidden rounded-xl">
+				<div class="mx-auto aspect-210/297 w-full max-w-xs overflow-hidden rounded-xl">
 					<img src={getMediaUrl(image.url)} alt={image.name} class="h-full w-full object-cover" />
 				</div>
 			{/each}

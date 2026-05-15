@@ -72,7 +72,7 @@
 					loading="lazy"
 					decoding="async"
 					class="block w-full object-cover transition duration-500 group-hover:scale-105"
-					style="aspect-ratio: {[3/4, 1/1, 4/5, 1/1, 16/9, 3/4][i % 6]}"
+					style="aspect-ratio: {[3 / 4, 1 / 1, 4 / 5, 1 / 1, 16 / 9, 3 / 4][i % 6]}"
 				/>
 				<div
 					class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
