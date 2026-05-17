@@ -16,9 +16,31 @@
 
 	let sentinel: HTMLDivElement;
 
+	const RATIOS = [3 / 4, 1 / 1, 4 / 5, 1 / 1, 16 / 9, 3 / 4];
+	function stableAspectRatio(id: string | number) {
+		const hash = String(id)
+			.split('')
+			.reduce((acc, c) => acc + c.charCodeAt(0), 0);
+		return RATIOS[hash % RATIOS.length];
+	}
+
+	// Responsive column count tracked in JS to match Tailwind breakpoints
+	let numColumns = $state(1);
+
+	function updateColumns() {
+		if (window.innerWidth >= 1024) numColumns = 3;
+		else if (window.innerWidth >= 640) numColumns = 2;
+		else numColumns = 1;
+	}
+
+	let columns = $derived(
+		Array.from({ length: numColumns }, (_, col) =>
+			images.filter((_, i) => i % numColumns === col)
+		)
+	);
+
 	async function loadMore() {
 		const folder = Array.isArray(p.imageFolder) ? p.imageFolder[0] : p.imageFolder;
-
 		const folderId = folder?.id ?? folder?.key;
 
 		if (loading || allLoaded || !folderId) return;
@@ -33,6 +55,9 @@
 	}
 
 	onMount(() => {
+		updateColumns();
+		window.addEventListener('resize', updateColumns);
+
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) loadMore();
@@ -41,7 +66,11 @@
 		);
 
 		if (sentinel) observer.observe(sentinel);
-		return () => observer.disconnect();
+
+		return () => {
+			observer.disconnect();
+			window.removeEventListener('resize', updateColumns);
+		};
 	});
 
 	function getAltText(name: string) {
@@ -61,22 +90,26 @@
 </p>
 
 {#if images.length > 0}
-	<div class="my-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
-		{#each images as image, i (image.id)}
-			<div
-				class="group relative mb-4 break-inside-avoid overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
-			>
-				<img
-					src={getMediaUrl(image.url)}
-					alt={getAltText(image.name)}
-					loading="lazy"
-					decoding="async"
-					class="block w-full object-cover transition duration-500 group-hover:scale-105"
-					style="aspect-ratio: {[3 / 4, 1 / 1, 4 / 5, 1 / 1, 16 / 9, 3 / 4][i % 6]}"
-				/>
-				<div
-					class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
-				></div>
+	<div class="my-14 flex gap-4">
+		{#each columns as col}
+			<div class="flex flex-1 flex-col gap-4">
+				{#each col as image (image.id)}
+					<div
+						class="group relative break-inside-avoid overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
+					>
+						<img
+							src={getMediaUrl(image.url)}
+							alt={getAltText(image.name)}
+							loading="lazy"
+							decoding="async"
+							class="block w-full object-cover transition duration-500 group-hover:scale-105"
+							style="aspect-ratio: {stableAspectRatio(image.id)}"
+						/>
+						<div
+							class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+						></div>
+					</div>
+				{/each}
 			</div>
 		{/each}
 	</div>
