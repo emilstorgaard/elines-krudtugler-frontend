@@ -1,146 +1,116 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { getMediaUrl, getMediaInFolder } from '$lib/api/umbraco';
-    import type { GalleryPage } from '$lib/types/galleryPage';
-    import type { UmbracoMedia } from '$lib/types/umbraco';
+	import { onMount } from 'svelte';
+	import { getMediaUrl, getMediaInFolder } from '$lib/api/umbraco';
+	import type { GalleryPage } from '$lib/types/galleryPage';
+	import type { UmbracoMedia } from '$lib/types/umbraco';
 
-    let { page }: { page: GalleryPage } = $props();
+	let { page }: { page: GalleryPage } = $props();
 
-    const p = $derived(page.properties);
+	const p = $derived(page.properties);
 
-    let images: UmbracoMedia[] = $state([]);
-    let loading = $state(false);
-    let allLoaded = $state(false);
-    let skip = 0;
-    const take = 24;
+	let images: UmbracoMedia[] = $state([]);
+	let loading = $state(false);
+	let allLoaded = $state(false);
+	let skip = 0;
+	const take = 24;
 
-    let sentinel: HTMLDivElement;
+	let sentinel: HTMLDivElement;
 
-    const RATIOS = [3 / 4, 1 / 1, 4 / 5, 1 / 1, 16 / 9, 3 / 4];
-    function stableAspectRatio(id: string | number) {
-        const hash = String(id)
-            .split('')
-            .reduce((acc, c) => acc + c.charCodeAt(0), 0);
-        return RATIOS[hash % RATIOS.length];
-    }
+	async function loadMore() {
+		const folder = Array.isArray(p.imageFolder) ? p.imageFolder[0] : p.imageFolder;
+		const folderId = folder?.id ?? folder?.key;
 
-    let numColumns = $state(2);
+		if (loading || allLoaded || !folderId) return;
+		loading = true;
 
-    function updateColumns() {
-        if (window.innerWidth >= 1024) numColumns = 3;
-        else if (window.innerWidth >= 640) numColumns = 2;
-        else numColumns = 2;
-    }
+		const { items, total } = await getMediaInFolder(folderId, take, skip);
+		images = [...images, ...items];
+		skip += take;
 
-    let columns = $derived(
-        Array.from({ length: numColumns }, (_, col) =>
-            images.filter((_, i) => i % numColumns === col)
-        )
-    );
+		if (images.length >= total) allLoaded = true;
+		loading = false;
+	}
 
-    async function loadMore() {
-        const folder = Array.isArray(p.imageFolder) ? p.imageFolder[0] : p.imageFolder;
-        const folderId = folder?.id ?? folder?.key;
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) loadMore();
+			},
+			{ rootMargin: '300px' }
+		);
 
-        if (loading || allLoaded || !folderId) return;
-        loading = true;
+		if (sentinel) observer.observe(sentinel);
 
-        const { items, total } = await getMediaInFolder(folderId, take, skip);
-        images = [...images, ...items];
-        skip += take;
+		return () => {
+			observer.disconnect();
+		};
+	});
 
-        if (images.length >= total) allLoaded = true;
-        loading = false;
-    }
-
-    onMount(() => {
-        updateColumns();
-        window.addEventListener('resize', updateColumns);
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) loadMore();
-            },
-            { rootMargin: '300px' }
-        );
-
-        if (sentinel) observer.observe(sentinel);
-
-        return () => {
-            observer.disconnect();
-            window.removeEventListener('resize', updateColumns);
-        };
-    });
-
-    function getAltText(name: string) {
-        return name.replace(/\.(jpg|jpeg|png|webp|gif)$/i, '');
-    }
+	function getAltText(name: string) {
+		return name.replace(/\.(jpg|jpeg|png|webp|gif)$/i, '');
+	}
 </script>
 
 <div class="px-4 sm:px-6">
-    <div class="text-center">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
-            {p.pageTitle}
-            <span class="text-brand-600">{p.pageTitleHighlight}</span>
-        </h1>
-    </div>
+	<div class="text-center">
+		<h1 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
+			{p.pageTitle}
+			<span class="text-brand-600">{p.pageTitleHighlight}</span>
+		</h1>
+	</div>
 
-    <p
-        class="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg"
-    >
-        {p.pageIntro}
-    </p>
+	<p
+		class="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg"
+	>
+		{p.pageIntro}
+	</p>
 
-    {#if images.length > 0}
-        <div class="my-8 flex gap-2 sm:my-14 sm:gap-4">
-            {#each columns as col}
-                <div class="flex flex-1 flex-col gap-2 sm:gap-4">
-                    {#each col as image (image.id)}
-                        <div
-                            class="group relative break-inside-avoid overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 sm:rounded-3xl"
-                        >
-                            <img
-                                src={getMediaUrl(image.url)}
-                                alt={getAltText(image.name)}
-                                loading="lazy"
-                                decoding="async"
-                                class="block w-full object-cover transition duration-500 group-hover:scale-105"
-                                style="aspect-ratio: {stableAspectRatio(image.id)}"
-                            />
-                            <div
-                                class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
-                            ></div>
-                        </div>
-                    {/each}
-                </div>
-            {/each}
-        </div>
-    {:else if !loading}
-        <p class="my-8 text-center text-sm text-gray-500 sm:my-14 sm:text-base">
-            Der er ikke uploadet billeder endnu.
-        </p>
-    {/if}
+	{#if images.length > 0}
+		<!-- Rettet: Nu maks 3 kolonner (sm:grid-cols-3) i stedet for 4 på store skærme -->
+		<div class="my-8 grid grid-cols-2 gap-2 sm:my-14 sm:grid-cols-3 sm:gap-4">
+			{#each images as image (image.id)}
+				<div
+					class="group relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 sm:rounded-3xl"
+				>
+					<img
+						src={getMediaUrl(image.url)}
+						alt={getAltText(image.name)}
+						loading="lazy"
+						decoding="async"
+						class="block aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
+					/>
+					<div
+						class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+					></div>
+				</div>
+			{/each}
+		</div>
+	{:else if !loading}
+		<p class="my-8 text-center text-sm text-gray-500 sm:my-14 sm:text-base">
+			Der er ikke uploadet billeder endnu.
+		</p>
+	{/if}
 
-    <div bind:this={sentinel} class="flex justify-center py-6 sm:py-8">
-        {#if loading}
-            <div
-                class="h-7 w-7 animate-spin rounded-full border-4 border-brand-600 border-t-transparent sm:h-8 sm:w-8"
-            ></div>
-        {/if}
-    </div>
+	<div bind:this={sentinel} class="flex justify-center py-6 sm:py-8">
+		{#if loading}
+			<div
+				class="h-7 w-7 animate-spin rounded-full border-4 border-brand-600 border-t-transparent sm:h-8 sm:w-8"
+			></div>
+		{/if}
+	</div>
 
-    {#if p.bottomHeading || p.bottomText}
-        <div
-            class="mx-auto mt-10 max-w-3xl rounded-2xl bg-white p-5 text-center shadow-sm sm:mt-16 sm:rounded-3xl sm:p-8 md:p-10"
-        >
-            {#if p.bottomHeading}
-                <h3 class="text-xl font-bold text-gray-800 sm:text-2xl">{p.bottomHeading}</h3>
-            {/if}
-            {#if p.bottomText}
-                <p class="mt-3 text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg">
-                    {p.bottomText}
-                </p>
-            {/if}
-        </div>
-    {/if}
+	{#if p.bottomHeading || p.bottomText}
+		<div
+			class="mx-auto mt-10 max-w-3xl rounded-2xl bg-white p-5 text-center shadow-sm sm:mt-16 sm:rounded-3xl sm:p-8 md:p-10"
+		>
+			{#if p.bottomHeading}
+				<h3 class="text-xl font-bold text-gray-800 sm:text-2xl">{p.bottomHeading}</h3>
+			{/if}
+			{#if p.bottomText}
+				<p class="mt-3 text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg">
+					{p.bottomText}
+				</p>
+			{/if}
+		</div>
+	{/if}
 </div>
