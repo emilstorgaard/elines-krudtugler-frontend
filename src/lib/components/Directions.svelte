@@ -33,7 +33,7 @@
                     src={p.mapsEmbedUrl}
                     width="100%"
                     height="100%"
-                    class="block h-72 w-full border-0 sm:h-96 lg:h-full lg:min-h-[420px]"
+                    class="block h-72 w-full border-0 sm:h-96 lg:h-full lg:min-h-105"
                     allowfullscreen
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"

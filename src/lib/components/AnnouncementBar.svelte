@@ -11,7 +11,7 @@
     <div class="bg-brand-500 px-4 py-2 text-xs font-semibold text-white sm:text-sm">
         <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center">
             <span
-                class="inline-block h-2 w-2 flex-shrink-0 animate-pulse rounded-full bg-brand-200"
+                class="inline-block h-2 w-2 shrink-0 animate-pulse rounded-full bg-brand-200"
                 aria-hidden="true"
             ></span>
             <span>{s.announcementText}</span>

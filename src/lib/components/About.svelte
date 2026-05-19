@@ -251,7 +251,7 @@
                 <button
                     type="button"
                     onclick={() => openLightbox(educationalImages, i)}
-                    class="aspect-210/297 w-[75%] flex-shrink-0 cursor-pointer snap-center overflow-hidden rounded-xl transition hover:opacity-90 sm:mx-auto sm:w-full sm:max-w-xs sm:flex-shrink"
+                    class="aspect-210/297 w-[75%] shrink-0 cursor-pointer snap-center overflow-hidden rounded-xl transition hover:opacity-90 sm:mx-auto sm:w-full sm:max-w-xs sm:shrink"
                 >
                     <img src={getMediaUrl(image.url)} alt={image.name} class="h-full w-full object-cover" />
                 </button>

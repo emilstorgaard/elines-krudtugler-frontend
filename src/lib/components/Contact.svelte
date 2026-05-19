@@ -93,7 +93,7 @@
                             </p>
                             {#each item.lines as line}
                                 <p
-                                    class="text-sm font-semibold break-words sm:text-base {item.href
+                                    class="text-sm font-semibold wrap-break-words sm:text-base {item.href
                                         ? 'text-brand-600'
                                         : 'text-gray-700'}"
                                 >
