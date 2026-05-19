@@ -28,8 +28,6 @@ export type SettingsProperties = {
     instagramUrl?: string;
     facebookUrl?: string;
 
-    openingHours?: string;
-
     navLinks: BlockList<NavLinkBlock>;
 
     announcementEnabled?: boolean;

@@ -10,7 +10,42 @@
 	const familyImages = $derived(p.familyImage ?? []);
 	const locationImages = $derived(p.locationImage ?? []);
 	const animalsImages = $derived(p.animalsImage ?? []);
+	const educationalImages = $derived(p.educationalImages ?? []);
+
+	let lightboxImages = $state<Array<{ url: string; name: string }>>([]);
+	let lightboxIndex = $state<number | null>(null);
+
+	function openLightbox(images: Array<{ url: string; name: string }>, index: number) {
+		lightboxImages = images;
+		lightboxIndex = index;
+	}
+
+	function closeLightbox() {
+		lightboxIndex = null;
+		lightboxImages = [];
+	}
+
+	function nextImage() {
+		if (lightboxIndex !== null) {
+			lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+		}
+	}
+
+	function prevImage() {
+		if (lightboxIndex !== null) {
+			lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+		}
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (lightboxIndex === null) return;
+		if (e.key === 'Escape') closeLightbox();
+		if (e.key === 'ArrowRight') nextImage();
+		if (e.key === 'ArrowLeft') prevImage();
+	}
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 {#snippet imageGallery(images: typeof aboutImages, borderSide: 'left' | 'right')}
 	<div class="relative">
@@ -96,7 +131,6 @@
 			<div
 				class="absolute -bottom-5 -left-5 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-lg ring-1 ring-gray-100"
 			>
-				<img src="/logo.png" alt="" class="h-10 w-10 object-contain" />
 				<div>
 					<p class="text-xs font-medium text-gray-500">{p.experienceLabel}</p>
 					<p class="text-lg font-bold text-gray-800">{p.experienceValue}</p>
@@ -200,10 +234,14 @@
 		</div>
 
 		<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each p.educationalImages ?? [] as image}
-				<div class="mx-auto aspect-210/297 w-full max-w-xs overflow-hidden rounded-xl">
+			{#each educationalImages as image, i}
+				<button
+					type="button"
+					onclick={() => openLightbox(educationalImages, i)}
+					class="mx-auto aspect-210/297 w-full max-w-xs cursor-pointer overflow-hidden rounded-xl transition hover:opacity-90"
+				>
 					<img src={getMediaUrl(image.url)} alt={image.name} class="h-full w-full object-cover" />
-				</div>
+				</button>
 			{/each}
 		</div>
 
@@ -212,3 +250,63 @@
 		</p>
 	</div>
 </div>
+
+{#if lightboxIndex !== null && lightboxImages.length > 0}
+	<div
+		class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+		role="dialog"
+		aria-modal="true"
+		aria-label="Billedfremviser"
+		tabindex="-1"
+	>
+		<button
+			type="button"
+			onclick={closeLightbox}
+			class="absolute inset-0 cursor-default"
+			aria-label="Luk billedfremviser"
+		></button>
+
+		<button
+			type="button"
+			onclick={closeLightbox}
+			class="absolute top-4 right-4 z-10 cursor-pointer text-4xl text-white transition hover:text-gray-300"
+			aria-label="Luk"
+		>
+			&times;
+		</button>
+
+		{#if lightboxImages.length > 1}
+			<button
+				type="button"
+				onclick={prevImage}
+				class="absolute left-2 z-10 cursor-pointer px-4 text-5xl text-white transition hover:text-gray-300 md:left-6"
+				aria-label="Forrige billede"
+			>
+				&#8249;
+			</button>
+		{/if}
+
+		<img
+			src={getMediaUrl(lightboxImages[lightboxIndex].url)}
+			alt={lightboxImages[lightboxIndex].name}
+			class="pointer-events-none relative max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+		/>
+
+		{#if lightboxImages.length > 1}
+			<button
+				type="button"
+				onclick={nextImage}
+				class="absolute right-2 z-10 cursor-pointer px-4 text-5xl text-white transition hover:text-gray-300 md:right-6"
+				aria-label="Næste billede"
+			>
+				&#8250;
+			</button>
+		{/if}
+
+		{#if lightboxImages.length > 1}
+			<div class="absolute bottom-4 text-sm text-white">
+				{lightboxIndex + 1} / {lightboxImages.length}
+			</div>
+		{/if}
+	</div>
+{/if}
