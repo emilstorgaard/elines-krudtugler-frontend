@@ -71,7 +71,7 @@
                 </div>
             </a>
 
-            <nav class="hidden items-center gap-1 md:flex">
+            <nav class="hidden items-center gap-1 xl:flex">
                 {#each navLinks as item (item.link)}
                     {#if item.link === '/kontakt'}
                         <a
@@ -96,7 +96,7 @@
 
             <button
                 onclick={() => (isMenuOpen = !isMenuOpen)}
-                class="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-brand-100 hover:text-brand-600 focus:outline-none md:hidden"
+                class="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-100 text-gray-700 transition hover:bg-brand-100 hover:text-brand-600 focus:outline-none xl:hidden"
                 aria-label={isMenuOpen ? 'Luk menu' : 'Åbn menu'}
                 aria-expanded={isMenuOpen}
             >
@@ -123,7 +123,7 @@
 
     {#if isMenuOpen}
         <nav
-            class="absolute top-full left-0 z-50 w-full border-t border-gray-100 bg-white/98 shadow-lg backdrop-blur-md md:hidden"
+            class="absolute top-full left-0 z-50 w-full border-t border-gray-100 bg-white/98 shadow-lg backdrop-blur-md xl:hidden"
         >
             <div class="mx-auto max-w-7xl px-4 py-3">
                 {#each navLinks as item (item.link)}
