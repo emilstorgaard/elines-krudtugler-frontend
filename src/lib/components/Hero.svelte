@@ -57,7 +57,7 @@
 </script>
 
 <section
-    class="relative flex min-h-[calc(70svh-var(--header-offset,0px))] flex-col overflow-hidden sm:min-h-[calc(80svh-var(--header-offset,0px))]"
+    class="relative flex min-h-[calc(87svh-var(--header-offset,0px))] flex-col overflow-hidden sm:min-h-[calc(80svh-var(--header-offset,0px))]"
     aria-label="Velkommen"
 >
     <div class="absolute inset-0" aria-hidden="true">
