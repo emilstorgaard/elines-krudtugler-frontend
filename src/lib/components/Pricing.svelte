@@ -101,7 +101,7 @@
 					{/if}
 
 					{#if economyTiles.length > 0}
-						<div class="mb-4 grid gap-3 sm:grid-cols-3 sm:gap-4">
+						<div class="mb-5 grid gap-3 sm:grid-cols-3 sm:gap-4">
 							{#each economyTiles as tile}
 								<div
 									class="flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm sm:gap-4 sm:rounded-2xl sm:p-5"
