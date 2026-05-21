@@ -79,13 +79,13 @@ export type PracticalPageProperties = SeoProperties & {
     // Priser
     pricingLabel?: string;
     pricingIntro?: string;
-    pricingPriceLabel?: string;
     pricingPriceValue?: string;
     pricingDiscountLabel?: string;
     pricingDiscountValue?: string;
     pricingFinalLabel?: string;
     pricingFinalValue?: string;
     pricingFinalUnit?: string;
+    economyTiles?: BlockList<InfoCardBlock>;    
     pricingInfoTiles?: BlockList<InfoCardBlock>;
 };
 
