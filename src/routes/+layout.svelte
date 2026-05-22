@@ -1,9 +1,34 @@
 <script lang="ts">
     import './layout.css';
+    import { onMount } from 'svelte';
     import Header from '$lib/components/Header.svelte';
     import Footer from '$lib/components/Footer.svelte';
     import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
     let { children, data } = $props();
+
+    let stickyEl: HTMLDivElement;
+
+    onMount(() => {
+        const updateHeight = () => {
+            if (!stickyEl) return;
+            document.documentElement.style.setProperty(
+                '--header-total-h',
+                `${stickyEl.offsetHeight}px`
+            );
+        };
+
+        updateHeight();
+
+        const ro = new ResizeObserver(updateHeight);
+        ro.observe(stickyEl);
+
+        window.addEventListener('resize', updateHeight);
+
+        return () => {
+            ro.disconnect();
+            window.removeEventListener('resize', updateHeight);
+        };
+    });
 </script>
 
 <svelte:head>
@@ -15,29 +40,29 @@
     />
 </svelte:head>
 
-<div class="min-h-screen flex flex-col">
-    <div class="sticky top-0 z-50">
+<div class="flex min-h-screen flex-col">
+    <div bind:this={stickyEl} class="sticky top-0 z-50">
         <AnnouncementBar settings={data.settings} />
         <Header settings={data.settings} />
     </div>
 
-	<main class="flex-1 font-nunito">
-		{@render children()}
-	</main>
+    <main class="flex-1 font-nunito">
+        {@render children()}
+    </main>
 
     <Footer settings={data.settings} />
 </div>
 
 <style>
-	:global(html) {
-		scroll-behavior: smooth;
-	}
+    :global(html) {
+        scroll-behavior: smooth;
+    }
 
-	:global(body) {
-		font-family: 'Nunito', sans-serif;
-	}
+    :global(body) {
+        font-family: 'Nunito', sans-serif;
+    }
 
-	:global(h1, h2, h3) {
-		font-family: 'Playfair Display', serif;
-	}
+    :global(h1, h2, h3) {
+        font-family: 'Playfair Display', serif;
+    }
 </style>
