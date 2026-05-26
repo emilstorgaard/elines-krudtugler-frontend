@@ -1,13 +1,13 @@
 services:
   frontend:
-    #build:
-    #  context: .
-    #  dockerfile: Dockerfile
-    #image: elines-krudtugler-frontend:latest
-    image: ghcr.io/emilstorgaard/elines-krudtugler-frontend:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elines-krudtugler-frontend:latest
+    #image: ghcr.io/emilstorgaard/elines-krudtugler-frontend:v1
     container_name: elines_krudtugler_frontend
     ports:
       - '8480:3000'
     restart: unless-stopped
-    environment:
-      - PUBLIC_UMBRACO_URL=https://cms.emilstorgaard.dk
+    #environment:
+    #  - PUBLIC_UMBRACO_URL=https://cms.emilstorgaard.dk

@@ -3,8 +3,8 @@ FROM node:lts-alpine AS builder
 
 WORKDIR /usr/src/app
 
-ARG PUBLIC_UMBRACO_URL
-ENV PUBLIC_UMBRACO_URL=$PUBLIC_UMBRACO_URL
+#ARG PUBLIC_UMBRACO_URL
+#ENV PUBLIC_UMBRACO_URL=$PUBLIC_UMBRACO_URL
 
 COPY package.json package-lock.json .npmrc ./
 RUN npm ci
