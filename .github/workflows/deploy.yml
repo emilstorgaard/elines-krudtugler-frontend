@@ -25,6 +25,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/elines-krudtugler-frontend:v1
+        env:
+          PUBLIC_UMBRACO_URL: ${{ vars.PUBLIC_UMBRACO_URL }}
 
   deploy:
     runs-on: ubuntu-latest
