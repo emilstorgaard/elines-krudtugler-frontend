@@ -9,5 +9,5 @@ services:
     ports:
       - '8480:3000'
     restart: unless-stopped
-    #environment:
-    #  - PUBLIC_UMBRACO_URL=https://cms.emilstorgaard.dk
+    environment:
+      - PUBLIC_UMBRACO_URL=https://cms.emilstorgaard.dk
