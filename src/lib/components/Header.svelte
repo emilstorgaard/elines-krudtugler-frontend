@@ -61,7 +61,7 @@
                     <span
                         class="block truncate text-base leading-tight font-bold text-gray-500 sm:text-xl md:text-2xl lg:text-3xl"
                     >
-                        (test pipeline) {s.siteName}
+                        (test2 pipeline) {s.siteName}
                     </span>
                     <span
                         class="block truncate text-[10px] font-medium tracking-wide text-brand-600 sm:text-xs md:text-sm lg:text-base"
