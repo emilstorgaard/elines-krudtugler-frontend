@@ -4,7 +4,7 @@ services:
     #  context: .
     #  dockerfile: Dockerfile
     #image: elines-krudtugler-frontend:latest
-    image: ghcr.io/emilstorgaard/elines-krudtugler-frontend:v1
+    image: ghcr.io/emilstorgaard/elines-krudtugler-frontend:latest
     container_name: elines_krudtugler_frontend
     ports:
       - '8480:3000'
