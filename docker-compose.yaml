@@ -9,5 +9,3 @@ services:
     ports:
       - '8480:3000'
     restart: unless-stopped
-    env_file:
-      - .env
