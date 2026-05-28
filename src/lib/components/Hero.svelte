@@ -15,7 +15,14 @@
     const p = $derived(page.properties);
     const s = $derived(settings.properties);
 
-    const heroImages = $derived(p.heroImages?.map((img) => getMediaUrl(img.url)) ?? []);
+    const heroImages = $derived.by(() => {
+        const imgs = p.heroImages?.map((img) => getMediaUrl(img.url)) ?? [];
+        for (let i = imgs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [imgs[i], imgs[j]] = [imgs[j], imgs[i]];
+        }
+        return imgs;
+    });
 
     const heroNavLinks = $derived(s.navLinks?.items?.map((item) => item.content.properties) ?? []);
 
