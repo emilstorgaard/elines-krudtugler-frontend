@@ -16,7 +16,8 @@ export async function getContentByPath(path: string, fetchFn: typeof fetch = fet
 
 export function getMediaUrl(relativeUrl: string): string {
   if (!relativeUrl) return '';
-  return `${PUBLIC_UMBRACO_URL}${relativeUrl}`;
+  const base = relativeUrl.startsWith('http') ? relativeUrl : `${PUBLIC_UMBRACO_URL}${relativeUrl}`;
+  return `${base}?width=1000&format=webp&quality=75`;
 }
 
 export async function getMediaInFolder(folderId: string, take = 24, skip = 0):
@@ -30,7 +31,7 @@ export async function getMediaInFolder(folderId: string, take = 24, skip = 0):
   const items: UmbracoMedia[] = (data.items ?? []).map((item: any) => ({
     id: item.id,
     name: item.name,
-    url: item.url ?? '',
+    url: getMediaUrl(item.url ?? ''),
     width: item.width ?? 0,
     height: item.height ?? 0,
   }));
