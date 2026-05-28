@@ -20,7 +20,7 @@ export function getMediaUrl(relativeUrl: string): string {
   return `${base}?width=1000&format=webp&quality=75`;
 }
 
-export async function getMediaInFolder(folderId: string, take = 24, skip = 0):
+export async function getMediaInFolder(folderId: string, take = 15, skip = 0):
   Promise<{ items: UmbracoMedia[]; total: number }> {
   const res = await fetch(`/api/media/${folderId}?take=${take}&skip=${skip}`);
 
