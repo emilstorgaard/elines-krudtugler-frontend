@@ -1,9 +1,10 @@
 import type { SeoProperties } from './seo';
 
 export type AvailabilityPageProperties = SeoProperties & {
-    mainHeading: string;
-    mainHeadingHighlight: string;
-    introText: string;
+    pageTitle: string;
+    pageTitleHighlight: string;
+    pageIntro: string;
+    
     statusBadge: string;
     sectionHeading: string;
     descriptionParagraph1: string;

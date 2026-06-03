@@ -7,17 +7,18 @@
 </script>
 
 <div class="px-4 sm:px-6">
-    <div class="text-center">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
-            {p.mainHeading}
-            <span class="text-brand-600">{p.mainHeadingHighlight}</span>
-        </h1>
-    </div>
-    <p
-        class="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg"
-    >
-        {p.introText}
-    </p>
+	<div class="text-center">
+		<h1 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl md:text-5xl">
+			{p.pageTitle}
+			<span class="text-brand-600">{p.pageTitleHighlight}</span>
+		</h1>
+	</div>
+
+	<p
+		class="mx-auto mt-3 max-w-2xl text-center text-base leading-relaxed text-gray-600 sm:mt-4 sm:text-lg"
+	>
+		{p.pageIntro}
+	</p>
 
     <div
         class="my-8 overflow-hidden rounded-2xl bg-white shadow-[0_20px_60px_-25px_rgba(0,0,0,0.18)] ring-1 ring-black/5 sm:my-14 sm:rounded-4xl"
