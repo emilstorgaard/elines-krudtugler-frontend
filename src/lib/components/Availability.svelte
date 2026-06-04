@@ -153,9 +153,9 @@
 														{formatDate(spot.date)}
 													</span>
 
-													<!-- Antal pladser badge -->
+													<!-- Antal pladser badge - KUN MOBIL (skjult på sm+) -->
 													<span
-														class="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700 ring-1 ring-green-200"
+														class="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 sm:hidden"
 													>
 														<span class="relative flex h-1.5 w-1.5">
 															<span
@@ -170,6 +170,21 @@
 													</span>
 												</div>
 											</div>
+
+											<!-- Antal pladser badge - KUN DESKTOP (helt til højre) -->
+											<span
+												class="ml-auto hidden flex-shrink-0 items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-sm font-semibold text-green-700 ring-1 ring-green-200 sm:inline-flex"
+											>
+												<span class="relative flex h-2 w-2">
+													<span
+														class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+													></span>
+													<span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"
+													></span>
+												</span>
+												{spot.spots}
+												{spot.spots === 1 ? 'plads' : 'pladser'}
+											</span>
 										</div>
 									</li>
 								{/each}
