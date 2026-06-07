@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './layout.css';
+	import '$lib/styles/app.css';
 	import { onMount } from 'svelte';
 	import { getMediaUrl } from '$lib/api/umbraco';
 	import Header from '$lib/components/Header.svelte';
