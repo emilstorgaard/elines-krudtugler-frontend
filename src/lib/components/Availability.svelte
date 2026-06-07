@@ -147,9 +147,7 @@
 												<div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
 													<!-- Fuld dato -->
 													<span
-														class="inline-flex items-center gap-1 text-xs sm:text-sm {spot.status === 'Reserveret'
-															? 'text-yellow-500'
-															: 'text-gray-500'}"
+														class="inline-flex items-center gap-1 text-xs sm:text-sm text-gray-500"
 													>
 														<svg
 															xmlns="http://www.w3.org/2000/svg"
