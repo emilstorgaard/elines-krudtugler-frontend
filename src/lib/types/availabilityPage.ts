@@ -14,7 +14,7 @@ export type AvailabilityPageProperties = SeoProperties & {
     buttonLink: string;
 
     availableSpotsHeading: string;
-    availableSpots?: BlockList<AvailableSpotBlock>;
+    spotsList?: BlockList<SpotBlock>;
 };
 
 export type AvailabilityPage = {
@@ -24,17 +24,12 @@ export type AvailabilityPage = {
     properties: AvailabilityPageProperties;
 };
 
-export type AvailableSpot = {
-    description: string;
-    date: string;
-    spots: number;
-};
-
-export type AvailableSpotBlock = {
+export type SpotBlock = {
     content: {
         contentType: string;
         id: string;
         properties: {
+            status: 'Ledig' | 'Reserveret';
             description: string;
             date: string;
             spots: number;

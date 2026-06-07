@@ -15,8 +15,8 @@
 		return new Date(dateStr).toLocaleDateString('da-DK', { month: 'short' });
 	}
 
-	const availableSpots = $derived(
-		p.availableSpots?.items?.map((item) => item.content.properties) ?? []
+	const spotsList = $derived(
+		p.spotsList?.items?.map((item) => item.content.properties) ?? []
 	);
 </script>
 
@@ -96,33 +96,45 @@
 						</svg>
 					</a>
 
-					<!-- Ledige pladser -->
-					{#if availableSpots.length}
+					<!-- Pladser -->
+					{#if spotsList.length}
 						<div class="border-t border-gray-100 pt-5 sm:pt-6">
 							<h3 class="mb-4 text-base font-bold tracking-tight text-gray-800 sm:text-lg">
 								{p.availableSpotsHeading}
 							</h3>
 							<ul class="space-y-3">
-								{#each availableSpots as spot}
+								{#each spotsList as spot}
 									<li
-										class="group relative overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-gray-200 transition-all duration-200 hover:shadow-md hover:ring-brand-300 sm:p-5"
+										class="group relative overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-gray-200 transition-all duration-200 sm:p-5 {spot.status === 'Reserveret'
+											? 'hover:shadow-md hover:ring-yellow-300'
+											: 'hover:shadow-md hover:ring-brand-300'}"
 									>
 										<!-- Dekorativ venstre-bar -->
 										<div
-											class="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-brand-400 to-brand-600"
+											class="absolute top-0 left-0 h-full w-1 bg-gradient-to-b {spot.status === 'Reserveret'
+												? 'from-yellow-400 to-yellow-600'
+												: 'from-brand-400 to-brand-600'}"
 										></div>
 
 										<div class="flex items-start gap-3 sm:items-center sm:gap-4">
 											<!-- Måned + år badge -->
 											<div
-												class="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-xl bg-brand-50 ring-1 ring-brand-100 sm:h-16 sm:w-16"
+												class="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-xl ring-1 sm:h-16 sm:w-16 {spot.status === 'Reserveret'
+													? 'bg-yellow-50 ring-yellow-100'
+													: 'bg-brand-50 ring-brand-100'}"
 											>
 												<span
-													class="text-[10px] font-bold tracking-wider text-brand-500 uppercase sm:text-xs"
+													class="text-[10px] font-bold tracking-wider uppercase sm:text-xs {spot.status === 'Reserveret'
+														? 'text-yellow-500'
+														: 'text-brand-500'}"
 												>
 													{formatShortMonth(spot.date)}
 												</span>
-												<span class="text-base leading-none font-bold text-brand-600 sm:text-lg">
+												<span
+													class="text-base leading-none font-bold sm:text-lg {spot.status === 'Reserveret'
+														? 'text-yellow-600'
+														: 'text-brand-600'}"
+												>
 													{new Date(spot.date).getFullYear()}
 												</span>
 											</div>
@@ -135,7 +147,9 @@
 												<div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
 													<!-- Fuld dato -->
 													<span
-														class="inline-flex items-center gap-1 text-xs text-gray-500 sm:text-sm"
+														class="inline-flex items-center gap-1 text-xs sm:text-sm {spot.status === 'Reserveret'
+															? 'text-yellow-500'
+															: 'text-gray-500'}"
 													>
 														<svg
 															xmlns="http://www.w3.org/2000/svg"
@@ -153,16 +167,22 @@
 														{formatDate(spot.date)}
 													</span>
 
-													<!-- Antal pladser badge - KUN MOBIL (skjult på sm+) -->
+													<!-- Antal pladser badge - KUN MOBIL -->
 													<span
-														class="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700 ring-1 ring-green-200 sm:hidden"
+														class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 sm:hidden {spot.status === 'Reserveret'
+															? 'bg-yellow-50 text-yellow-700 ring-yellow-200'
+															: 'bg-green-50 text-green-700 ring-green-200'}"
 													>
 														<span class="relative flex h-1.5 w-1.5">
 															<span
-																class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+																class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 {spot.status === 'Reserveret'
+																	? 'bg-yellow-400'
+																	: 'bg-green-400'}"
 															></span>
 															<span
-																class="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500"
+																class="relative inline-flex h-1.5 w-1.5 rounded-full {spot.status === 'Reserveret'
+																	? 'bg-yellow-500'
+																	: 'bg-green-500'}"
 															></span>
 														</span>
 														{spot.spots}
@@ -171,15 +191,22 @@
 												</div>
 											</div>
 
-											<!-- Antal pladser badge - KUN DESKTOP (helt til højre) -->
+											<!-- Antal pladser badge - KUN DESKTOP -->
 											<span
-												class="ml-auto hidden flex-shrink-0 items-center gap-1.5 rounded-full bg-green-50 px-3 py-1.5 text-sm font-semibold text-green-700 ring-1 ring-green-200 sm:inline-flex"
+												class="ml-auto hidden flex-shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold ring-1 sm:inline-flex {spot.status === 'Reserveret'
+													? 'bg-yellow-50 text-yellow-700 ring-yellow-200'
+													: 'bg-green-50 text-green-700 ring-green-200'}"
 											>
 												<span class="relative flex h-2 w-2">
 													<span
-														class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+														class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 {spot.status === 'Reserveret'
+															? 'bg-yellow-400'
+															: 'bg-green-400'}"
 													></span>
-													<span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"
+													<span
+														class="relative inline-flex h-2 w-2 rounded-full {spot.status === 'Reserveret'
+															? 'bg-yellow-500'
+															: 'bg-green-500'}"
 													></span>
 												</span>
 												{spot.spots}
