@@ -42,7 +42,7 @@
 			<div class="relative p-5 sm:p-8 md:p-12">
 				<!-- Baggrundsgradient -->
 				<div
-					class="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-50/70 via-transparent to-transparent"
+					class="pointer-events-none absolute inset-0 bg-linear-to-br from-brand-50/70 via-transparent to-transparent"
 				></div>
 
 				<div class="relative mx-auto max-w-2xl space-y-5 sm:space-y-6">
@@ -59,7 +59,7 @@
 							{p.sectionHeading}
 						</h2>
 						<div
-							class="h-1 w-12 rounded-full bg-gradient-to-r from-brand-400 to-brand-600 sm:w-16"
+							class="h-1 w-12 rounded-full bg-linear-to-br from-brand-400 to-brand-600 sm:w-16"
 						></div>
 					</div>
 
@@ -111,7 +111,7 @@
 									>
 										<!-- Dekorativ venstre-bar -->
 										<div
-											class="absolute top-0 left-0 h-full w-1 bg-gradient-to-b {spot.status === 'Reserveret'
+											class="absolute top-0 left-0 h-full w-1 bg-linear-to-br {spot.status === 'Reserveret'
 												? 'from-yellow-400 to-yellow-600'
 												: 'from-brand-400 to-brand-600'}"
 										></div>
@@ -119,7 +119,7 @@
 										<div class="flex items-start gap-3 sm:items-center sm:gap-4">
 											<!-- Måned + år badge -->
 											<div
-												class="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-xl ring-1 sm:h-16 sm:w-16 {spot.status === 'Reserveret'
+												class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl ring-1 sm:h-16 sm:w-16 {spot.status === 'Reserveret'
 													? 'bg-yellow-50 ring-yellow-100'
 													: 'bg-brand-50 ring-brand-100'}"
 											>
@@ -193,7 +193,7 @@
 
 											<!-- Antal pladser badge - KUN DESKTOP -->
 											<span
-												class="ml-auto hidden flex-shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold ring-1 sm:inline-flex {spot.status === 'Reserveret'
+												class="ml-auto hidden shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold ring-1 sm:inline-flex {spot.status === 'Reserveret'
 													? 'bg-yellow-50 text-yellow-700 ring-yellow-200'
 													: 'bg-green-50 text-green-700 ring-green-200'}"
 											>
