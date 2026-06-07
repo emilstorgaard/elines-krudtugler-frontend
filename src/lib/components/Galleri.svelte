@@ -12,7 +12,7 @@
 	let loading = $state(false);
 	let allLoaded = $state(false);
 	let skip = 0;
-	const take = 24;
+	const take = 12;
 
 	let sentinel: HTMLDivElement;
 

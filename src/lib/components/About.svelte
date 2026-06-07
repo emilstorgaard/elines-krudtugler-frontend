@@ -63,6 +63,8 @@
 			<img
 				src={getMediaUrl(images[0].url)}
 				alt={images[0].name}
+				loading="lazy"
+				decoding="async"
 				class="relative h-80 w-full rounded-2xl object-cover shadow-xl sm:h-96 md:h-122"
 			/>
 		{:else if images.length === 2}
@@ -70,11 +72,15 @@
 				<img
 					src={getMediaUrl(images[0].url)}
 					alt={images[0].name}
+					loading="lazy"
+					decoding="async"
 					class="absolute top-0 left-0 h-[calc(50%-0.375rem)] w-3/5 rounded-2xl object-cover shadow-xl"
 				/>
 				<img
 					src={getMediaUrl(images[1].url)}
 					alt={images[1].name}
+					loading="lazy"
+					decoding="async"
 					class="absolute right-0 bottom-0 h-[calc(50%-0.375rem)] w-3/5 rounded-2xl object-cover shadow-xl"
 				/>
 			</div>
@@ -83,6 +89,8 @@
 				<img
 					src={getMediaUrl(images[0].url)}
 					alt={images[0].name}
+					loading="lazy"
+					decoding="async"
 					class="row-span-2 h-full min-h-60 w-full rounded-2xl object-cover shadow-xl sm:min-h-80"
 					style="max-height: 30rem;"
 				/>
@@ -91,6 +99,8 @@
 						<img
 							src={getMediaUrl(img.url)}
 							alt={img.name}
+							loading="lazy"
+							decoding="async"
 							class="h-full w-full rounded-2xl object-cover shadow-xl"
 							style="max-height: {Math.round(480 / (images.length - 1))}px;"
 						/>
@@ -137,12 +147,12 @@
 			<div
 				class="absolute -bottom-4 -left-2 flex items-center gap-2 rounded-xl bg-white px-3 py-2 shadow-lg ring-1 ring-gray-100 sm:-bottom-5 sm:-left-5 sm:gap-3 sm:rounded-2xl sm:px-5 sm:py-4"
 			>
-			{#if p.experienceLabel && p.experienceValue}
-				<div>
-					<p class="text-[10px] font-medium text-gray-500 sm:text-xs">{p.experienceLabel}</p>
-					<p class="text-sm font-bold text-gray-800 sm:text-lg">{p.experienceValue}</p>
-				</div>
-			{/if}
+				{#if p.experienceLabel && p.experienceValue}
+					<div>
+						<p class="text-[10px] font-medium text-gray-500 sm:text-xs">{p.experienceLabel}</p>
+						<p class="text-sm font-bold text-gray-800 sm:text-lg">{p.experienceValue}</p>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -311,6 +321,8 @@
 		<img
 			src={getMediaUrl(lightboxImages[lightboxIndex].url)}
 			alt={lightboxImages[lightboxIndex].name}
+			loading="lazy"
+			decoding="async"
 			class="pointer-events-none relative max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
 		/>
 

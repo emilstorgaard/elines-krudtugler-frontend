@@ -15,5 +15,9 @@ export const GET: RequestHandler = async ({ params, url }) => {
     }
 
     const data = await res.json();
-    return json(data);
+    return json(data, {
+        headers: {
+            'Cache-Control': 'public, max-age=300'
+        }
+    });
 };

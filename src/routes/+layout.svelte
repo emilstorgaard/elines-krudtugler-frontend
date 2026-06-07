@@ -1,68 +1,66 @@
 <script lang="ts">
-    import './layout.css';
-    import { onMount } from 'svelte';
-    import Header from '$lib/components/Header.svelte';
-    import Footer from '$lib/components/Footer.svelte';
-    import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
-    let { children, data } = $props();
+	import './layout.css';
+	import { onMount } from 'svelte';
+	import { getMediaUrl } from '$lib/api/umbraco';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
+	let { children, data } = $props();
 
-    let stickyEl: HTMLDivElement;
+	const logoUrl = $derived(
+		data.settings.properties.logo?.[0]?.url
+			? getMediaUrl(data.settings.properties.logo[0].url)
+			: null
+	);
 
-    onMount(() => {
-        const updateHeight = () => {
-            if (!stickyEl) return;
-            document.documentElement.style.setProperty(
-                '--header-total-h',
-                `${stickyEl.offsetHeight}px`
-            );
-        };
+	let stickyEl: HTMLDivElement;
 
-        updateHeight();
+	onMount(() => {
+		const updateHeight = () => {
+			if (!stickyEl) return;
+			document.documentElement.style.setProperty('--header-total-h', `${stickyEl.offsetHeight}px`);
+		};
 
-        const ro = new ResizeObserver(updateHeight);
-        ro.observe(stickyEl);
+		updateHeight();
 
-        window.addEventListener('resize', updateHeight);
+		const ro = new ResizeObserver(updateHeight);
+		ro.observe(stickyEl);
 
-        return () => {
-            ro.disconnect();
-            window.removeEventListener('resize', updateHeight);
-        };
-    });
+		return () => {
+			ro.disconnect();
+		};
+	});
 </script>
 
 <svelte:head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    />
+	{#if logoUrl}
+		<link rel="preload" as="image" href={logoUrl} fetchpriority="high" />
+	{/if}
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
-    <div bind:this={stickyEl} class="sticky top-0 z-50">
-        <AnnouncementBar settings={data.settings} />
-        <Header settings={data.settings} />
-    </div>
+	<div bind:this={stickyEl} class="sticky top-0 z-50">
+		<AnnouncementBar settings={data.settings} />
+		<Header settings={data.settings} />
+	</div>
 
-    <main class="flex-1 font-nunito">
-        {@render children()}
-    </main>
+	<main class="font-nunito flex-1">
+		{@render children()}
+	</main>
 
-    <Footer settings={data.settings} />
+	<Footer settings={data.settings} />
 </div>
 
 <style>
-    :global(html) {
-        scroll-behavior: smooth;
-    }
+	:global(html) {
+		scroll-behavior: smooth;
+	}
 
-    :global(body) {
-        font-family: 'Nunito', sans-serif;
-    }
+	:global(body) {
+		font-family: 'Nunito', sans-serif;
+	}
 
-    :global(h1, h2, h3) {
-        font-family: 'Playfair Display', serif;
-    }
+	:global(h1, h2, h3) {
+		font-family: 'Playfair Display', serif;
+	}
 </style>
