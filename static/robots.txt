@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dp.emilstorgaard.dk/sitemap.xml
+Sitemap: https://elineskrudtugler.dk/sitemap.xml

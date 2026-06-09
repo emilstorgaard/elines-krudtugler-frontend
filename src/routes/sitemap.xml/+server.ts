@@ -10,7 +10,7 @@ const pages = [
     { path: '/kontakt', priority: '0.8', changefreq: 'monthly' },
 ];
 
-const SITE_URL = 'https://dp.emilstorgaard.dk';
+const SITE_URL = 'https://elineskrudtugler.dk';
 
 export const GET: RequestHandler = () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
