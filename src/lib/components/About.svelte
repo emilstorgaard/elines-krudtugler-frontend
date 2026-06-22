@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getMediaUrl } from '$lib/api/umbraco';
+	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
 	import type { AboutPage } from '$lib/types/aboutPage';
 
 	let { page }: { page: AboutPage } = $props();
@@ -14,6 +14,22 @@
 
 	let lightboxImages = $state<Array<{ url: string; name: string }>>([]);
 	let lightboxIndex = $state<number | null>(null);
+
+	function gallerySrc(url: string) {
+		return mediaSrc(url, 'aboutGallery');
+	}
+
+	function gallerySrcset(url: string) {
+		return mediaSrcset(url, 'aboutGallery');
+	}
+
+	function lightboxSrc(url: string) {
+		return mediaSrc(url, 'lightbox');
+	}
+
+	function lightboxSrcset(url: string) {
+		return mediaSrcset(url, 'lightbox');
+	}
 
 	function openLightbox(images: Array<{ url: string; name: string }>, index: number) {
 		lightboxImages = images;
@@ -47,6 +63,35 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
+{#if lightboxIndex !== null && lightboxImages.length > 1}
+	<img
+		src={lightboxSrc(lightboxImages[(lightboxIndex + 1) % lightboxImages.length].url)}
+		srcset={lightboxSrcset(lightboxImages[(lightboxIndex + 1) % lightboxImages.length].url)}
+		alt=""
+		aria-hidden="true"
+		width="1920"
+		height="1280"
+		class="sr-only"
+		loading="eager"
+		fetchpriority="low"
+	/>
+	<img
+		src={lightboxSrc(
+			lightboxImages[(lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length].url
+		)}
+		srcset={lightboxSrcset(
+			lightboxImages[(lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length].url
+		)}
+		alt=""
+		aria-hidden="true"
+		width="1920"
+		height="1280"
+		class="sr-only"
+		loading="eager"
+		fetchpriority="low"
+	/>
+{/if}
+
 {#snippet imageGallery(images: typeof aboutImages, borderSide: 'left' | 'right')}
 	<div class="relative">
 		<div
@@ -61,8 +106,12 @@
 			<!-- Nothing to render -->
 		{:else if images.length === 1}
 			<img
-				src={getMediaUrl(images[0].url)}
+				src={gallerySrc(images[0].url)}
+				srcset={gallerySrcset(images[0].url)}
+				sizes="(min-width: 768px) 50vw, 100vw"
 				alt={images[0].name}
+				width="960"
+				height="720"
 				loading="lazy"
 				decoding="async"
 				class="relative h-80 w-full rounded-2xl object-cover shadow-xl sm:h-96 md:h-122"
@@ -70,15 +119,23 @@
 		{:else if images.length === 2}
 			<div class="relative h-72 sm:h-96 md:h-112">
 				<img
-					src={getMediaUrl(images[0].url)}
+					src={gallerySrc(images[0].url)}
+					srcset={gallerySrcset(images[0].url)}
+					sizes="(min-width: 768px) 30vw, 60vw"
 					alt={images[0].name}
+					width="960"
+					height="720"
 					loading="lazy"
 					decoding="async"
 					class="absolute top-0 left-0 h-[calc(50%-0.375rem)] w-3/5 rounded-2xl object-cover shadow-xl"
 				/>
 				<img
-					src={getMediaUrl(images[1].url)}
+					src={gallerySrc(images[1].url)}
+					srcset={gallerySrcset(images[1].url)}
+					sizes="(min-width: 768px) 30vw, 60vw"
 					alt={images[1].name}
+					width="960"
+					height="720"
 					loading="lazy"
 					decoding="async"
 					class="absolute right-0 bottom-0 h-[calc(50%-0.375rem)] w-3/5 rounded-2xl object-cover shadow-xl"
@@ -87,8 +144,12 @@
 		{:else}
 			<div class="relative grid grid-cols-2 gap-2">
 				<img
-					src={getMediaUrl(images[0].url)}
+					src={gallerySrc(images[0].url)}
+					srcset={gallerySrcset(images[0].url)}
+					sizes="(min-width: 768px) 25vw, 50vw"
 					alt={images[0].name}
+					width="960"
+					height="1200"
 					loading="lazy"
 					decoding="async"
 					class="row-span-2 h-full min-h-60 w-full rounded-2xl object-cover shadow-xl sm:min-h-80"
@@ -97,8 +158,12 @@
 				<div class="grid gap-2" style="grid-template-rows: repeat({images.length - 1}, 1fr);">
 					{#each images.slice(1) as img}
 						<img
-							src={getMediaUrl(img.url)}
+							src={gallerySrc(img.url)}
+							srcset={gallerySrcset(img.url)}
+							sizes="(min-width: 768px) 25vw, 50vw"
 							alt={img.name}
+							width="960"
+							height="600"
 							loading="lazy"
 							decoding="async"
 							class="h-full w-full rounded-2xl object-cover shadow-xl"
@@ -177,7 +242,6 @@
 		</div>
 	</div>
 
-	<!-- Location -->
 	<div class="mb-16 grid items-center gap-8 sm:gap-12 md:mb-20 md:grid-cols-2">
 		<div class="order-2 space-y-6 md:order-1">
 			<div>
@@ -197,7 +261,6 @@
 		</div>
 	</div>
 
-	<!-- Animals -->
 	<div class="mb-16 grid items-center gap-8 sm:gap-12 md:mb-20 md:grid-cols-2">
 		<div class="order-2 space-y-6 md:order-2">
 			<div>
@@ -217,7 +280,6 @@
 		</div>
 	</div>
 
-	<!-- Values -->
 	<div class="mb-12 rounded-2xl bg-white p-5 shadow-sm sm:mb-20 sm:rounded-3xl sm:p-8 md:p-12">
 		<div class="mb-6 text-center sm:mb-10">
 			<h3 class="text-2xl font-bold text-gray-800 sm:text-3xl md:text-4xl">
@@ -251,7 +313,6 @@
 		{/if}
 	</div>
 
-	<!-- Educational -->
 	<div class="rounded-2xl bg-white p-5 shadow-sm sm:rounded-3xl sm:p-8 md:p-12">
 		<div class="mb-6 text-center sm:mb-10">
 			<p class="mx-auto mt-3 max-w-2xl text-sm text-gray-600 sm:text-base">
@@ -268,7 +329,17 @@
 					onclick={() => openLightbox(educationalImages, i)}
 					class="aspect-210/297 w-[75%] shrink-0 cursor-pointer snap-center overflow-hidden rounded-xl transition hover:opacity-90 sm:mx-auto sm:w-full sm:max-w-xs sm:shrink"
 				>
-					<img src={getMediaUrl(image.url)} alt={image.name} class="h-full w-full object-cover" />
+					<img
+						src={gallerySrc(image.url)}
+						srcset={gallerySrcset(image.url)}
+						sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 75vw"
+						alt={image.name}
+						width="210"
+						height="297"
+						loading="lazy"
+						decoding="async"
+						class="h-full w-full object-cover"
+					/>
 				</button>
 			{/each}
 		</div>
@@ -319,10 +390,14 @@
 		{/if}
 
 		<img
-			src={getMediaUrl(lightboxImages[lightboxIndex].url)}
+			src={lightboxSrc(lightboxImages[lightboxIndex].url)}
+			srcset={lightboxSrcset(lightboxImages[lightboxIndex].url)}
+			sizes="90vw"
 			alt={lightboxImages[lightboxIndex].name}
-			loading="lazy"
+			width="1920"
+			height="1280"
 			decoding="async"
+			fetchpriority="high"
 			class="pointer-events-none relative max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
 		/>
 

@@ -60,7 +60,6 @@
 								class="h-1 bg-linear-to-r from-brand-400 via-brand-500 to-brand-600 sm:h-1.5"
 							></div>
 							<div class="">
-								<!-- px-5 py-1 sm:px-8 md:px-10 sm:py-2 -->
 								{#if p.pricingDiscountLabel && p.pricingDiscountValue}
 									<div
 										class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-gray-100 py-4 sm:py-5"

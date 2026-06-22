@@ -1,17 +1,16 @@
 <script lang="ts">
 	import '$lib/styles/app.css';
 	import { onMount } from 'svelte';
-	import { getMediaUrl } from '$lib/api/umbraco';
+	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
 	let { children, data } = $props();
 
-	const logoUrl = $derived(
-		data.settings.properties.logo?.[0]?.url
-			? getMediaUrl(data.settings.properties.logo[0].url)
-			: null
-	);
+	const logoRawUrl = $derived(data.settings.properties.logo?.[0]?.url ?? null);
+
+	const logoSrc = $derived(logoRawUrl ? mediaSrc(logoRawUrl, 'headerLogo') : null);
+	const logoSrcset = $derived(logoRawUrl ? mediaSrcset(logoRawUrl, 'headerLogo') : null);
 
 	let stickyEl: HTMLDivElement;
 
@@ -33,8 +32,15 @@
 </script>
 
 <svelte:head>
-	{#if logoUrl}
-		<link rel="preload" as="image" href={logoUrl} fetchpriority="high" />
+	{#if logoSrc}
+		<link
+			rel="preload"
+			as="image"
+			href={logoSrc}
+			imagesrcset={logoSrcset}
+			imagesizes="96px"
+			fetchpriority="high"
+		/>
 	{/if}
 </svelte:head>
 

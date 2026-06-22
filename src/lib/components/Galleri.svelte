@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getMediaUrl, getMediaInFolder } from '$lib/api/umbraco';
+	import { getMediaInFolder } from '$lib/api/umbraco';
+	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
 	import type { GalleryPage } from '$lib/types/galleryPage';
 	import type { UmbracoMedia } from '$lib/types/umbraco';
 
@@ -15,6 +16,14 @@
 	const take = 12;
 
 	let sentinel: HTMLDivElement;
+
+	function gridSrc(url: string) {
+		return mediaSrc(url, 'galleryGrid');
+	}
+
+	function gridSrcset(url: string) {
+		return mediaSrcset(url, 'galleryGrid');
+	}
 
 	async function loadMore() {
 		const folder = Array.isArray(p.imageFolder) ? p.imageFolder[0] : p.imageFolder;
@@ -66,15 +75,18 @@
 	</p>
 
 	{#if images.length > 0}
-		<!-- Rettet: Nu maks 3 kolonner (sm:grid-cols-3) i stedet for 4 på store skærme -->
 		<div class="my-8 grid grid-cols-2 gap-2 sm:my-14 sm:grid-cols-3 sm:gap-4">
 			{#each images as image (image.id)}
 				<div
 					class="group relative overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 sm:rounded-3xl"
 				>
 					<img
-						src={getMediaUrl(image.url)}
+						src={gridSrc(image.url)}
+						srcset={gridSrcset(image.url)}
+						sizes="(min-width: 640px) 33vw, 50vw"
 						alt={getAltText(image.name)}
+						width={image.width || 640}
+						height={image.height || 640}
 						loading="lazy"
 						decoding="async"
 						class="block aspect-square w-full object-cover transition duration-500 group-hover:scale-105"

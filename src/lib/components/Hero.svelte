@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { getMediaUrl } from '$lib/api/umbraco';
+	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
 	import type { HomePage } from '$lib/types/homePage';
 	import type { Settings } from '$lib/types/settings';
 
@@ -21,7 +21,15 @@
 	let currentIndex = $state(0);
 	let isPaused = $state(false);
 
-	const heroImages = $derived(p.heroImages?.map((img) => getMediaUrl(img.url)) ?? []);
+	const heroImages = $derived(p.heroImages?.map((img) => img.url) ?? []);
+
+	function srcsetFor(url: string) {
+		return mediaSrcset(url, 'hero');
+	}
+
+	function srcFor(url: string) {
+		return mediaSrc(url, 'hero');
+	}
 
 	onMount(() => {
 		const handleVisibility = () => {
@@ -56,9 +64,10 @@
 	aria-label="Velkommen"
 >
 	<div class="absolute inset-0" aria-hidden="true">
-		{#each heroImages as src, i (src)}
+		{#each heroImages as url, i (url)}
 			<img
-				{src}
+				src={srcFor(url)}
+				srcset={srcsetFor(url)}
 				alt=""
 				width="1920"
 				height="1080"
