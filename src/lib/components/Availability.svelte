@@ -107,13 +107,17 @@
 									<li
 										class="group relative overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-gray-200 transition-all duration-200 sm:p-5 {spot.status === 'Reserveret'
 											? 'hover:shadow-md hover:ring-yellow-300'
-											: 'hover:shadow-md hover:ring-brand-300'}"
+											: spot.status === 'Optaget'
+												? 'hover:shadow-md hover:ring-red-300'
+												: 'hover:shadow-md hover:ring-brand-300'}"
 									>
 										<!-- Dekorativ venstre-bar -->
 										<div
 											class="absolute top-0 left-0 h-full w-1 bg-linear-to-br {spot.status === 'Reserveret'
 												? 'from-yellow-400 to-yellow-600'
-												: 'from-brand-400 to-brand-600'}"
+												: spot.status === 'Optaget'
+													? 'from-red-400 to-red-600'
+													: 'from-brand-400 to-brand-600'}"
 										></div>
 
 										<div class="flex items-start gap-3 sm:items-center sm:gap-4">
@@ -121,19 +125,25 @@
 											<div
 												class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl ring-1 sm:h-16 sm:w-16 {spot.status === 'Reserveret'
 													? 'bg-yellow-50 ring-yellow-100'
-													: 'bg-brand-50 ring-brand-100'}"
+													: spot.status === 'Optaget'
+														? 'bg-red-50 ring-red-100'
+														: 'bg-brand-50 ring-brand-100'}"
 											>
 												<span
 													class="text-[10px] font-bold tracking-wider uppercase sm:text-xs {spot.status === 'Reserveret'
 														? 'text-yellow-500'
-														: 'text-brand-500'}"
+														: spot.status === 'Optaget'
+															? 'text-red-500'
+															: 'text-brand-500'}"
 												>
 													{formatShortMonth(spot.date)}
 												</span>
 												<span
 													class="text-base leading-none font-bold sm:text-lg {spot.status === 'Reserveret'
 														? 'text-yellow-600'
-														: 'text-brand-600'}"
+														: spot.status === 'Optaget'
+															? 'text-red-600'
+															: 'text-brand-600'}"
 												>
 													{new Date(spot.date).getFullYear()}
 												</span>
@@ -169,18 +179,24 @@
 													<span
 														class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 sm:hidden {spot.status === 'Reserveret'
 															? 'bg-yellow-50 text-yellow-700 ring-yellow-200'
-															: 'bg-green-50 text-green-700 ring-green-200'}"
+															: spot.status === 'Optaget'
+																? 'bg-red-50 text-red-700 ring-red-200'
+																: 'bg-green-50 text-green-700 ring-green-200'}"
 													>
 														<span class="relative flex h-1.5 w-1.5">
 															<span
 																class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 {spot.status === 'Reserveret'
 																	? 'bg-yellow-400'
-																	: 'bg-green-400'}"
+																	: spot.status === 'Optaget'
+																		? 'bg-red-400'
+																		: 'bg-green-400'}"
 															></span>
 															<span
 																class="relative inline-flex h-1.5 w-1.5 rounded-full {spot.status === 'Reserveret'
 																	? 'bg-yellow-500'
-																	: 'bg-green-500'}"
+																	: spot.status === 'Optaget'
+																		? 'bg-red-500'
+																		: 'bg-green-500'}"
 															></span>
 														</span>
 														{spot.spots}
@@ -193,18 +209,24 @@
 											<span
 												class="ml-auto hidden shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold ring-1 sm:inline-flex {spot.status === 'Reserveret'
 													? 'bg-yellow-50 text-yellow-700 ring-yellow-200'
-													: 'bg-green-50 text-green-700 ring-green-200'}"
+													: spot.status === 'Optaget'
+														? 'bg-red-50 text-red-700 ring-red-200'
+														: 'bg-green-50 text-green-700 ring-green-200'}"
 											>
 												<span class="relative flex h-2 w-2">
 													<span
 														class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 {spot.status === 'Reserveret'
 															? 'bg-yellow-400'
-															: 'bg-green-400'}"
+															: spot.status === 'Optaget'
+																? 'bg-red-400'
+																: 'bg-green-400'}"
 													></span>
 													<span
 														class="relative inline-flex h-2 w-2 rounded-full {spot.status === 'Reserveret'
 															? 'bg-yellow-500'
-															: 'bg-green-500'}"
+															: spot.status === 'Optaget'
+																? 'bg-red-500'
+																: 'bg-green-500'}"
 													></span>
 												</span>
 												{spot.spots}

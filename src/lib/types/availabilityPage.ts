@@ -29,7 +29,7 @@ export type SpotBlock = {
         contentType: string;
         id: string;
         properties: {
-            status: 'Ledig' | 'Reserveret';
+            status: 'Ledig' | 'Reserveret' | 'Optaget';
             description: string;
             date: string;
             spots: number;
