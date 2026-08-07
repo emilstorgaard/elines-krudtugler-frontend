@@ -1,7 +1,7 @@
 services:
   frontend:
     image: ghcr.io/emilstorgaard/elines-krudtugler-frontend:latest
-    container_name: elines_krudtugler_frontend
+    container_name: elines-krudtugler-frontend
     restart: unless-stopped
     networks:
       - proxy-net
