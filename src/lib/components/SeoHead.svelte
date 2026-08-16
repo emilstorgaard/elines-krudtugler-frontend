@@ -11,10 +11,20 @@
 <svelte:head>
 	<title>{seo.metaTitle}</title>
 	<meta name="description" content={seo.metaDescription} />
+	<link rel="canonical" href="https://elineskrudtugler.dk/" />
 
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://elineskrudtugler.dk/" />
 	<meta property="og:title" content={seo.metaTitle} />
 	<meta property="og:description" content={seo.metaDescription} />
-	<meta property="og:type" content="website" />
+	<meta property="og:image:alt" content="Elines Krudtugler" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={seo.metaTitle} />
+	<meta name="twitter:description" content={seo.metaDescription} />
+	<meta name="twitter:image" content={ogImageUrl} />
+	<meta name="twitter:image:alt" content="Elines Krudtugler" />
+
 	{#if ogImage}
 		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:image:width" content="1200" />
