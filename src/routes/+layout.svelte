@@ -46,15 +46,15 @@
 
 <div class="flex min-h-screen flex-col">
 	<div bind:this={stickyEl} class="sticky top-0 z-50">
-		<AnnouncementBar settings={data.settings} />
-		<Header settings={data.settings} />
+		<AnnouncementBar settings={data.settings.properties} />
+		<Header settings={data.settings.properties} />
 	</div>
 
 	<main class="font-nunito flex-1">
 		{@render children()}
 	</main>
 
-	<Footer settings={data.settings} />
+	<Footer settings={data.settings.properties} />
 </div>
 
 <style>

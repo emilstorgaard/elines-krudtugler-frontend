@@ -1,21 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	import type { HomePage } from '$lib/types/homePage';
-	import type { Settings } from '$lib/types/settings';
+	import type { HomePageProperties } from '$lib/types/homePage';
+	import { navLinks as heroNavLinks } from '$lib/navigation';
 
 	let {
-		page,
-		settings
+		home
 	}: {
-		page: HomePage;
-		settings: Settings;
+		home: HomePageProperties;
 	} = $props();
 
-	const p = $derived(page.properties);
-	const s = $derived(settings.properties);
-
-	const heroNavLinks = $derived(s.navLinks?.items?.map((item) => item.content.properties) ?? []);
+	const p = $derived(home);
 
 	const INTERVAL_MS = 5000;
 	let currentIndex = $state(0);

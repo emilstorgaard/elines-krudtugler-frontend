@@ -1,20 +1,24 @@
 <script lang="ts">
-  import { mediaSrc } from '$lib/utils/media';
-  import type { SeoProperties } from '$lib/types/seo';
+	import { page } from '$app/state';
+	import { mediaSrc } from '$lib/utils/media';
+	import type { SeoProperties } from '$lib/types/seo';
 
-  let { seo }: { seo: SeoProperties } = $props();
+	const SITE_URL = 'https://elineskrudtugler.dk';
 
-  const ogImage = $derived(seo?.ogImage?.[0]);
-  const ogImageUrl = $derived(ogImage ? mediaSrc(ogImage.url, 'og', 'jpg') : '');
+	let { seo }: { seo: SeoProperties } = $props();
+
+	const ogImage = $derived(seo?.ogImage?.[0]);
+	const ogImageUrl = $derived(ogImage ? mediaSrc(ogImage.url, 'og', 'jpg') : '');
+	const canonicalUrl = $derived(`${SITE_URL}${page.url.pathname}`);
 </script>
 
 <svelte:head>
 	<title>{seo.metaTitle}</title>
 	<meta name="description" content={seo.metaDescription} />
-	<link rel="canonical" href="https://elineskrudtugler.dk/" />
+	<link rel="canonical" href={canonicalUrl} />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://elineskrudtugler.dk/" />
+	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:title" content={seo.metaTitle} />
 	<meta property="og:description" content={seo.metaDescription} />
 	<meta property="og:image:alt" content="Elines Krudtugler" />

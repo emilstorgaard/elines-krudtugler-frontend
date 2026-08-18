@@ -1,26 +1,25 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	import type { Settings } from '$lib/types/settings';
+	import type { SettingsProperties } from '$lib/types/settings';
+	import { navLinks } from '$lib/navigation';
 
 	let {
 		settings,
 		class: className = ''
 	}: {
-		settings: Settings;
+		settings: SettingsProperties;
 		class?: string;
 	} = $props();
 
-	const s = $derived(settings.properties);
+	const s = $derived(settings);
 	const logo = $derived(s.logo?.[0]);
-
-	const navLinks = $derived(s.navLinks?.items?.map((item) => item.content.properties) ?? []);
 
 	let isMenuOpen: boolean = $state(false);
 	let headerEl: HTMLElement | null = null;
 
-	const currentPath = $derived($page.url.pathname);
+	const currentPath = $derived(page.url.pathname);
 
 	function isActive(link: string): boolean {
 		if (link === '/') {
@@ -98,7 +97,9 @@
 							href={item.link}
 							aria-current={isActive(item.link) ? 'page' : undefined}
 							class="ml-4 rounded-full px-6 py-3 text-base font-semibold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-500/30
-                                {isActive(item.link) ? 'bg-brand-600' : 'bg-brand-500 hover:bg-brand-400'}"
+                                {isActive(item.link)
+								? 'bg-brand-600'
+								: 'bg-brand-500 hover:bg-brand-400'}"
 						>
 							{item.label}
 						</a>
@@ -107,7 +108,9 @@
 							href={item.link}
 							aria-current={isActive(item.link) ? 'page' : undefined}
 							class="group relative rounded-full px-5 py-2.5 text-base font-semibold transition-all duration-200 hover:bg-brand-50 hover:text-brand-600
-                                {isActive(item.link) ? 'bg-brand-50 text-brand-600' : 'text-gray-600'}"
+                                {isActive(item.link)
+								? 'bg-brand-50 text-brand-600'
+								: 'text-gray-600'}"
 						>
 							{item.label}
 							<span
@@ -159,7 +162,9 @@
 								onclick={() => (isMenuOpen = false)}
 								aria-current={isActive(item.link) ? 'page' : undefined}
 								class="block w-full rounded-full py-3 text-center font-semibold text-white transition
-                                    {isActive(item.link) ? 'bg-brand-600' : 'bg-brand-500 hover:bg-brand-400'}"
+                                    {isActive(item.link)
+									? 'bg-brand-600'
+									: 'bg-brand-500 hover:bg-brand-400'}"
 							>
 								{item.label}
 							</a>
@@ -170,11 +175,15 @@
 							onclick={() => (isMenuOpen = false)}
 							aria-current={isActive(item.link) ? 'page' : undefined}
 							class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold transition hover:bg-brand-50 hover:text-brand-600
-                                {isActive(item.link) ? 'bg-brand-50 text-brand-600' : 'text-gray-700'}"
+                                {isActive(item.link)
+								? 'bg-brand-50 text-brand-600'
+								: 'text-gray-700'}"
 						>
 							<span
 								class="h-1.5 w-1.5 rounded-full transition-all
-                                    {isActive(item.link) ? 'scale-150 bg-brand-600' : 'bg-brand-400'}"
+                                    {isActive(item.link)
+									? 'scale-150 bg-brand-600'
+									: 'bg-brand-400'}"
 							></span>
 							{item.label}
 						</a>

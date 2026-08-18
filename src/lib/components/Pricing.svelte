@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PracticalPage } from '$lib/types/practicalPage';
+	import type { PracticalPageProperties } from '$lib/types/practicalPage';
 
-	let { page }: { page: PracticalPage } = $props();
+	let { practical }: { practical: PracticalPageProperties } = $props();
 
-	const p = $derived(page.properties);
+	const p = $derived(practical);
 
 	const infoTiles = $derived(
 		p.pricingInfoTiles?.items?.map((item) => item.content.properties) ?? []
@@ -13,9 +13,7 @@
 		p.economyTiles?.items?.map((item) => item.content.properties) ?? []
 	);
 
-	const hasPricingCard = $derived(
-		!!(p.pricingPriceValue || p.pricingDiscountValue || p.pricingFinalValue)
-	);
+	const hasPricingCard = $derived(!!(p.pricingValue || p.pricingFinalValue));
 
 	const hasContent = $derived(
 		!!(p.pricingLabel || p.pricingIntro || hasPricingCard || infoTiles.length > 0)
@@ -60,17 +58,17 @@
 								class="h-1 bg-linear-to-r from-brand-400 via-brand-500 to-brand-600 sm:h-1.5"
 							></div>
 							<div class="">
-								{#if p.pricingDiscountLabel && p.pricingDiscountValue}
+								{#if p.pricingTitle && p.pricingValue}
 									<div
 										class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-gray-100 py-4 sm:py-5"
 									>
 										<span class="text-sm text-gray-500 sm:text-base">
-											{p.pricingDiscountLabel}
+											asdad{p.pricingTitle}asdasd
 										</span>
 										<span
 											class="text-lg font-bold text-brand-600 tabular-nums sm:text-xl md:text-2xl"
 										>
-											{p.pricingDiscountValue}
+											{p.pricingValue}
 										</span>
 									</div>
 								{/if}

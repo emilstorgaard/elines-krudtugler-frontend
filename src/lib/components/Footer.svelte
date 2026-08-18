@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	import type { Settings } from '$lib/types/settings';
+	import type { SettingsProperties } from '$lib/types/settings';
 
-	let { settings }: { settings: Settings } = $props();
+	let { settings }: { settings: SettingsProperties } = $props();
 
-	const s = $derived(settings.properties);
+	const s = $derived(settings);
 	const logo = $derived(s.logo?.[0]);
 
 	function logoSrc(url: string) {
@@ -46,7 +46,7 @@
 					<a
 						href={s.instagramUrl}
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="external noopener noreferrer"
 						aria-label="Instagram"
 						class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-pink-500 hover:text-white sm:h-9 sm:w-9"
 					>
@@ -62,7 +62,7 @@
 					<a
 						href={s.facebookUrl}
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="external noopener noreferrer"
 						aria-label="Facebook"
 						class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300 text-gray-400 transition-all duration-200 hover:scale-110 hover:bg-blue-600 hover:text-white sm:h-9 sm:w-9"
 					>

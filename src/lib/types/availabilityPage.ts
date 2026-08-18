@@ -1,39 +1,28 @@
 import type { SeoProperties } from './seo';
-import type { BlockList } from './settings';
+import type { BlockList, SpotBlock } from './elementTypes';
 
-export type AvailabilityPageProperties = SeoProperties & {
-    pageTitle: string;
-    pageTitleHighlight: string;
-    pageIntro: string;
-
-    statusBadge: string;
-    sectionHeading: string;
-    descriptionParagraph1: string;
-    descriptionParagraph2: string;
-    buttonText: string;
-    buttonLink: string;
-
-    availableSpotsHeading: string;
-    spotsList?: BlockList<SpotBlock>;
+export type HeroProperties = {
+	pageTitle: string;
+	pageTitleHighlight: string;
+	pageIntro: string;
 };
+
+export type AvailableSpotsProperties = {
+	statusBadge: string;
+	sectionHeading: string;
+	descriptionParagraph1: string;
+	descriptionParagraph2: string;
+	buttonText: string;
+	buttonLink: string;
+	availableSpotsHeading: string;
+	spotsList?: BlockList<SpotBlock>;
+};
+
+export type AvailabilityPageProperties = SeoProperties & HeroProperties & AvailableSpotsProperties;
 
 export type AvailabilityPage = {
-    id: string;
-    name: string;
-    contentType: string;
-    properties: AvailabilityPageProperties;
-};
-
-export type SpotBlock = {
-    content: {
-        contentType: string;
-        id: string;
-        properties: {
-            status: 'Ledig' | 'Reserveret' | 'Optaget';
-            description: string;
-            date: string;
-            spots: number;
-        };
-    };
-    settings: unknown | null;
+	id: string;
+	name: string;
+	contentType: string;
+	properties: AvailabilityPageProperties;
 };

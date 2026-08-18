@@ -1,46 +1,38 @@
 import type { SeoProperties } from './seo';
-import type { BlockList } from './settings';
+import type { BlockList, ErrorSuggestionBlock } from './elementTypes';
 
-export type ErrorSuggestionBlock = {
-    content: {
-        contentType: string;
-        id: string;
-        properties: {
-            icon?: string;
-            title: string;
-            description?: string;
-            link: string;
-        };
-    };
-    settings: unknown | null;
+export type HeroProperties = {
+	notFoundLabel?: string;
+	notFoundTitle?: string;
+	notFoundDescription?: string;
+	notFoundEmoji?: string;
+	notFoundCardLabel?: string;
 };
 
-export type ErrorPageProperties = SeoProperties & {
-    // 404
-    notFoundLabel?: string;
-    notFoundTitle?: string;
-    notFoundDescription?: string;
-    notFoundEmoji?: string;
-    notFoundCardLabel?: string;
-
-    // Generel fejl
-    errorLabel?: string;
-    errorTitle?: string;
-    errorDescription?: string;
-    errorEmoji?: string;
-    errorCardLabel?: string;
-
-    // Knapper og forslag
-    homeButtonText?: string;
-    backButtonText?: string;
-    showSuggestions?: boolean;
-    suggestionsHeading?: string;
-    suggestions?: BlockList<ErrorSuggestionBlock>;
+export type GeneralErrorProperties = {
+	errorLabel?: string;
+	errorTitle?: string;
+	errorDescription?: string;
+	errorEmoji?: string;
+	errorCardLabel?: string;
 };
+
+export type ButtonsAndSuggestionsProperties = {
+	homeButtonText?: string;
+	backButtonText?: string;
+	showSuggestions?: boolean;
+	suggestionsHeading?: string;
+	suggestions?: BlockList<ErrorSuggestionBlock>;
+};
+
+export type ErrorPageProperties = SeoProperties &
+	HeroProperties &
+	GeneralErrorProperties &
+	ButtonsAndSuggestionsProperties;
 
 export type ErrorPage = {
-    id: string;
-    name: string;
-    contentType: string;
-    properties: ErrorPageProperties;
+	id: string;
+	name: string;
+	contentType: string;
+	properties: ErrorPageProperties;
 };

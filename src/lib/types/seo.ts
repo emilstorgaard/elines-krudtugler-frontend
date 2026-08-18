@@ -1,7 +1,7 @@
 import type { UmbracoMedia } from './umbraco';
 
 export type SeoProperties = {
-    metaTitle?: string;
-    metaDescription?: string;
-    ogImage?: UmbracoMedia[];
+	metaTitle?: string;
+	metaDescription?: string;
+	ogImage?: UmbracoMedia[];
 };

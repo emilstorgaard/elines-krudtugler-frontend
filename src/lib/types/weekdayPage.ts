@@ -1,36 +1,32 @@
 import type { RichTextValue } from './umbraco';
 import type { SeoProperties } from './seo';
-import type { BlockList } from './settings';
+import type { BlockList, ScheduleItemBlock } from './elementTypes';
 
-export type ScheduleItemBlock = {
-    content: {
-        contentType: string;
-        id: string;
-        properties: {
-            time: string;
-            activity: string;
-        };
-    };
-    settings: unknown | null;
+export type HeroProperties = {
+	pageTitle: string;
+	pageIntro?: string;
 };
 
-export type WeekdayPageProperties = SeoProperties & {
-    pageTitle: string;
-    pageIntro: string;
-
-    scheduleItems: BlockList<ScheduleItemBlock>;
-
-    footerNote?: string;
-
-    activitiesHeading?: string;
-    activitiesContent?: RichTextValue;
-    focusHeading?: string;
-    focusAreas?: string;
+export type ScheduleProperties = {
+	scheduleItems: BlockList<ScheduleItemBlock>;
+	footerNote?: string;
 };
+
+export type ActivitiesProperties = {
+	activitiesHeading?: string;
+	activitiesContent?: RichTextValue;
+	focusHeading?: string;
+	focusAreas?: string;
+};
+
+export type WeekdayPageProperties = SeoProperties &
+	HeroProperties &
+	ScheduleProperties &
+	ActivitiesProperties;
 
 export type WeekdayPage = {
-    id: string;
-    name: string;
-    contentType: string;
-    properties: WeekdayPageProperties;
+	id: string;
+	name: string;
+	contentType: string;
+	properties: WeekdayPageProperties;
 };

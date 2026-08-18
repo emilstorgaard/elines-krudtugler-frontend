@@ -15,7 +15,7 @@
 	const emoji = $derived(isNotFound ? p?.notFoundEmoji : p?.errorEmoji);
 	const cardLabel = $derived(isNotFound ? p?.notFoundCardLabel : p?.errorCardLabel);
 
-	const FALLBACK = {
+	const FALLBACK = $derived({
 		label: `Fejl ${status}`,
 		title: isNotFound ? 'Hovsa — siden findes ikke' : 'Noget gik galt',
 		description: isNotFound
@@ -25,7 +25,7 @@
 		cardLabel: isNotFound ? 'Side ikke fundet' : 'Uventet fejl',
 		homeButton: 'Til forsiden',
 		backButton: '← Gå tilbage'
-	};
+	});
 
 	const showSuggestions = $derived(p?.showSuggestions === true);
 	const suggestions = $derived(p?.suggestions?.items?.map((item) => item.content.properties) ?? []);
@@ -39,8 +39,12 @@
 </svelte:head>
 
 <section class="relative flex min-h-screen overflow-hidden bg-white px-4 py-16 sm:py-24">
-	<div class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-brand-50/80 blur-3xl sm:h-96 sm:w-96"></div>
-	<div class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand-50/60 blur-3xl sm:h-80 sm:w-80"></div>
+	<div
+		class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-brand-50/80 blur-3xl sm:h-96 sm:w-96"
+	></div>
+	<div
+		class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand-50/60 blur-3xl sm:h-80 sm:w-80"
+	></div>
 
 	<div class="relative mx-auto w-full max-w-3xl">
 		<div class="mb-3 flex justify-center sm:mb-4">
@@ -55,11 +59,15 @@
 			{title || FALLBACK.title}
 		</h1>
 
-		<p class="mx-auto mb-8 max-w-xl text-center text-base whitespace-pre-line text-gray-500 sm:mb-12 sm:text-lg">
+		<p
+			class="mx-auto mb-8 max-w-xl text-center text-base whitespace-pre-line text-gray-500 sm:mb-12 sm:text-lg"
+		>
 			{description || FALLBACK.description}
 		</p>
 
-		<div class="mb-6 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl sm:rounded-3xl">
+		<div
+			class="mb-6 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl sm:rounded-3xl"
+		>
 			<div class="flex flex-col items-center gap-5 px-5 py-7 sm:flex-row sm:gap-8 sm:px-8 sm:py-10">
 				<div
 					class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-4xl sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
@@ -67,7 +75,9 @@
 					{emoji || FALLBACK.emoji}
 				</div>
 				<div class="flex-1 text-center sm:text-left">
-					<p class="mb-1 text-[10px] font-semibold tracking-wide text-brand-700 uppercase sm:text-sm">
+					<p
+						class="mb-1 text-[10px] font-semibold tracking-wide text-brand-700 uppercase sm:text-sm"
+					>
 						{cardLabel || FALLBACK.cardLabel}
 					</p>
 					<p class="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
@@ -99,7 +109,7 @@
 					</h2>
 				{/if}
 
-				<div class="grid gap-3 sm:gap-4 sm:grid-cols-2">
+				<div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
 					{#each suggestions as suggestion}
 						<a
 							href={suggestion.link}
@@ -113,7 +123,9 @@
 								</div>
 							{/if}
 							<div>
-								<p class="mb-0.5 text-sm font-bold text-gray-800 sm:text-base">{suggestion.title}</p>
+								<p class="mb-0.5 text-sm font-bold text-gray-800 sm:text-base">
+									{suggestion.title}
+								</p>
 								{#if suggestion.description}
 									<p class="text-xs leading-relaxed text-gray-500 sm:text-sm">
 										{suggestion.description}

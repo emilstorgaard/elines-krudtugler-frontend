@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PracticalPage } from '$lib/types/practicalPage';
+	import type { PracticalPageProperties } from '$lib/types/practicalPage';
 
-	let { page }: { page: PracticalPage } = $props();
+	let { practical }: { practical: PracticalPageProperties } = $props();
 
-	const p = $derived(page.properties);
+	const p = $derived(practical);
 
 	const parentsItems = $derived(
 		p.bringParentsItems?.items?.map((item) => item.content.properties) ?? []
@@ -39,7 +39,9 @@
 					{/if}
 
 					{#if p.bringIntro}
-						<p class="mx-auto mb-6 max-w-2xl text-center text-base text-gray-500 sm:mb-10 sm:text-lg">
+						<p
+							class="mx-auto mb-6 max-w-2xl text-center text-base text-gray-500 sm:mb-10 sm:text-lg"
+						>
 							{p.bringIntro}
 						</p>
 					{/if}
@@ -55,7 +57,9 @@
 								<div class="relative">
 									{#if p.bringParentsTitle}
 										<div class="mb-4 flex items-center gap-3 sm:mb-6">
-											<h3 class="text-lg font-bold text-gray-800 sm:text-xl">{p.bringParentsTitle}</h3>
+											<h3 class="text-lg font-bold text-gray-800 sm:text-xl">
+												{p.bringParentsTitle}
+											</h3>
 										</div>
 									{/if}
 									<ul class="space-y-3 text-sm text-gray-700 sm:space-y-3.5 sm:text-base">
@@ -87,7 +91,9 @@
 								<div class="relative">
 									{#if p.bringElineTitle}
 										<div class="mb-4 flex items-center gap-3 sm:mb-6">
-											<h3 class="text-lg font-bold text-gray-800 sm:text-xl">{p.bringElineTitle}</h3>
+											<h3 class="text-lg font-bold text-gray-800 sm:text-xl">
+												{p.bringElineTitle}
+											</h3>
 										</div>
 									{/if}
 									<ul class="space-y-3 text-sm text-gray-700 sm:space-y-3.5 sm:text-base">
@@ -99,7 +105,9 @@
 												<span>
 													{item.text}
 													{#if item.subText}
-														<span class="mt-1 block text-xs text-gray-500 sm:text-sm">{item.subText}</span>
+														<span class="mt-1 block text-xs text-gray-500 sm:text-sm"
+															>{item.subText}</span
+														>
 													{/if}
 												</span>
 											</li>

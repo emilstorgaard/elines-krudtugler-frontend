@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 	import { getMediaInFolder } from '$lib/api/umbraco';
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	import type { GalleryPage } from '$lib/types/galleryPage';
+	import type { GalleryPageProperties } from '$lib/types/galleryPage';
 	import type { UmbracoMedia } from '$lib/types/umbraco';
 
-	let { page }: { page: GalleryPage } = $props();
+	let { gallery }: { gallery: GalleryPageProperties } = $props();
 
-	const p = $derived(page.properties);
+	const p = $derived(gallery);
 
 	let images: UmbracoMedia[] = $state([]);
 	let loading = $state(false);

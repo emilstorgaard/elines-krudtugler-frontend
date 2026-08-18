@@ -1,44 +1,30 @@
 import type { UmbracoMedia } from './umbraco';
 
-export type NavLinkBlock = {
-    content: {
-        contentType: string;
-        id: string;
-        properties: {
-            label: string;
-            link: string;
-        };
-    };
-    settings: unknown | null;
+export type SiteInfoProperties = {
+	siteName: string;
+	logo: UmbracoMedia[];
+	ownerName: string;
 };
 
-export type BlockList<T> = {
-    items: T[];
+export type SocialMediaProperties = {
+	instagramUrl?: string;
+	facebookUrl?: string;
 };
 
-export type SettingsProperties = {
-    siteName: string;
-    logo: UmbracoMedia[];
-    ownerName: string;
-
-    phone: string;
-    email: string;
-    address?: string;
-
-    instagramUrl?: string;
-    facebookUrl?: string;
-
-    navLinks: BlockList<NavLinkBlock>;
-
-    announcementEnabled?: boolean;
-    announcementText?: string;
-    announcementLinkText?: string;
-    announcementLinkUrl?: string;
+export type AnnouncementBarProperties = {
+	announcementEnabled?: boolean;
+	announcementText?: string;
+	announcementLinkText?: string;
+	announcementLinkUrl?: string;
 };
+
+export type SettingsProperties = SiteInfoProperties &
+	SocialMediaProperties &
+	AnnouncementBarProperties;
 
 export type Settings = {
-    id: string;
-    name: string;
-    contentType: string;
-    properties: SettingsProperties;
+	id: string;
+	name: string;
+	contentType: string;
+	properties: SettingsProperties;
 };

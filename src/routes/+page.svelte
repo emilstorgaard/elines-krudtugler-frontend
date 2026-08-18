@@ -22,4 +22,4 @@
 	{/if}
 </svelte:head>
 
-<Hero page={data.page} settings={data.settings} />
+<Hero home={data.page.properties} />

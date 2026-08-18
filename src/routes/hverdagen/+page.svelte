@@ -8,6 +8,6 @@
 
 <section class="relative overflow-hidden bg-brand-50 px-4 py-12">
 	<div class="relative mx-auto max-w-6xl">
-		<Schedule page={data.page} />
+		<Schedule schedule={data.page.properties} />
 	</div>
 </section>

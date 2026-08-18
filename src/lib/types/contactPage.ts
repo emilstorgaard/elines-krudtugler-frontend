@@ -1,40 +1,51 @@
 import type { SeoProperties } from './seo';
-import type { BlockList } from './settings';
-import type { InfoCardBlock } from './practicalPage';
+import type { BlockList, InfoCardBlock } from './elementTypes';
 
-export type ContactPageProperties = SeoProperties & {
-    // Hero - Kontakt
-    pageTitle: string;
-    pageIntro?: string;
-
-    // Kontaktoplysninger
-    contactSectionTitle?: string;
-
-    // Ledige pladser panel
-    availabilityEnabled?: boolean;
-    availabilityBadge?: string;
-    availabilityTitle?: string;
-    availabilityDescription?: string;
-    availabilityCallButton?: string;
-    availabilityEmailButton?: string;
-
-    // Hero - Sådan finder du os
-    directionsTitle?: string;
-    directionsIntro?: string;
-
-    // Kort og adresse
-    mapsEmbedUrl?: string;
-    addressCardLabel?: string;
-    directionsButtonText?: string;
-    directionsButtonUrl?: string;
-
-    // Transport muligheder
-    transportOptions?: BlockList<InfoCardBlock>;
+export type HeroProperties = {
+	pageTitle: string;
+	pageIntro?: string;
 };
 
+export type ContactInformationProperties = {
+	contactSectionTitle?: string;
+	email: string;
+	phone?: string;
+};
+
+export type AvailabilityPanelProperties = {
+	availabilityEnabled?: boolean;
+	availabilityBadge?: string;
+	availabilityTitle?: string;
+	availabilityDescription?: string;
+	availabilityCallButton?: string;
+	availabilityEmailButton?: string;
+};
+
+export type DirectionsProperties = {
+	// Directions
+	directionsTitle?: string;
+	directionsIntro?: string;
+	addressCardLabel?: string;
+	directionsButtonText?: string;
+
+	// Address
+	streetAddress?: string;
+	postalCode?: string;
+	city?: string;
+
+	// Transport options
+	transportOptions?: BlockList<InfoCardBlock>;
+};
+
+export type ContactPageProperties = SeoProperties &
+	HeroProperties &
+	ContactInformationProperties &
+	AvailabilityPanelProperties &
+	DirectionsProperties;
+
 export type ContactPage = {
-    id: string;
-    name: string;
-    contentType: string;
-    properties: ContactPageProperties;
+	id: string;
+	name: string;
+	contentType: string;
+	properties: ContactPageProperties;
 };

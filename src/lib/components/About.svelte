@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	import type { AboutPage } from '$lib/types/aboutPage';
+	import type { AboutPageProperties } from '$lib/types/aboutPage';
 
-	let { page }: { page: AboutPage } = $props();
+	let { about }: { about: AboutPageProperties } = $props();
 
-	const p = $derived(page.properties);
+	const p = $derived(about);
 
 	const aboutImages = $derived(p.aboutImage ?? []);
 	const familyImages = $derived(p.familyImage ?? []);
@@ -202,6 +202,7 @@
 					{/if}
 				</h3>
 				<div class="prose text-base leading-relaxed text-gray-600 sm:text-lg">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS admin-authored rich text, not user input -->
 					{@html p.aboutText?.markup ?? ''}
 				</div>
 			</div>
@@ -236,6 +237,7 @@
 					{p.familyLabel}
 				</span>
 				<div class="prose text-base leading-relaxed text-gray-600 sm:text-lg">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS admin-authored rich text, not user input -->
 					{@html p.familyText?.markup ?? ''}
 				</div>
 			</div>
@@ -251,6 +253,7 @@
 					{p.locationLabel}
 				</span>
 				<div class="prose text-base leading-relaxed text-gray-600 sm:text-lg">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS admin-authored rich text, not user input -->
 					{@html p.locationText?.markup ?? ''}
 				</div>
 			</div>
@@ -270,6 +273,7 @@
 					{p.animalsLabel}
 				</span>
 				<div class="prose text-base leading-relaxed text-gray-600 sm:text-lg">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- trusted CMS admin-authored rich text, not user input -->
 					{@html p.animalsText?.markup ?? ''}
 				</div>
 			</div>

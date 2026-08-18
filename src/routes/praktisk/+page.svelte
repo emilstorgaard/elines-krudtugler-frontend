@@ -21,11 +21,11 @@
 			</h1>
 		</div>
 
-		<OpeningHours page={data.page} />
-		<HolidaysAndClosedDays page={data.page} />
-		<WhatToBring page={data.page} />
-		<Pricing page={data.page} />
-		<ParentCooperation page={data.page} />
-		<ApprovalAndSupervision page={data.page} />
+		<OpeningHours practical={p} />
+		<HolidaysAndClosedDays practical={p} />
+		<WhatToBring practical={p} />
+		<Pricing practical={p} />
+		<ParentCooperation practical={p} />
+		<ApprovalAndSupervision practical={p} />
 	</div>
 </section>
