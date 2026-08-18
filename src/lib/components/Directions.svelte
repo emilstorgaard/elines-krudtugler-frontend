@@ -22,7 +22,7 @@
 	);
 
 	const transportOptions = $derived(
-        p.transportOptions?.items?.map((item) => item.content.properties) ?? []
+		p.transportOptions?.items?.map((item) => item.content.properties) ?? []
 	);
 </script>
 
@@ -83,7 +83,7 @@
 						<a
 							href={directionsButtonUrl}
 							target="_blank"
-                            rel="external noopener noreferrer"
+							rel="external noopener noreferrer"
 							class="flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 py-2.5 text-sm font-bold text-white shadow-md shadow-brand-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-lg sm:py-3"
 						>
 							<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@
 				</div>
 			{/if}
 
-            {#each transportOptions as option}
+			{#each transportOptions as option}
 				<div
 					class="group flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:shadow-md sm:gap-4 sm:rounded-2xl sm:p-5"
 				>

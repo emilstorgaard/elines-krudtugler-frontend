@@ -6,7 +6,7 @@
 	const p = $derived(practical);
 
 	const openingHours = $derived(
-        p.openingHours?.items?.map((item) => item.content.properties) ?? []
+		p.openingHours?.items?.map((item) => item.content.properties) ?? []
 	);
 </script>
 
@@ -33,7 +33,7 @@
 					{/if}
 
 					<div class="space-y-2 sm:space-y-2.5">
-                        {#each openingHours as item}
+						{#each openingHours as item}
 							<div
 								class="group/row flex items-center justify-between gap-3 rounded-xl border border-transparent bg-brand-50/70 px-4 py-3 transition-all duration-300 hover:border-brand-200 hover:bg-brand-50 hover:shadow-sm sm:rounded-2xl sm:px-5 sm:py-3.5"
 							>

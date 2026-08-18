@@ -70,7 +70,7 @@
 					<h3 class="text-lg font-bold text-gray-800 sm:text-xl">{p.contactSectionTitle}</h3>
 				{/if}
 
-                {#each contactItems as item}
+				{#each contactItems as item}
 					<svelte:element
 						this={item.href ? 'a' : 'div'}
 						href={item.href}
@@ -89,7 +89,7 @@
 							<p class="text-[10px] font-semibold tracking-wide text-gray-400 uppercase sm:text-xs">
 								{item.label}
 							</p>
-                            {#each item.lines as line}
+							{#each item.lines as line}
 								<p
 									class="wrap-break-words text-sm font-semibold sm:text-base {item.href
 										? 'text-brand-600'

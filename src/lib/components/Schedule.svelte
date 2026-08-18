@@ -6,7 +6,7 @@
 	const p = $derived(schedule);
 
 	const scheduleItems = $derived(
-        p.scheduleItems?.items?.map((item) => item.content.properties) ?? []
+		p.scheduleItems?.items?.map((item) => item.content.properties) ?? []
 	);
 </script>
 
@@ -29,7 +29,7 @@
 		></div>
 
 		<div class="space-y-4 sm:space-y-6 md:space-y-8">
-            {#each scheduleItems as item, i}
+			{#each scheduleItems as item, i}
 				<div
 					class={`relative flex items-start gap-3 md:items-center md:gap-0 ${
 						i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'

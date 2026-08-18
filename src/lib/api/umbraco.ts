@@ -25,8 +25,11 @@ export function getMediaUrl(
 	return withParams ? `${base}?width=${width}&format=${format}&quality=75` : base;
 }
 
-export async function getMediaInFolder(folderId: string, take = 15, skip = 0):
-  Promise<{ items: UmbracoMedia[]; total: number }> {
+export async function getMediaInFolder(
+	folderId: string,
+	take = 15,
+	skip = 0
+): Promise<{ items: UmbracoMedia[]; total: number }> {
 	const res = await fetch(`/api/media/${folderId}?take=${take}&skip=${skip}`);
 
 	if (!res.ok) return { items: [], total: 0 };

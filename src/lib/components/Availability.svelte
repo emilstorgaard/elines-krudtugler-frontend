@@ -15,9 +15,7 @@
 		return new Date(dateStr).toLocaleDateString('da-DK', { month: 'short' });
 	}
 
-	const spotsList = $derived(
-		p.spotsList?.items?.map((item) => item.content.properties) ?? []
-	);
+	const spotsList = $derived(p.spotsList?.items?.map((item) => item.content.properties) ?? []);
 </script>
 
 <section class="px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
