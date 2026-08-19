@@ -16,20 +16,6 @@ export type SpotBlock = {
 	settings: unknown | null;
 };
 
-export type ErrorSuggestionBlock = {
-	content: {
-		contentType: string;
-		id: string;
-		properties: {
-			icon?: string;
-			title: string;
-			description?: string;
-			link: string;
-		};
-	};
-	settings: unknown | null;
-};
-
 export type OpeningHourBlock = {
 	content: {
 		contentType: string;

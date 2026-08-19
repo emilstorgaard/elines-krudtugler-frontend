@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
 
 @theme {
 	--color-brand-50: #f0fdf4;
@@ -12,4 +13,26 @@
 	--color-brand-700: #15803d;
 	--color-brand-800: #166534;
 	--color-brand-900: #14532d;
+}
+
+/* Global opsætning */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }

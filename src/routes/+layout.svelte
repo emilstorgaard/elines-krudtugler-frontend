@@ -2,6 +2,7 @@
 	import '$lib/styles/app.css';
 	import { onMount } from 'svelte';
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
+	import { SITE_URL } from '$lib/site';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import AnnouncementBar from '$lib/components/AnnouncementBar.svelte';
@@ -11,6 +12,29 @@
 
 	const logoSrc = $derived(logoRawUrl ? mediaSrc(logoRawUrl, 'headerLogo') : null);
 	const logoSrcset = $derived(logoRawUrl ? mediaSrcset(logoRawUrl, 'headerLogo') : null);
+
+	const contact = $derived(data.contactPage?.properties);
+
+	const structuredData = $derived({
+		'@context': 'https://schema.org',
+		'@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
+		name: data.settings.properties.siteName,
+		url: SITE_URL,
+		image: logoRawUrl ? mediaSrc(logoRawUrl, 'headerLogo') : undefined,
+		telephone: contact?.phone,
+		email: contact?.email,
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: contact?.streetAddress,
+			postalCode: contact?.postalCode,
+			addressLocality: contact?.city
+		},
+		sameAs: [data.settings.properties.instagramUrl, data.settings.properties.facebookUrl].filter(
+			Boolean
+		)
+	});
+
+	const structuredDataJson = $derived(JSON.stringify(structuredData).replace(/</g, '\\u003c'));
 
 	let stickyEl: HTMLDivElement;
 
@@ -42,6 +66,9 @@
 			fetchpriority="high"
 		/>
 	{/if}
+
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html `<script type="application/ld+json">${structuredDataJson}</scr` + `ipt>`}
 </svelte:head>
 
 <div class="flex min-h-screen flex-col">
@@ -56,17 +83,3 @@
 
 	<Footer settings={data.settings.properties} />
 </div>
-
-<style>
-	:global(html) {
-		scroll-behavior: smooth;
-	}
-
-	:global(body) {
-		font-family: 'Nunito', sans-serif;
-	}
-
-	:global(h1, h2, h3) {
-		font-family: 'Playfair Display', serif;
-	}
-</style>

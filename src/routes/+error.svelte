@@ -1,141 +1,114 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { goto } from '$app/navigation';
+	import SeoHead from '$lib/components/SeoHead.svelte';
 	import type { ErrorPage } from '$lib/types/errorPage';
+	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
+
+	type StatusCopy = {
+		heading: string;
+		bodyText: string;
+		buttonText: string;
+		metaTitle: string;
+		metaDescription: string;
+	};
+
+	const defaultCopy: Record<number, StatusCopy> = {
+		404: {
+			heading: 'Siden blev ikke fundet',
+			bodyText: 'Siden du leder efter findes desværre ikke, eller er blevet flyttet.',
+			buttonText: 'Tilbage til forsiden',
+			metaTitle: 'Error 404',
+			metaDescription: 'Error 404'
+		},
+		500: {
+			heading: 'Der gik noget galt',
+			bodyText: 'Vi har problemer med at vise siden lige nu. Prøv igen om lidt.',
+			buttonText: 'Gå til forsiden',
+			metaTitle: 'Der opstod en fejl',
+			metaDescription: 'Der opstod en uventet fejl på serveren.'
+		}
+	};
+
+	const fallback: StatusCopy = {
+		heading: 'Der opstod en fejl',
+		bodyText: 'Noget gik ikke som forventet. Prøv at gå tilbage til forsiden.',
+		buttonText: 'Gå til forsiden',
+		metaTitle: 'Der opstod en fejl',
+		metaDescription: 'Der opstod en uventet fejl.'
+	};
 
 	const status = $derived(page.status);
 	const isNotFound = $derived(status === 404);
 
-	const errorPage = $derived(page.data.errorPage as ErrorPage | null);
+	const errorPage = $derived(isNotFound ? (page.data.errorPage as ErrorPage | null) : null);
 	const p = $derived(errorPage?.properties);
 
-	const label = $derived(isNotFound ? p?.notFoundLabel : p?.errorLabel);
-	const title = $derived(isNotFound ? p?.notFoundTitle : p?.errorTitle);
-	const description = $derived(isNotFound ? p?.notFoundDescription : p?.errorDescription);
-	const emoji = $derived(isNotFound ? p?.notFoundEmoji : p?.errorEmoji);
-	const cardLabel = $derived(isNotFound ? p?.notFoundCardLabel : p?.errorCardLabel);
+	const copy = $derived(defaultCopy[status] ?? fallback);
 
-	const FALLBACK = $derived({
-		label: `Fejl ${status}`,
-		title: isNotFound ? 'Hovsa — siden findes ikke' : 'Noget gik galt',
-		description: isNotFound
-			? 'Den side du leder efter er enten flyttet, slettet, eller har aldrig eksisteret.'
-			: 'Der opstod en uventet fejl. Prøv at genindlæse siden.',
-		emoji: isNotFound ? '🧭' : '⚠️',
-		cardLabel: isNotFound ? 'Side ikke fundet' : 'Uventet fejl',
-		homeButton: 'Til forsiden',
-		backButton: '← Gå tilbage'
-	});
+	const heading = $derived(p?.heading ?? copy.heading);
+	const bodyText = $derived(p?.bodyText ?? copy.bodyText);
+	const buttonText = $derived(p?.buttonText ?? copy.buttonText);
+	const metaTitle = $derived(p?.metaTitle ?? copy.metaTitle);
+	const metaDescription = $derived(p?.metaDescription ?? copy.metaDescription);
 
-	const showSuggestions = $derived(p?.showSuggestions === true);
-	const suggestions = $derived(p?.suggestions?.items?.map((item) => item.content.properties) ?? []);
-
-	const displayTitle = $derived(`${status} · ${title || FALLBACK.title}`);
+	const logo = $derived(page.data.settings?.properties.logo?.[0] ?? null);
 </script>
 
-<svelte:head>
-	<title>{displayTitle}</title>
-	<meta name="robots" content="noindex" />
-</svelte:head>
+<SeoHead
+	seo={{
+		metaTitle,
+		metaDescription
+	}}
+	noindex={true}
+/>
 
-<section class="relative flex min-h-screen overflow-hidden bg-white px-4 py-16 sm:py-24">
+<main
+	class="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-sand-100 px-6 py-24 text-center lg:px-8"
+	style="padding-top: var(--header-h, 4.5rem)"
+>
 	<div
-		class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-brand-50/80 blur-3xl sm:h-96 sm:w-96"
+		class="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-sand-300/50 blur-3xl"
+		aria-hidden="true"
 	></div>
 	<div
-		class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand-50/60 blur-3xl sm:h-80 sm:w-80"
+		class="pointer-events-none absolute top-1/3 -right-32 h-112 w-md rounded-full bg-sand-400/30 blur-3xl"
+		aria-hidden="true"
 	></div>
 
-	<div class="relative mx-auto w-full max-w-3xl">
-		<div class="mb-3 flex justify-center sm:mb-4">
-			<span
-				class="rounded-full bg-brand-100 px-4 py-1.5 text-[10px] font-semibold tracking-[0.15em] text-brand-700 uppercase sm:text-sm sm:tracking-widest"
-			>
-				{label || FALLBACK.label}
-			</span>
-		</div>
+	<div class="relative flex w-full max-w-xl flex-col items-center">
+		{#if logo}
+			<img
+				src={mediaSrc(logo.url, 'headerLogo')}
+				srcset={mediaSrcset(logo.url, 'headerLogo')}
+				sizes="(min-width: 640px) 128px, 64px"
+				alt="Elines Krudtugler – logo"
+				width="128"
+				height="128"
+				loading="lazy"
+				fetchpriority="low"
+				decoding="async"
+				class="mb-4 h-16 w-16 object-contain sm:h-32 sm:w-32"
+			/>
+		{/if}
 
-		<h1 class="mb-3 text-center text-3xl font-bold text-gray-800 sm:mb-4 sm:text-5xl md:text-6xl">
-			{title || FALLBACK.title}
-		</h1>
-
-		<p
-			class="mx-auto mb-8 max-w-xl text-center text-base whitespace-pre-line text-gray-500 sm:mb-12 sm:text-lg"
-		>
-			{description || FALLBACK.description}
+		<p class="font-serif text-6xl font-semibold text-sand-800 sm:text-7xl" role="alert">
+			{status}
 		</p>
 
-		<div
-			class="mb-6 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl sm:rounded-3xl"
+		<h1 class="mt-4 font-serif text-2xl font-semibold text-sand-900 sm:text-3xl">
+			{heading}
+		</h1>
+
+		<p class="mt-4 text-base leading-relaxed text-sand-700 sm:text-lg">
+			{bodyText}
+		</p>
+
+		<a
+			href="/"
+			class="mt-8 rounded-full bg-sand-800 px-8 py-3 text-base font-medium text-sand-50 shadow-md transition-colors hover:bg-sand-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-600"
 		>
-			<div class="flex flex-col items-center gap-5 px-5 py-7 sm:flex-row sm:gap-8 sm:px-8 sm:py-10">
-				<div
-					class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-brand-100 text-4xl sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
-				>
-					{emoji || FALLBACK.emoji}
-				</div>
-				<div class="flex-1 text-center sm:text-left">
-					<p
-						class="mb-1 text-[10px] font-semibold tracking-wide text-brand-700 uppercase sm:text-sm"
-					>
-						{cardLabel || FALLBACK.cardLabel}
-					</p>
-					<p class="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
-						{page.error?.message ?? 'Vi kunne ikke finde det du søgte.'}
-					</p>
-					<div class="flex flex-wrap justify-center gap-3 sm:justify-start">
-						<button
-							onclick={() => goto('/')}
-							class="rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-500 sm:px-6 sm:py-2.5"
-						>
-							{p?.homeButtonText || FALLBACK.homeButton}
-						</button>
-						<button
-							onclick={() => history.back()}
-							class="rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-gray-700 transition hover:border-gray-300 hover:bg-gray-50 sm:px-6 sm:py-2.5"
-						>
-							{p?.backButtonText || FALLBACK.backButton}
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		{#if showSuggestions && suggestions.length > 0}
-			<div class="mt-8 sm:mt-12">
-				{#if p?.suggestionsHeading}
-					<h2 class="mb-4 text-center text-lg font-bold text-gray-800 sm:mb-6 sm:text-xl">
-						{p.suggestionsHeading}
-					</h2>
-				{/if}
-
-				<div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
-					{#each suggestions as suggestion}
-						<a
-							href={suggestion.link}
-							class="group flex items-start gap-3 rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-200 hover:border-brand-200 hover:bg-brand-50 hover:shadow-md sm:gap-4 sm:rounded-2xl sm:p-5"
-						>
-							{#if suggestion.icon}
-								<div
-									class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-lg transition-transform duration-200 group-hover:scale-110 sm:h-11 sm:w-11 sm:rounded-2xl sm:text-xl"
-								>
-									{suggestion.icon}
-								</div>
-							{/if}
-							<div>
-								<p class="mb-0.5 text-sm font-bold text-gray-800 sm:text-base">
-									{suggestion.title}
-								</p>
-								{#if suggestion.description}
-									<p class="text-xs leading-relaxed text-gray-500 sm:text-sm">
-										{suggestion.description}
-									</p>
-								{/if}
-							</div>
-						</a>
-					{/each}
-				</div>
-			</div>
-		{/if}
+			{buttonText}
+		</a>
 	</div>
-</section>
+</main>
+

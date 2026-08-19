@@ -1,4 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
+import { SITE_URL } from '$lib/site';
 
 const pages = [
 	{ path: '/', priority: '1.0', changefreq: 'weekly' },
@@ -9,8 +10,6 @@ const pages = [
 	{ path: '/galleri', priority: '0.6', changefreq: 'weekly' },
 	{ path: '/kontakt', priority: '0.8', changefreq: 'monthly' }
 ];
-
-const SITE_URL = 'https://elineskrudtugler.dk';
 
 export const GET: RequestHandler = () => {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

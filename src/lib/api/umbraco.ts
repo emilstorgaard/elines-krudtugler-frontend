@@ -18,11 +18,19 @@ export function getMediaUrl(
 	relativeUrl: string,
 	withParams = false,
 	width = 1000,
-	format: 'webp' | 'jpg' = 'webp'
+	format: 'webp' | 'jpg' | 'png' = 'webp'
 ): string {
 	if (!relativeUrl) return '';
-	const base = relativeUrl.startsWith('http') ? relativeUrl : `${PUBLIC_UMBRACO_URL}${relativeUrl}`;
-	return withParams ? `${base}?width=${width}&format=${format}&quality=75` : base;
+
+	const target = new URL(relativeUrl, PUBLIC_UMBRACO_URL);
+
+	if (withParams) {
+		target.searchParams.set('width', String(width));
+		target.searchParams.set('format', format);
+		target.searchParams.set('quality', '75');
+	}
+
+	return target.toString();
 }
 
 export async function getMediaInFolder(

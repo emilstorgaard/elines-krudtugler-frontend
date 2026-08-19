@@ -12,12 +12,12 @@ export const MEDIA_WIDTHS = {
 
 type MediaContext = keyof typeof MEDIA_WIDTHS;
 
-export function mediaSrc(url: string, context: MediaContext, format?: 'webp' | 'jpg') {
+export function mediaSrc(url: string, context: MediaContext, format?: 'webp' | 'jpg' | 'png') {
 	const widths = MEDIA_WIDTHS[context];
 	const largest = widths[widths.length - 1];
 	return getMediaUrl(url, true, largest, format);
 }
 
-export function mediaSrcset(url: string, context: MediaContext, format?: 'webp' | 'jpg') {
+export function mediaSrcset(url: string, context: MediaContext, format?: 'webp' | 'jpg' | 'png') {
 	return MEDIA_WIDTHS[context].map((w) => `${getMediaUrl(url, true, w, format)} ${w}w`).join(', ');
 }

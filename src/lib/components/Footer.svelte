@@ -2,6 +2,8 @@
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
 	import type { SettingsProperties } from '$lib/types/settings';
 
+	const year = new Date().getFullYear();
+
 	let { settings }: { settings: SettingsProperties } = $props();
 
 	const s = $derived(settings);
@@ -37,7 +39,7 @@
 			</a>
 
 			<p class="order-last text-center text-xs text-gray-500 sm:order-0">
-				© {new Date().getFullYear()}
+				© {year}
 				{s.ownerName}
 			</p>
 

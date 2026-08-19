@@ -2,7 +2,9 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import SeoHead from '$lib/components/SeoHead.svelte';
 	import { mediaSrc, mediaSrcset } from '$lib/utils/media';
-	let { data } = $props();
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
 
 	const firstHeroImage = $derived(data.page.properties.heroImages?.[0]);
 </script>
